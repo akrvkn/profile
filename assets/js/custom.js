@@ -2,7 +2,17 @@ jQuery(document).ready(function() {
 	
 	"use strict";
 
-	/**var tag = document.createElement('script');
+	$.getJSON("assets/js/config.json", function(res){
+		if($(".video-caption").length){
+			$(".video-caption h1").html(res.blogTitle);
+			$(".video-caption div").html(res.blogSubTitle);
+			$(".copyright a").html(res.blogTitle);
+			$("head title").html(res.blogTitle);
+		}
+	});
+
+
+	/*var tag = document.createElement('script');
 
 	tag.src = "https://www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -15,8 +25,8 @@ jQuery(document).ready(function() {
 	window.onYouTubeIframeAPIReady = function () {
 		var videoPlayerId = $('#videoPlayer').attr('data-videoid');
 		window.videoPlayer = new YT.Player('videoPlayer', {
-			height: '100%',
-			width: '100%',
+			height: '200%',
+			width: '200%',
 			videoId: videoPlayerId,
 			playerVars: {
 				'controls': 0,

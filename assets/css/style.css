@@ -1846,16 +1846,31 @@ blockquote.blockquote2 > span ~ span:before {
     height: 100%;
 }
 
+.myVideo > iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 @media (min-aspect-ratio: 16/9) {
 	.myVideo > video { height: 300%; top: -100%; }
+	.myVideo > iframe { height: 300%; top: -100%; }
 }
 
 @media (max-aspect-ratio: 16/9) {
 	.myVideo > video { width: 300%; left: -100%; }
+	.myVideo > iframe { width: 300%; left: -100%; }
 }
 
 @supports (object-fit: cover) {
 	.myVideo > video {
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		object-fit: cover;
+	}
+	.myVideo > iframe {
 		top: 0; left: 0;
 		width: 100%; height: 100%;
 		object-fit: cover;
