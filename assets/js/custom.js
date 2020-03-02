@@ -11,6 +11,11 @@ jQuery(document).ready(function() {
 		}
 	});
 
+	$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=AIzaSyC3d9nLumYPsZFyEZuOLZPNK7Ex9LKwxxg", function(res){
+		$.each(res.items, function(k, v){
+			console.log(v.snippet.resourceId.videoId);
+		});
+	});
 
 	/*var tag = document.createElement('script');
 
