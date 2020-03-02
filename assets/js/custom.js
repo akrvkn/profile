@@ -2,20 +2,24 @@ jQuery(document).ready(function() {
 	
 	"use strict";
 
+	var ytK="";
+
 	$.getJSON("assets/js/config.json", function(res){
 		if($(".video-caption").length){
 			$(".video-caption h1").html(res.blogTitle);
 			$(".video-caption div").html(res.blogSubTitle);
 			$(".copyright a").html(res.blogTitle);
 			$("head title").html(res.blogTitle);
+			ytK= atob(res.youtubeAPI);
+			$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=" + ytK, function(res){
+				$.each(res.items, function(k, v){
+					console.log(v.snippet.resourceId.videoId);
+				});
+			});
 		}
 	});
 
-	$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=AIzaSyC3d9nLumYPsZFyEZuOLZPNK7Ex9LKwxxg", function(res){
-		$.each(res.items, function(k, v){
-			console.log(v.snippet.resourceId.videoId);
-		});
-	});
+
 
 	/*var tag = document.createElement('script');
 
@@ -322,7 +326,7 @@ jQuery(document).ready(function() {
 				items:1
 			},
 			720:{
-				items:2
+				items:1
 			},
 			768:{
 				items:2
