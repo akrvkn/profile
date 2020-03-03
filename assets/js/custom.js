@@ -11,13 +11,100 @@ jQuery(document).ready(function() {
 			$(".copyright a").html(res.blogTitle);
 			$("head title").html(res.blogTitle);
 			ytK= atob(res.youtubeAPI);
-			$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=" + ytK, function(res){
+			initYouTubePlayer(ytK);
+			/*$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=" + ytK, function(res){
 				$.each(res.items, function(k, v){
 					console.log(v.snippet.resourceId.videoId);
 				});
-			});
+			});*/
 		}
 	});
+function initYouTubePlayer(key) {
+	var playlistId = 'PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n';
+	var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+
+
+	var options = {
+		part: 'snippet',
+		key: key,
+		maxResults: 5,
+		playlistId: playlistId
+	};
+
+	loadVids();
+
+	function loadVids() {
+		$.getJSON(URL, options, function (data) {
+			var id = data.items[0].snippet.resourceId.videoId;
+			mainVid(id);
+			resultsLoop(data);
+			var owlVideoThumb = $(".box-carousel-wrapper.videothumb");
+			owlVideoThumb.owlCarousel({
+				dots: true,
+				responsiveClass: true,
+				responsive:{
+					0:{
+						items:1
+					},
+					720:{
+						items:2
+					},
+					768:{
+						items:2
+					},
+					960:{
+						items:3
+					},
+					1024:{
+						items:3
+					}
+				}
+			});
+		});
+	}
+
+	function mainVid(id) {
+		$('#video').html(`
+				<iframe width="100%" height="568" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			`);
+	}
+
+
+	function resultsLoop(data) {
+
+		$.each(data.items, function (i, item) {
+
+			var thumb = item.snippet.thumbnails.medium.url;
+			var title = item.snippet.title;
+			var desc = item.snippet.description.substring(0, 100);
+			var vid = item.snippet.resourceId.videoId;
+
+
+			$('.videothumb').append(`
+						<div class="carousel-item" data-key="${vid}" style="margin-top: 585px">
+                            <div class="carousel-inner">
+                                <figure>
+                                    <img src="${thumb}" />
+                                </figure>
+                                <div class="content-block-detail">
+                                    <div class="fab light-blue ripple">
+                                        <a href="#"><i class="fa fa-plus"></i></a>
+                                    </div>
+                                    <h3>${title}</h3>
+                                    <!--<div class="item-list-description">${desc}</div>-->
+                                </div>                        
+                            </div>
+                        </div>
+					`);
+		});
+	}
+
+	// CLICK EVENT
+	$('.videothumb').on('click', '.carousel-item', function () {
+		var id = $(this).attr('data-key');
+		mainVid(id);
+	});
+}
 
 
 

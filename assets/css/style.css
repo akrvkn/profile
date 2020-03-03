@@ -1851,7 +1851,7 @@ blockquote.blockquote2 > span ~ span:before {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 568px;
 }
 
 @media (min-aspect-ratio: 16/9) {
