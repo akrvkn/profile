@@ -28,6 +28,9 @@ function initYouTubePlayer(key) {
 		part: 'snippet',
 		key: key,
 		maxResults: 5,
+		rel: 0,
+		showinfo: 0,
+		modestbranding: 1,
 		playlistId: playlistId
 	};
 
@@ -44,7 +47,7 @@ function initYouTubePlayer(key) {
 				responsiveClass: true,
 				responsive:{
 					0:{
-						items:1
+						items:2
 					},
 					720:{
 						items:2
@@ -53,10 +56,10 @@ function initYouTubePlayer(key) {
 						items:2
 					},
 					960:{
-						items:3
+						items:2
 					},
 					1024:{
-						items:3
+						items:4
 					}
 				}
 			});
@@ -87,10 +90,8 @@ function initYouTubePlayer(key) {
                                     <img src="${thumb}" />
                                 </figure>
                                 <div class="content-block-detail">
-                                    <div class="fab light-blue ripple">
-                                        <a href="#"><i class="fa fa-plus"></i></a>
-                                    </div>
-                                    <h3>${title}</h3>
+                                   
+                                    <h3">${title}</h3>
                                     <!--<div class="item-list-description">${desc}</div>-->
                                 </div>                        
                             </div>

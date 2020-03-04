@@ -1522,6 +1522,16 @@ blockquote.blockquote2 > span ~ span:before {
 	margin-bottom: 20px;
 }
 
+.box-carousel-wrapper.videothumb {
+	position: absolute;
+	top: 672px;
+	left: 0;
+}
+
+.videothumb .carousel-item {
+	margin-top: 0px!important;
+}
+
 .box-carousel-wrapper .carousel-item {
 	padding: 15px 15px 0 15px;
 }
@@ -1846,12 +1856,30 @@ blockquote.blockquote2 > span ~ span:before {
     height: 100%;
 }
 
-.myVideo > iframe {
+.services-panel3 .block-title {
 	position: absolute;
 	top: 0;
+	left: auto;
+	margin-top: 32px;
+}
+
+.ytVideo {
+	position: absolute;
+	left: 0;
+	top:100px;
+	bottom: 0;
+	right: 0;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+.ytVideo > iframe {
+	position: absolute;
+	top: 100px;
 	left: 0;
 	width: 100%;
-	height: 568px;
+	height: 468px;
 }
 
 @media (min-aspect-ratio: 16/9) {
