@@ -107,44 +107,46 @@ function initYouTubePlayer(key) {
 	});
 }
 
+	/**
+	 * Instagram API
+	 */
 
+	function createPhotoElement(photo) {
+		var innerHtml = $('<img>')
+			.addClass('instagram-image')
+			.attr('src', photo.images.thumbnail.url);
 
-	/*var tag = document.createElement('script');
+		innerHtml = $('<a>')
+			.attr('target', '_blank')
+			.attr('href', photo.link)
+			.append(innerHtml);
 
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		return $('<div>')
+			.addClass('instagram-placeholder')
+			.attr('id', photo.id)
+			.append(innerHtml);
+	}
 
-	// 3. This function creates an <iframe> (and YouTube player)
-	//    after the API code downloads.
-	window.videoPlayer;
-
-	window.onYouTubeIframeAPIReady = function () {
-		var videoPlayerId = $('#videoPlayer').attr('data-videoid');
-		window.videoPlayer = new YT.Player('videoPlayer', {
-			height: '200%',
-			width: '200%',
-			videoId: videoPlayerId,
-			playerVars: {
-				'controls': 0,
-				'autoplay': 1,
-				'mute': 1,
-				'loop': 1,
-				'showinfo': 0,
-				'modestbranding': 1,
-				'origin':'http://localhost:4000'
-			},
-			events: {
-				'onReady': onVideoPlayerReady,
-				'onStateChange': onVideoPlayerReady
-			}
+	function didLoadInstagram(event, response) {
+		console.log(response);
+		var that = this;
+		$.each(response.data, function(i, photo) {
+			$(that).append(createPhotoElement(photo));
 		});
 	}
 
-	function onVideoPlayerReady(event) {
-		videoPlayer.playVideo();
-	}*/
-	
+	$(document).ready(function() {
+
+		$('#instagram').on('didLoadInstagram', didLoadInstagram);
+		$('#instagram').instagram({
+			count: 20,
+			userId: 314046394,
+			accessToken: '314046394.673793e.88345306c6d54356a699021df0503000'
+		});
+
+	});
+
+
 	// ===== Pre Loader ===== //
 	$(window).on("load", function(){
 		$('.loader-wrapper').fadeOut(300);
