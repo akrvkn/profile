@@ -128,7 +128,7 @@ function initYouTubePlayer(key) {
 	}
 
 	function didLoadInstagram(event, response) {
-		console.log(response);
+		console.log(response.data);
 		var that = this;
 		$.each(response.data, function(i, photo) {
 			$(that).append(createPhotoElement(photo));
