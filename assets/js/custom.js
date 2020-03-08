@@ -128,18 +128,20 @@ function initYouTubePlayer(key) {
 	}
 
 	function didLoadInstagram(event, response) {
-		console.log(response.data);
+		//console.log(response.data);
 		var that = this;
 		$.each(response.data, function(i, photo) {
+			var k = i + 1;
+			console.log(k);
 			$(that).append(createPhotoElement(photo));
 		});
 	}
 
 	$(document).ready(function() {
 
-		$('#instagram').on('didLoadInstagram', didLoadInstagram);
-		$('#instagram').instagram({
-			count: 20,
+		$('#portfolioTabs').on('didLoadInstagram', didLoadInstagram);
+		$('#portfolioTabs').instagram({
+			count: 9,
 			userId: 314046394,
 			accessToken: '314046394.673793e.88345306c6d54356a699021df0503000'
 		});
