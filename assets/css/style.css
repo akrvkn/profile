@@ -5269,7 +5269,8 @@ circle {
 	}
 	
 	.portfolio-panel3 .portfolio-tabs {
-		width: 66.6666%;
+		/*width: 66.6666%;*/
+		height: 640px;
 		display: table;
 		margin-top: 0;
 	}

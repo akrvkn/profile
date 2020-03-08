@@ -111,29 +111,48 @@ function initYouTubePlayer(key) {
 	 * Instagram API
 	 */
 
-	function createPhotoElement(photo) {
+	function createPhotoElement(k, photo) {
+
 		var innerHtml = $('<img>')
-			.addClass('instagram-image')
 			.attr('src', photo.images.thumbnail.url);
+		var thumbHover = $('<span>')
+			.addClass('thumbnail-hover');
 
 		innerHtml = $('<a>')
-			.attr('target', '_blank')
-			.attr('href', photo.link)
+			.attr('href', '#portfolio-tabs-' + k)
+			.append(thumbHover)
 			.append(innerHtml);
 
-		return $('<div>')
-			.addClass('instagram-placeholder')
-			.attr('id', photo.id)
+		return $('<li>')
 			.append(innerHtml);
 	}
 
+	function createPhotoBig(k, photo) {
+		return `<div id="portfolio-tabs-${k}" class="portfolio-tabs">
+                    <figure class="portfolio-tabs-img">
+                        <img src="${photo.images.standard_resolution.url}" width="640" height="640" alt="portfolio" />
+                    </figure>
+                    <section class="portfolio-tabs-detail">
+                        <h2>ИНСТАГРАМ</h2>
+                        <div class="item-list-description">${photo.caption.text}</div>
+                        <div class="button raised dark-grey ripple">
+                            <a href="#">Открыть</a>
+                        </div>
+                    </section>
+                </div>`;
+	}
+
 	function didLoadInstagram(event, response) {
-		//console.log(response.data);
-		var that = this;
+		//var that = this;
 		$.each(response.data, function(i, photo) {
 			var k = i + 1;
-			console.log(k);
-			$(that).append(createPhotoElement(photo));
+			$('.portfolio-tabs-list').append(createPhotoElement(k, photo));
+			$('.portfolio-detail-wrapper').append(createPhotoBig(k, photo));
+			if(i === 8){
+				$('#portfolioTabs').tabulous({
+					effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
+				});
+			}
 		});
 	}
 
@@ -833,9 +852,9 @@ function initYouTubePlayer(key) {
 	
 	
 	// ===== Portfolio Tabs Settings ===== //
-	$('#portfolioTabs').tabulous({
+	/*$('#portfolioTabs').tabulous({
 		effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
-	});
+	});*/
 	
 	// Fix Auto Height tabs_container
 	$(window).on("load resize", function() {
