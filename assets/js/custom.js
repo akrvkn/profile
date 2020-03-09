@@ -167,6 +167,72 @@ function initYouTubePlayer(key) {
 
 	});
 
+	/****** Twitter API Widget *********/
+
+	twttr.events.bind(
+		'loaded',
+		function (event) {
+			event.widgets.forEach(function (widget) {
+				//console.log($('#' + widget.id).contents().find('ol li .timeline-Tweet-text').text());
+				//console.log("Created widget", widget.id);
+				$.each($('#' + widget.id).contents().find('ol li.timeline-TweetList-tweet'), function(i, v){
+					var text = $(v).find('.timeline-Tweet-text').text();
+					var media = $(v).find('.NaturalImage-image').attr('src');
+					var time = $(v).find('time').text();
+					var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
+					var name = $(v).find('.tweetAuthor-name').text();
+					$('#twitterBlog').append(createTwitterBlogItem(text, media, time, link, name));
+					var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
+					if(i === 2){
+						owlBlog.owlCarousel({
+							dots: true,
+							responsiveClass: true,
+							responsive:{
+								0:{
+									items:1
+								},
+								720:{
+									items:2
+								},
+								768:{
+									items:2
+								},
+								960:{
+									items:3
+								},
+								1024:{
+									items:3
+								}
+							}
+						});
+					}
+					//console.log(text, media, time, link, name);
+				});
+			});
+		}
+	);
+
+	function createTwitterBlogItem(txt, pic, time, link, name){
+		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
+		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 210px;" alt="thumbnail" /></figure>`;
+
+		return `<div class="carousel-item">
+					<div class="carousel-inner">
+						${img}
+						<div class="content-block-detail">                            
+							<h3>${name}</h3>
+							<div class="item-list-description">${txt}</div>
+						</div>
+						<div class="blog-meta number">
+							<ul>
+								<li><a href="${link}">${time}</a></li>                    
+							</ul>
+						</div>
+					</div>
+				</div>`;
+	}
+
+
 
 	// ===== Pre Loader ===== //
 	$(window).on("load", function(){
@@ -576,7 +642,7 @@ function initYouTubePlayer(key) {
 	});
 	
 	// Home Blog Panel
-	var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
+	/*var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
 	owlBlog.owlCarousel({
 		dots: true,
 		responsiveClass: true,
@@ -597,7 +663,7 @@ function initYouTubePlayer(key) {
 				items:3
 			}
 		}
-	});
+	});*/
 	
 	// Home Team Panel and Page Team Section
 	var owlTeam = $(".home-team-panel .box-carousel-wrapper, .page-team .box-carousel-wrapper");

@@ -1419,7 +1419,7 @@ blockquote.blockquote2 > span ~ span:before {
 
 .full-carousel-wrapper .carousel-inner {
 	position: absolute;
-	width: 100%;
+	width: 370px;
 	text-align: center;
 	top: 50%;
 	z-index: 2;
@@ -1538,6 +1538,7 @@ blockquote.blockquote2 > span ~ span:before {
 
 .box-carousel-wrapper .carousel-inner {
 	margin-bottom: 20px;
+	width: 370px;
 	background-color: rgba(255,255,255,0.9);
 	
 	-webkit-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.3);
@@ -5393,4 +5394,9 @@ circle {
 	.contact-info-wrapper {
 		padding: 0 0 0 30px;
 	}
+}
+
+#twitterTimeline {
+	position: absolute!important;
+	left: -99999px!important;
 }
