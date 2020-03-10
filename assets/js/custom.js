@@ -128,12 +128,14 @@ function initYouTubePlayer(key) {
 	}
 
 	function createPhotoBig(k, photo) {
+		//console.log(photo);
+		var tags = photo.tags.length === 0 ? '#' + photo.user.username : photo.tags.toString().replace(',', '#');
 		return `<div id="portfolio-tabs-${k}" class="portfolio-tabs">
                     <figure class="portfolio-tabs-img">
                         <img src="${photo.images.standard_resolution.url}" width="640" height="640" alt="portfolio" />
                     </figure>
                     <section class="portfolio-tabs-detail">
-                        <h2>ИНСТАГРАМ</h2>
+                        <h2>${tags}</h2>
                         <div class="item-list-description">${photo.caption.text}</div>
                         <div class="button raised dark-grey ripple">
                             <a href="#">Открыть</a>
@@ -185,7 +187,7 @@ function initYouTubePlayer(key) {
 					var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
 					if(i === 2){
 						owlBlog.owlCarousel({
-							dots: true,
+							dots: false,
 							responsiveClass: true,
 							responsive:{
 								0:{
