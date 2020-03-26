@@ -893,7 +893,9 @@ function initYouTubePlayer(key) {
 			var value =  window.location.hash.replace('#', '').split('/');
 			var destiny = value[0];
 			var section = $('[data-anchor="'+destiny+'"]');
-			
+			if(section.length === 0){
+				section = $('.panel-1');
+			}
 			if (fullPageContainer.hasClass("addAutoScroll")) {
 				$.fn.fullpage.reBuild();
 			}
