@@ -1,6 +1,6 @@
 /* Youtube Vars---------------------------------------------------------------*/
-var yt_video = "6iuNSa4lJoA";
-var v_start = 20;
+var yt_video = "8Y8kEExXDNs";
+var v_start = 0;
 
 var tag,
     tv,
@@ -25,7 +25,7 @@ var tag,
 var videoStartTime,
     videoEndTime;
 if(typeof v_start !== "number")
-    videoStartTime = 0;
+    videoStartTime = 1;
 else
     videoStartTime = v_start;
 if(typeof v_end !== "number")
@@ -90,6 +90,15 @@ function onPlayerStateChange(e) {
 
     $(function(){
 
+        if(typeof yt_video !== "undefined"){
+            if(yt_video!==undefined && yt_video!=="" && yt_video!==" "){
+                addHeroVideo();
+                $(".hero-video").append('<div class="screen mute" id="tv"></div>');
+                $(".hero-video").css({opacity:0});
+                createdVideoDiv=1;
+            }
+        }
+
         setHeroVideo();
 
         $(window).on("resize", function () {
@@ -148,7 +157,6 @@ function onPlayerStateChange(e) {
         }
 
         function videoRescale(){
-            vmVidRescale();
             ytVidRescale();
         }
 
@@ -156,8 +164,8 @@ function onPlayerStateChange(e) {
             if(typeof yt_video !== "undefined"){
                 if(yt_video!==undefined && yt_video!=="" && yt_video!==" "){
                     var c = setInterval(function(){
-                        var w = $(".hero-video").width()+200,
-                            h = $(".hero-video").height()+200;
+                        var w = $(".hero-video").width(),
+                            h = $(".hero-video").height();
                         if (w/h > 16/9){
                             if(tv!==undefined)
                                 tv.setSize(w, w/16*9);
@@ -175,32 +183,6 @@ function onPlayerStateChange(e) {
                             }
                         }
                     },1);
-                    setTimeout(function(){
-                        clearInterval(c);
-                    },4000);
-                }
-            }
-        }
-
-        function vmVidRescale(){
-            if(typeof vm_video !== "undefined"){
-                if(vm_video!==undefined && vm_video!=="" && vm_video!==" "){
-                    var c = setInterval(function(){
-                        var theWidth = $(".hero-video").width();
-                        var theHeight = $(".hero-video").height();
-                        var newWidth = (theHeight*1.77777778);
-                        var newHeight = (theWidth/1.77777778);
-                        if ( (theWidth > 1280) && (newHeight > theHeight )) {
-                            $('.fullvid').css({'width':theWidth+5, 'height':newHeight+5});
-                        }
-                        if ( (theHeight > 720) && (newWidth > theWidth )) {
-                            $('.fullvid').css({'height':theHeight+5, 'width':newWidth+5});
-                        }
-                    },1);
-                    if($(".hero-video").css("opacity")==="0"){
-                        $(".hero-video").css("opacity","0.01");
-                        $(".hero-video").stop().delay(2000).animate({opacity:1},{duration:3000});
-                    }
                     setTimeout(function(){
                         clearInterval(c);
                     },4000);

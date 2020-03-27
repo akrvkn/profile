@@ -2,6 +2,13 @@ jQuery(document).ready(function() {
 	
 	"use strict";
 
+
+
+
+
+
+	/******* Youtube section **********/
+
 	var ytK="";
 
 	$.getJSON("assets/js/config.json", function(res){
