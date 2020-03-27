@@ -519,6 +519,7 @@ function initYouTubePlayer(key) {
 		$('#portfolioTabs').instagram({
 			count: 9,
 			userId: 314046394,
+			//userId: 3982866868,
 			accessToken: '314046394.673793e.88345306c6d54356a699021df0503000'
 		});
 
@@ -571,6 +572,8 @@ function initYouTubePlayer(key) {
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
 		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
+		console.log(txt);
+
 		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 210px;" alt="thumbnail" /></figure>`;
 
 		return `<div class="carousel-item">
@@ -578,7 +581,7 @@ function initYouTubePlayer(key) {
 						${img}
 						<div class="content-block-detail">                            
 							<h3>${name}</h3>
-							<div class="item-list-description">${txt}</div>
+							<div class="item-list-description">${txt.replace(/http.*?\s/g, '')}</div>
 						</div>
 						<div class="blog-meta number">
 							<ul>
