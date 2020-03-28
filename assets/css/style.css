@@ -1,9 +1,9 @@
 /**
-	Wizard - Portfolio HTML Template
- 	Copyright (c) 2015, Pophonic 
+	W3dom - Social activity web page
+ 	Copyright (c) 2020, W3dom
 
-	Author: Pophonic
-	Profile: themeforest.net/user/pophonic
+	Author: W3dom
+	Profile: w3dom.com
 	
 **/
 
@@ -88,7 +88,7 @@
 1.0 Body and main container
 *********************************************/
 body {
-	font-family: 'Raleway', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 14px;
 	line-height: 1.571428;
 	color: #878787;
@@ -2665,7 +2665,7 @@ video::-webkit-media-controls {
 }
 
 .portfolio-item .mega-hovertitle {
-	font-family: 'Raleway', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	font-size: 1.2857em;
 	font-weight: 700;
 	line-height: 1.2em;
@@ -3996,7 +3996,7 @@ h1.page-title:before,
 }
 
 .related-work-thumb .mega-hovertitle {
-	font-family: 'Raleway', sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	text-transform: uppercase;
 	padding: 0 0 5px;
 }
@@ -4929,11 +4929,11 @@ aside.widget:last-child {
 34.0 Paper ripple effect
 *********************************************/
 svg {
-	position: absolute;
+	/*position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 100%;*/
 }
 
 circle {

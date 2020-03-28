@@ -1,7 +1,12 @@
 /******** Youtube background ********/
 /* Youtube Vars---------------------------------------------------------------*/
-var yt_video = "8Y8kEExXDNs";
-var v_start = 1;
+
+//vqqt5p0q-eU
+//var yt_video = "8Y8kEExXDNs";
+
+var yt_video = "vqqt5p0q-eU";
+
+var v_start = 0;
 
 var tag,
 	tv,
@@ -81,6 +86,8 @@ function onPlayerStateChange(e) {
 		tv.seekTo(vid[currVid].startSeconds);
 	}
 	if (e.data === YT.PlayerState.ENDED) {
+		$(".hero-video").css("opacity","0.01");
+		$(".hero-video").stop().animate({opacity:1},{duration:6000});
 		tv.playVideo();
 	}
 }
@@ -572,8 +579,6 @@ function initYouTubePlayer(key) {
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
 		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
-		console.log(txt);
-
 		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 210px;" alt="thumbnail" /></figure>`;
 
 		return `<div class="carousel-item">
