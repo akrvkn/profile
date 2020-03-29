@@ -571,13 +571,12 @@ function initYouTubePlayer(key) {
 
 	$(document).ready(function() {
 
-		$('#portfolioTabs').on('didLoadInstagram', didLoadInstagram);
+		/*$('#portfolioTabs').on('didLoadInstagram', didLoadInstagram);
 		$('#portfolioTabs').instagram({
 			count: 9,
 			userId: 314046394,
-			//userId: 3982866868,
 			accessToken: '314046394.673793e.88345306c6d54356a699021df0503000'
-		});
+		});*/
 
 	});
 
@@ -628,7 +627,7 @@ function initYouTubePlayer(key) {
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
 		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
-		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 210px;" alt="thumbnail" /></figure>`;
+		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 270px;" alt="thumbnail" /></figure>`;
 
 		return `<div class="carousel-item">
 					<div class="carousel-inner">

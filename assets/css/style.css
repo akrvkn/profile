@@ -917,6 +917,28 @@ blockquote.blockquote2 > span ~ span:before {
 	transform: translateY(-50%);
 }
 
+.logo a:hover {
+	text-decoration: none;
+}
+
+.logo .logo-title {
+	font-size: 1.7142em;
+	text-transform: uppercase;
+	color: #fff;
+}
+
+.logo-title-wrapper {
+	border-bottom: 1px solid #fff;
+}
+
+.logo .logo-subtitle {
+	text-transform: uppercase;
+	display: block;
+	color: #fff;
+	font-size: 14px;
+	padding-top: 12px;
+}
+
 /* ===== Navigation Menu ===== */
 #main-menu .nav-menu {
 	list-style: none;
