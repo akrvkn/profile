@@ -501,6 +501,7 @@ function initYouTubePlayer(key) {
 			$('#video-thumb').append(`
 						<div class="carousel-item" data-key="${item.id}">
                             <div class="carousel-inner">
+                            	<div class="the-click"></div>
                                 <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                                 <div class="content-block-detail">                                  
                                     <h3">${item.title}</h3>                                
@@ -569,16 +570,16 @@ function initYouTubePlayer(key) {
 		});
 	}
 
-	$(document).ready(function() {
+	/*$(document).ready(function() {
 
-		/*$('#portfolioTabs').on('didLoadInstagram', didLoadInstagram);
+		$('#portfolioTabs').on('didLoadInstagram', didLoadInstagram);
 		$('#portfolioTabs').instagram({
 			count: 9,
 			userId: 314046394,
 			accessToken: '314046394.673793e.88345306c6d54356a699021df0503000'
-		});*/
+		});
 
-	});
+	});*/
 
 	/****** Twitter API Widget *********/
 
@@ -627,7 +628,7 @@ function initYouTubePlayer(key) {
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
 		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
-		var	img = pic === undefined ? '' : `<figure><img src="${pic}" style="width: 370px; height: 270px;" alt="thumbnail" /></figure>`;
+		var	img = pic === undefined ? '' : `<figure><a style="cursor: pointer" href="${link}"><img src="${pic}" style="width: 370px; height: 270px;" alt="thumbnail" /></a></figure>`;
 
 		return `<div class="carousel-item">
 					<div class="carousel-inner">
@@ -638,7 +639,7 @@ function initYouTubePlayer(key) {
 						</div>
 						<div class="blog-meta number">
 							<ul>
-								<li><a href="${link}">${time}</a></li>                    
+								<li><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"></path></svg></span><a href="${link}">&nbsp;${time}</a></li>                    
 							</ul>
 						</div>
 					</div>
@@ -732,7 +733,7 @@ function initYouTubePlayer(key) {
 	var buildScroll = $('.nav-inner-wrap, .container-wrapper');
 	var destroyScroll = $('');
 	
-	destroyScroll.slimScroll({  // ===== CHANGE 'destroyScroll' TO 'buildScroll' WHEN YOU USING AUTO SCROLLING FUNCTION ===== //
+	buildScroll.slimScroll({  // ===== CHANGE 'destroyScroll' TO 'buildScroll' WHEN YOU USING AUTO SCROLLING FUNCTION ===== //
 		position: 'right'
 	});
 	
@@ -902,7 +903,7 @@ function initYouTubePlayer(key) {
 	
 	
 	// ===== jQuery FitVids Settings ===== //
-	$(".video-wrapper").fitVids();
+	//$(".video-wrapper").fitVids();
 	
 	
 	// ===== OWL Carousel Setting ===== //
@@ -1104,7 +1105,7 @@ function initYouTubePlayer(key) {
 	
 	
 	// ===== jQuery FlexSlider Settings ===== //
-	$(window).on("load", function() {
+	/*$(window).on("load", function() {
 		$('.flexslider.slider-panel-wrapper').flexslider({
 			controlNav: false,
 			directionNav: false,
@@ -1139,7 +1140,7 @@ function initYouTubePlayer(key) {
 			$('.page-header-featured .flexslider').flexslider(href)
 			return false;
 		});
-	});
+	});*/
 	
 	// Fit Height Elements
 	$(window).on("load resize", function() {
@@ -1318,7 +1319,7 @@ function initYouTubePlayer(key) {
 	
 	
 	// ===== Services Tooltip Settings ===== //
-	$('.service-tooltip').tooltipster({
+	/*$('.service-tooltip').tooltipster({
 		position: 'top',
 		animation: 'grow',
 		delay: 200,
@@ -1329,7 +1330,7 @@ function initYouTubePlayer(key) {
 		maxWidth: 228,
 		offsetX: 0,
 		offsetY: 10
-	});
+	});*/
 	
 	
 	// ===== Portfolio Tabs Settings ===== //

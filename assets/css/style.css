@@ -571,7 +571,7 @@ blockquote.blockquote2 {
 	padding: 28px 30px 28px 48px;
 }
 
-blockquote.blockquote2 > span:before {
+/*blockquote.blockquote2 > span:before {
 	position: absolute;
 	top: 0;
 	margin: 8px 0 0 -48px;
@@ -579,7 +579,7 @@ blockquote.blockquote2 > span:before {
 	content: '\f10d';
 	font-size: 32px;
 	color: #bdbdbd;
-}
+}*/
 
 blockquote.blockquote2.quoteLight > span:before {
 	color: #fff !important;
@@ -2429,7 +2429,7 @@ video::-webkit-media-controls {
 	color: #4dd0e1;
 }
 
-.content-block2 .content-block-detail .read-more:after {
+/*.content-block2 .content-block-detail .read-more:after {
 	position: absolute;
 	font-family: FontAwesome;
 	content: '\f105';
@@ -2444,7 +2444,7 @@ video::-webkit-media-controls {
 	-ms-transition: color 0.2s ease-in-out;
 	-o-transition: color 0.2s ease-in-out;
 	transition: color 0.2s ease-in-out;
-}
+}*/
 
 .content-block2 .content-block-detail .read-more:hover:after {
 	color: #4dd0e1;
@@ -3010,7 +3010,7 @@ video::-webkit-media-controls {
 	margin-right: 0px;
 }
 
-.blog-meta ul li:before {
+/*.blog-meta ul li:before {
 	font-family: FontAwesome;
 	color: #e0e0e0;
 	margin-right: 6px;
@@ -3026,7 +3026,7 @@ video::-webkit-media-controls {
 
 .blog-meta ul li:last-child:before {
 	content: '\f086';
-}
+}*/
 
 .blog-meta ul li:after {
 	position: absolute;
@@ -3358,11 +3358,11 @@ video::-webkit-media-controls {
 	margin: 25px 0 0;
 }
 
-#reply_message span:before {
+/*#reply_message span:before {
 	font-family: FontAwesome;
 	content: '\f00c';
 	padding: 0 8px 0 0;
-}
+}*/
 
 .loading {
 	display: none;
@@ -3833,7 +3833,7 @@ h1.page-title:before,
 	margin-right: 0;
 }
 
-.single-post-meta ul li:before {
+/*.single-post-meta ul li:before {
 	position: absolute;
 	font-family: FontAwesome;
 	line-height: 14px;
@@ -3842,7 +3842,7 @@ h1.page-title:before,
 	left: 0;
 	width: 14px;
 	height: 14px;
-}
+}*/
 
 .single-post-meta ul li:after {
 	position: absolute;
@@ -4342,7 +4342,7 @@ h1.page-title:before,
 	text-transform: uppercase;
 }
 
-.post-pagination span:before {
+/*.post-pagination span:before {
 	position: absolute;
 	font-family: FontAwesome;
 	content: '';
@@ -4356,7 +4356,7 @@ h1.page-title:before,
 	color: #00acc1;
 	background-color: #e5e5e5;
 	border-radius: 3px;
-}
+}*/
 
 .post-pagination .prev-post span {
 	padding-left: 25px;
@@ -4808,7 +4808,7 @@ aside.widget:last-child {
 	padding: 0 0 0 30px;
 }
 
-.widget_categories ul li:before {
+/*.widget_categories ul li:before {
 	position: absolute;
 	font-family: FontAwesome;
 	content: '\f054';
@@ -4824,7 +4824,7 @@ aside.widget:last-child {
 	color: #00acc1;
 	background-color: #e5e5e5;
 	border-radius: 3px;
-}
+}*/
 
 /* === Only Firefox === */
 @-moz-document url-prefix() {
@@ -5522,4 +5522,13 @@ circle {
 .hero-header .dot-overlay{
 	background: url(../images/miscellaneous/dot-overlay.png);
 	height: 99.99%;
+}
+
+.the-click {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
 }
