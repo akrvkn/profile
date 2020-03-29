@@ -396,7 +396,7 @@ function initYouTubePlayer(key) {
 		playlistId: playlistId
 	};
 
-	loadVids();
+	//loadVids();
 
 	function loadVids() {
 		$.getJSON(URL, options, function (data) {

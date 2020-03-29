@@ -1308,6 +1308,10 @@ blockquote.blockquote2 > span ~ span:before {
 	transition: all 0.3s ease-in-out;
 }
 
+.social-media ul li a span{
+
+}
+
 .social-media ul li a:hover {
 	color: #474747;
 	background-color: #fff;
@@ -1857,12 +1861,12 @@ blockquote.blockquote2 > span ~ span:before {
     height: 100%;
 }
 
-.services-panel3 .block-title {
+/*.services-panel3 .block-title {
 	position: absolute;
 	top: 0;
 	left: auto;
 	margin-top: 32px;
-}
+}*/
 
 .ytVideo {
 	position: absolute;
