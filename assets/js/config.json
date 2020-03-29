@@ -1,5 +1,11 @@
 {
   "blogTitle": "Сергей Михеев",
   "blogSubTitle": "Политолог",
-  "youtubeAPI": "QUl6YVN5QzNkOW5MdW1ZUHNaRnlFWnVPTFpQTks3RXg5TEt3eHhn"
+  "youtubeAPI": "QUl6YVN5QzNkOW5MdW1ZUHNaRnlFWnVPTFpQTks3RXg5TEt3eHhn",
+  "playlist": [
+    {"id": "PLagHeXKVfqd3IJ0KAADG8bYNItkjbFlzp", "title": "Вечер с Владимиром Соловьёвым"},
+    {"id": "PLagHeXKVfqd3oLDoGlDQSH-lPvN5XbB57", "title": "Железная логика"},
+    {"id": "PLagHeXKVfqd3VtpAdpa98NVRTjuPqnHr4", "title": "Царьград"},
+    {"id": "PLagHeXKVfqd09kGiqXMW2gpMbma6JVtyA", "title": "Разные ТВ и радио эфиры"}
+  ]
 }

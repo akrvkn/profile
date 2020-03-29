@@ -366,14 +366,18 @@ jQuery(document).ready(function() {
 
 	var ytK="";
 
+
 	$.getJSON("assets/js/config.json", function(res){
 		if($(".video-caption").length){
 			$(".video-caption h1").html(res.blogTitle);
 			$(".video-caption div").html(res.blogSubTitle);
 			$(".copyright a").html(res.blogTitle);
 			$("head title").html(res.blogTitle);
-			ytK= atob(res.youtubeAPI);
-			initYouTubePlayer(ytK);
+			loadVids(res.playlist);
+
+
+			//ytK= atob(res.youtubeAPI);
+			//initYouTubePlayer(ytK);
 			/*$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=" + ytK, function(res){
 				$.each(res.items, function(k, v){
 					console.log(v.snippet.resourceId.videoId);
@@ -381,6 +385,35 @@ jQuery(document).ready(function() {
 			});*/
 		}
 	});
+	function loadVids(data) {
+		//$.getJSON(URL, options, function (data) {
+			var id = data[0].id;
+			mainVid(id);
+			resultsLoop(data);
+			var owlVideoThumb = $("#video-thumb");
+			owlVideoThumb.owlCarousel({
+				dots: true,
+				responsiveClass: true,
+				responsive:{
+					0:{
+						items:2
+					},
+					720:{
+						items:2
+					},
+					768:{
+						items:2
+					},
+					960:{
+						items:2
+					},
+					1024:{
+						items:3
+					}
+				}
+			});
+		//});
+
 function initYouTubePlayer(key) {
 	var playlistId = 'PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n';
 	var URL = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -398,12 +431,12 @@ function initYouTubePlayer(key) {
 
 	//loadVids();
 
-	function loadVids() {
+	/*function loadVids() {
 		$.getJSON(URL, options, function (data) {
 			var id = data.items[0].snippet.resourceId.videoId;
 			mainVid(id);
 			resultsLoop(data);
-			var owlVideoThumb = $(".box-carousel-wrapper.videothumb");
+			var owlVideoThumb = $("#video-thumb");
 			owlVideoThumb.owlCarousel({
 				dots: true,
 				responsiveClass: true,
@@ -425,17 +458,17 @@ function initYouTubePlayer(key) {
 					}
 				}
 			});
-		});
+		});*/
 	}
 
 	function mainVid(id) {
-		$('#video').html(`
-				<iframe width="100%" height="568" src="https://www.youtube.com/embed/${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		$('#video-main').html(`
+				<iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 			`);
 	}
 
 
-	function resultsLoop(data) {
+	/*function resultsLoop(data) {
 
 		$.each(data.items, function (i, item) {
 
@@ -460,10 +493,26 @@ function initYouTubePlayer(key) {
                         </div>
 					`);
 		});
+	}*/
+
+	function resultsLoop(data) {
+
+		$.each(data, function (i, item) {
+			$('#video-thumb').append(`
+						<div class="carousel-item" data-key="${item.id}">
+                            <div class="carousel-inner">
+                                <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                <div class="content-block-detail">                                  
+                                    <h3">${item.title}</h3>                                
+                                </div>                        
+                            </div>
+                        </div>
+					`);
+		});
 	}
 
 	// CLICK EVENT
-	$('.videothumb').on('click', '.carousel-item', function () {
+	$('#video-thumb').on('click', '.carousel-item', function () {
 		var id = $(this).attr('data-key');
 		mainVid(id);
 	});
