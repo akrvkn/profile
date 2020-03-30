@@ -1331,7 +1331,8 @@ blockquote.blockquote2 > span ~ span:before {
 }
 
 .social-media ul li a span{
-
+	display: block;
+	height: 41px;
 }
 
 .social-media ul li a:hover {
@@ -3004,6 +3005,10 @@ video::-webkit-media-controls {
 	position: relative;
 	display: inline;
 	margin-right: 23px;
+}
+
+.blog-meta ul li span svg {
+	margin-bottom: -3px;
 }
 
 .blog-meta ul li:last-child {
@@ -4954,13 +4959,13 @@ aside.widget:last-child {
 /********************************************
 34.0 Paper ripple effect
 *********************************************/
-svg {
-	/*position: absolute;
+/*svg {
+	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;*/
-}
+	height: 100%;
+}*/
 
 circle {
 	fill: rgba(255,255,255,0.3);
