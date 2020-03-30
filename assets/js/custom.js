@@ -1,3 +1,12 @@
+//TWITTER
+window.twttr = (function (d,s,id) {
+	var t, js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+	js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+	return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+}(document, "script", "twitter-wjs"));
+
+
 /******** Youtube background ********/
 /* Youtube Vars---------------------------------------------------------------*/
 
@@ -357,15 +366,56 @@ function onPlayerStateChange(e) {
 
 
 
+
+
 jQuery(document).ready(function() {
 	
 	"use strict";
 
-
-	/******* Youtube section **********/
-
-	var ytK="";
-
+	twttr.ready(
+		function (twttr) {
+		twttr.events.bind(
+			'loaded',
+			function (event) {
+				event.widgets.forEach(function (widget) {
+					//console.log($('#' + widget.id).contents().find('ol li .timeline-Tweet-text').text());
+					console.log("Created widget", widget.id);
+					$.each($('#' + widget.id).contents().find('ol li.timeline-TweetList-tweet'), function (i, v) {
+						var text = $(v).find('.timeline-Tweet-text').text();
+						var media = $(v).find('.NaturalImage-image').attr('src');
+						var time = $(v).find('time').text();
+						var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
+						var name = $(v).find('.tweetAuthor-name').text();
+						$('#twitterBlog').append(createTwitterBlogItem(text, media, time, link, name));
+						var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
+						if (i === 2) {
+							owlBlog.owlCarousel({
+								dots: false,
+								responsiveClass: true,
+								responsive: {
+									0: {
+										items: 1
+									},
+									720: {
+										items: 2
+									},
+									768: {
+										items: 2
+									},
+									960: {
+										items: 3
+									},
+									1024: {
+										items: 3
+									}
+								}
+							});
+						}
+						//console.log(text, media, time, link, name);
+					});
+				});
+			});
+	});
 
 	$.getJSON("assets/js/config.json", function(res){
 		if($(".video-caption").length){
@@ -373,18 +423,47 @@ jQuery(document).ready(function() {
 			$(".video-caption div").html(res.blogSubTitle);
 			$(".copyright a").html(res.blogTitle);
 			$("head title").html(res.blogTitle);
-			loadVids(res.playlist);
+			$('.home-blog-panel .more-item-link a').attr('href', 'https://twitter.com/' + res.twitter);
+			$("#personalPhoto").css('backgroundImage', 'url(' + res.personalPhoto + ')');
+			if(res.twitter ) {
+				//console.log(twttr);
+				$('body').append(`<div id="myTimeline">
+    <a class="twitter-timeline" data-tweet-limit="3"
+       href="https://twitter.com/${res.twitter}">
+        Tweets by @akorovkin
+    </a>
+</div>`);
+				//$('.twitter-timeline').attr('href', 'https://twitter.com/' + res.twitter);
+				//twttr.widgets.load();
+				if ($('#myTymeline').length) {
+					twttr.widgets.load(
+						document.getElementById("myTimeline")
+					);
+				}
+			}
 
+			loadVids(res.playlist);
+			$.getJSON("https://cors-anywhere.herokuapp.com/" + res.about, function(response){
+				$('#about').html('<h2>О себе</h2>' + response[0].content.rendered);
+			});
 
 			//ytK= atob(res.youtubeAPI);
 			//initYouTubePlayer(ytK);
 			/*$.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?playlistId=PL9Ydusn_dJ1K3EKb9NgKQ2qoDV-hREy7n&part=snippet&key=" + ytK, function(res){
-				$.each(res.items, function(k, v){
-					console.log(v.snippet.resourceId.videoId);
-				});
-			});*/
+                $.each(res.items, function(k, v){
+                    console.log(v.snippet.resourceId.videoId);
+                });
+            });*/
 		}
 	});
+
+
+	/******* Youtube section **********/
+
+	var ytK="";
+
+
+
 	function loadVids(data) {
 		//$.getJSON(URL, options, function (data) {
 			var id = data[0].id;
@@ -563,9 +642,9 @@ function initYouTubePlayer(key) {
 			$('.portfolio-tabs-list').append(createPhotoElement(k, photo));
 			$('.portfolio-detail-wrapper').append(createPhotoBig(k, photo));
 			if(i === 8){
-				$('#portfolioTabs').tabulous({
+				/*$('#portfolioTabs').tabulous({
 					effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
-				});
+				});*/
 			}
 		});
 	}
@@ -583,48 +662,6 @@ function initYouTubePlayer(key) {
 
 	/****** Twitter API Widget *********/
 
-	twttr.events.bind(
-		'loaded',
-		function (event) {
-			event.widgets.forEach(function (widget) {
-				//console.log($('#' + widget.id).contents().find('ol li .timeline-Tweet-text').text());
-				//console.log("Created widget", widget.id);
-				$.each($('#' + widget.id).contents().find('ol li.timeline-TweetList-tweet'), function(i, v){
-					var text = $(v).find('.timeline-Tweet-text').text();
-					var media = $(v).find('.NaturalImage-image').attr('src');
-					var time = $(v).find('time').text();
-					var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
-					var name = $(v).find('.tweetAuthor-name').text();
-					$('#twitterBlog').append(createTwitterBlogItem(text, media, time, link, name));
-					var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
-					if(i === 2){
-						owlBlog.owlCarousel({
-							dots: false,
-							responsiveClass: true,
-							responsive:{
-								0:{
-									items:1
-								},
-								720:{
-									items:2
-								},
-								768:{
-									items:2
-								},
-								960:{
-									items:3
-								},
-								1024:{
-									items:3
-								}
-							}
-						});
-					}
-					//console.log(text, media, time, link, name);
-				});
-			});
-		}
-	);
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
 		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
@@ -733,7 +770,7 @@ function initYouTubePlayer(key) {
 	var buildScroll = $('.nav-inner-wrap, .container-wrapper');
 	var destroyScroll = $('');
 	
-	buildScroll.slimScroll({  // ===== CHANGE 'destroyScroll' TO 'buildScroll' WHEN YOU USING AUTO SCROLLING FUNCTION ===== //
+	destroyScroll.slimScroll({  // ===== CHANGE 'destroyScroll' TO 'buildScroll' WHEN YOU USING AUTO SCROLLING FUNCTION ===== //
 		position: 'right'
 	});
 	
@@ -1179,9 +1216,9 @@ function initYouTubePlayer(key) {
 	
 	
 	// ===== FancyBox Settings ===== //
-	$(".fancybox").fancybox({
+	/*$(".fancybox").fancybox({
 		//padding: 0
-	});
+	});*/
 	
 	// ===== Change burger menu background-color on the fly with Midnight jQuery ===== //
 	$('.nav-open').midnight();
