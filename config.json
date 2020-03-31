@@ -1,4 +1,5 @@
 {
+  "license": "",
   "blogTitle": "Сергей Михеев",
   "blogSubTitle": "Политолог",
   "youtubeBackgroundVideo": "vqqt5p0q-eU",
@@ -11,16 +12,21 @@
     {"id": 6,"title": "Контакт", "link": "index.html#panelBlock6"}
   ],
   "about": {"title": "О себе", "text": "about.html", "photo": "https://avatars.mds.yandex.net/get-zen_doc/1595998/pub_5e1714911e8e3f00b2258602_5e17285c5d636200b1862a64/scale_1200"},
+  "facebook": {"account":  "miheevpolitolog"},
   "twitter": {"title": "Блог", "account": "miheevpolitolog"},
-  "youtube": {"title": "Трансляции", "playlists": [
+  "youtube": {
+    "title": "Трансляции",
+    "channel": "https://www.youtube.com/channel/UCjHHzZ7KcWwej-W_7B0NskA",
+    "playlists": [
     {"id": "PLagHeXKVfqd3IJ0KAADG8bYNItkjbFlzp", "title": "Вечер с Владимиром Соловьёвым"},
     {"id": "PLagHeXKVfqd3oLDoGlDQSH-lPvN5XbB57", "title": "Железная логика"},
     {"id": "PLagHeXKVfqd3VtpAdpa98NVRTjuPqnHr4", "title": "Царьград"},
     {"id": "PLagHeXKVfqd09kGiqXMW2gpMbma6JVtyA", "title": "Разные ТВ и радио эфиры"}
-  ]},
+  ]
+  },
   "instagram": {
     "title": "Фрагменты",
-    "account": "x3blis",
+    "account": "politologmiheev",
     "count": 9,
     "userId": 314046394,
     "accessToken": "",

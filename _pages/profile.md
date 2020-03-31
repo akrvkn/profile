@@ -1,5 +1,5 @@
 ---
 title: Creative portfolio
-layout: portfolio
+layout: default
 permalink: /
 ---
