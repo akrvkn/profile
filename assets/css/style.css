@@ -5429,6 +5429,7 @@ circle {
 
 #myTimeline {
 	position: absolute!important;
+	left: -99999px;
 	width: 1px;
 	height: 1px;
 	overflow: hidden;

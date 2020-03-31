@@ -1,0 +1,41 @@
+{
+  "blogTitle": "Сергей Михеев",
+  "blogSubTitle": "Политолог",
+  "youtubeBackgroundVideo": "vqqt5p0q-eU",
+  "menu": [
+    {"id": 1,"title": "В начало", "link": "index.html#panelBlock1"},
+    {"id": 2,"title": "О себе", "link": "index.html#panelBlock2"},
+    {"id": 3,"title": "Трансляции", "link": "index.html#panelBlock3"},
+    {"id": 4,"title": "Фрагменты", "link": "index.html#panelBlock4"},
+    {"id": 5,"title": "Блог", "link": "index.html#panelBlock5"},
+    {"id": 6,"title": "Контакт", "link": "index.html#panelBlock6"}
+  ],
+  "about": {"title": "О себе", "text": "about.html", "photo": "https://avatars.mds.yandex.net/get-zen_doc/1595998/pub_5e1714911e8e3f00b2258602_5e17285c5d636200b1862a64/scale_1200"},
+  "twitter": {"title": "Блог", "account": "miheevpolitolog"},
+  "youtube": {"title": "Трансляции", "playlists": [
+    {"id": "PLagHeXKVfqd3IJ0KAADG8bYNItkjbFlzp", "title": "Вечер с Владимиром Соловьёвым"},
+    {"id": "PLagHeXKVfqd3oLDoGlDQSH-lPvN5XbB57", "title": "Железная логика"},
+    {"id": "PLagHeXKVfqd3VtpAdpa98NVRTjuPqnHr4", "title": "Царьград"},
+    {"id": "PLagHeXKVfqd09kGiqXMW2gpMbma6JVtyA", "title": "Разные ТВ и радио эфиры"}
+  ]},
+  "instagram": {
+    "title": "Фрагменты",
+    "account": "x3blis",
+    "count": 9,
+    "userId": 314046394,
+    "accessToken": "",
+    "widget": "instagram.html"
+    },
+  "contact": {
+    "title": "Контакт",
+    "action": "post",
+    "url": "",
+    "formFields": [
+          {"name": "Ваше имя"},
+          {"email": "Ваша почта"},
+          {"mysubject": "Тема"},
+          {"mymessage": "Сообщение"}
+      ]
+
+  }
+}
