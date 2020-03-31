@@ -29,7 +29,8 @@
   "contact": {
     "title": "Контакт",
     "action": "post",
-    "success": "Ваше письмо отправлено",
+    "successMessage": "Ваше письмо отправлено",
+    "errorMessage": "Ошибка.",
     "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
     "formFields": {
           "name": "Ваше имя",

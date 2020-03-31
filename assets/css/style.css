@@ -1939,9 +1939,9 @@ blockquote.blockquote2 > span ~ span:before {
 }
 
 /* hide the native controls */
-video::-webkit-media-controls {
+/*video::-webkit-media-controls {
 	display:none !important;
-}
+}*/
 
 
 /********************************************
@@ -2680,7 +2680,7 @@ video::-webkit-media-controls {
 	height: 17px;
 	margin-top: -1px;
 	margin-right: -8px;
-	background: url(../images/filter-breadcrumb.png) no-repeat;
+	/*background: url(../images/filter-breadcrumb.png) no-repeat;*/
 }
 
 .portfolio-filter li.filter:last-child:after {
@@ -2782,7 +2782,7 @@ video::-webkit-media-controls {
 }
 
 .dark .portfolio-filter li.filter:after {
-	background: url(../images/filter-breadcrumb-dark.png) no-repeat;
+	/*background: url(../images/filter-breadcrumb-dark.png) no-repeat;*/
 }
 
 .dark .portfolio-filter li.filter:last-child:after {
@@ -3041,7 +3041,7 @@ video::-webkit-media-controls {
 	width: 9px;
 	height: 13px;
 	margin: 1px -17px 0 0;
-	background: url(../images/post-meta-nav.png) no-repeat;
+	/*background: url(../images/post-meta-nav.png) no-repeat;*/
 }
 
 .blog-meta ul li:last-child:after {
@@ -3725,7 +3725,7 @@ h1.page-title:before,
 	height: 17px;
 	margin-top: 4px;
 	margin-right: -24px;
-	background: url(../images/pagination-nav.png) no-repeat;
+	/*background: url(../images/pagination-nav.png) no-repeat;*/
 }
 
 .pagination ul li:last-child:after {
@@ -3857,7 +3857,7 @@ h1.page-title:before,
 	width: 9px;
 	height: 14px;
 	margin-right: -21px;
-	background: url(../images/single-post-meta-nav.png) no-repeat;
+	/*background: url(../images/single-post-meta-nav.png) no-repeat;*/
 }
 
 .single-post-meta ul li:last-child:after {
@@ -4229,7 +4229,7 @@ h1.page-title:before,
 	width: 9px;
 	height: 13px;
 	margin: 0 -20px 0 0;
-	background: url(../images/post-meta-nav-light.png) no-repeat;
+	/*background: url(../images/post-meta-nav-light.png) no-repeat;*/
 }
 
 .blog-entry .blog-meta ul li a {
@@ -5524,10 +5524,6 @@ circle {
 }
 .hero-header.transparent .overlay{
 	background: rgba(0,0,0,0.4) !important;
-}
-.hero-header .dot-overlay{
-	background: url(../images/miscellaneous/dot-overlay.png);
-	height: 99.99%;
 }
 
 .the-click {
