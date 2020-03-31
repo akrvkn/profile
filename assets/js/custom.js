@@ -7,6 +7,10 @@ window.twttr = (function (d,s,id) {
 }(document, "script", "twitter-wjs"));
 
 
+var sendmailMethod = 'get';
+var sendmailURL = '';
+
+
 /******** Youtube background ********/
 /* Youtube Vars---------------------------------------------------------------*/
 
@@ -462,8 +466,19 @@ jQuery(document).ready(function() {
 			$("head title").html(res.blogTitle);
 			$('.home-blog-panel .more-item-link a').attr('href', 'https://twitter.com/' + res.twitter.account);
 			$('.home-blog-panel .block-title h1').html(res.twitter.title);
+			$('.home-contact-panel .block-title h1').html(res.contact.title);
 			$('.portfolio-panel3 .block-title h1').html(res.instagram.title);
 			$("#personalPhoto").css('backgroundImage', 'url(' + res.about.photo + ')');
+
+			$('label[for="name"]').html(res.contact.formFields.name);
+			$('label[for="email"]').html(res.contact.formFields.email);
+			$('label[for="mysubject"]').html(res.contact.formFields.mysubject);
+			$('label[for="mymessage"]').html(res.contact.formFields.mymessage);
+			$('#submit_message').val(res.contact.formFields.submit);
+			sendmailMethod = res.contact.action;
+			sendmailURL = res.contact.url;
+
+
 			if(res.twitter ) {
 				$('body').append(`<div id="myTimeline">
     <a class="twitter-timeline" data-tweet-limit="3"
@@ -1455,18 +1470,19 @@ function initYouTubePlayer(key) {
 	
 	// ===== Form Submit Settings ===== //
 	$("#submit_message").on("click", function() {
+		//console.log(sendmailURL);
 		$('#reply_message').removeClass();
 		$('#reply_message').html('')
 		var regEx = "";
 				
 		// validate Name
-		var name = $("input#name").val();
+		/*var name = $("input#name").val();
 		regEx=/^[A-Za-z .'-]+$/;
 		if (name == "" || name == "Name"  || !regEx.test(name)) {
 			$("input#name").val('');
 			$("input#name").focus();
 			return false;
-		}
+		}*/
 		
 		// validate Email
 		var email = $("input#email").val();
@@ -1478,32 +1494,34 @@ function initYouTubePlayer(key) {
 		}
 		
 		// validate Subject
-		var mysubject = $("input#mysubject").val();
+		/*var mysubject = $("input#mysubject").val();
 		regEx=/^[A-Za-z0-9 .'-]+$/;
 		if (mysubject == "" || mysubject == "Mysubject"  || !regEx.test(mysubject)) {
 			$("input#mysubject").val('');
 			$("input#mysubject").focus();
 			return false;
-		}
+		}*/
 		
 		// validate Message
-		var mymessage = $("textarea#mymessage").val();
+		/*var mymessage = $("textarea#mymessage").val();
 		if (mymessage == "" || mymessage == "Mymessage" || mymessage.length < 2) {
 			$("textarea#mymessage").val('');
 			$("textarea#mymessage").focus();
 			return false;
-		}
+		}*/
 							
-		var dataString = 'name='+ $("input#name").val() + '&email=' + $("input#email").val() + '&mysubject='+ $("input#mysubject").val() + '&mymessage=' + $("textarea#mymessage").val();
+		var dataString = 'name='+ encodeURIComponent($("input#name").val()) + '&email=' + encodeURIComponent($("input#email").val()) + '&mysubject='+ encodeURIComponent($("input#mysubject").val()) + '&mymessage=' + encodeURIComponent($("textarea#mymessage").val()) + '&phone=' + encodeURIComponent($("input#phone").val());
+		console.log(dataString);
 		
 		$('.loading').fadeIn(500);
 		
 		// Send form data to mailer.php
 		$.ajax({
-			type: "POST",
-			url: "mailer.php",
+			type: sendmailMethod,
+			url: sendmailURL,
 			data: dataString,
-			success: function() {
+			success: function(response) {
+				console.log(response);
 				$('.loading').hide();
 				$('#reply_message').addClass('list3');
 				$('#reply_message').html("<span>Mail sent successfully</span>")

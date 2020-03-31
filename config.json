@@ -29,13 +29,14 @@
   "contact": {
     "title": "Контакт",
     "action": "post",
-    "url": "",
-    "formFields": [
-          {"name": "Ваше имя"},
-          {"email": "Ваша почта"},
-          {"mysubject": "Тема"},
-          {"mymessage": "Сообщение"}
-      ]
-
+    "success": "Ваше письмо отправлено",
+    "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
+    "formFields": {
+          "name": "Ваше имя",
+          "email": "Ваша почта",
+          "mysubject": "Тема",
+          "mymessage": "Сообщение",
+          "submit":  "Отправить"
+    }
   }
 }

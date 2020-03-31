@@ -7,7 +7,7 @@
 
                 <!--Block Title-->
                 <div class="block-title">
-                    <h1>Контакт</h1>
+                    <h1></h1>
                 </div>
                 <!--End-->
 
@@ -24,14 +24,14 @@
                             <div class="col-sm-6 addpadding">
                                 <div class="box text-input">
                                     <input id="name" type="text" name="name" required />
-                                    <label>Ваше имя</label>
+                                    <label for="name"></label>
                                     <span></span>
                                 </div>
                             </div>
                             <div class="col-sm-6 addpadding">
                                 <div class="box text-input">
                                     <input id="email" type="text" name="email" required />
-                                    <label>Ваша почта</label>
+                                    <label for="email"></label>
                                     <span></span>
                                 </div>
                             </div>
@@ -40,20 +40,21 @@
                         <!--Subject Field Box-->
                         <div class="box text-input">
                             <input id="mysubject" type="text" name="mysubject" required />
-                            <label>Тема</label>
+                            <label for="mysubject"></label>
                             <span></span>
                         </div>
 
                         <!--Message Field Box-->
                         <div class="box text-input textarea">
+                            <input class="formPhone" id="phone" type="text" name="phone" />
                             <textarea id="mymessage" name="mymessage" required></textarea>
-                            <label>Сообщение</label>
+                            <label for="mymessage"></label>
                             <span></span>
                         </div>
 
                         <!--Submit Button-->
                         <div class="button raised dark-grey">
-                            <input id="submit_message" type="submit" value="Отправить"/>
+                            <input id="submit_message" type="submit" value=""/>
                         </div>
 
                         <span class="loading"><i class="fa fa-spinner fa-pulse"></i></span>
