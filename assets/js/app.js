@@ -459,20 +459,35 @@ jQuery(document).ready(function() {
 /************ Main config file load ******************/
 
 	$.getJSON("config.json", function(res){
-		if($(".video-caption").length){
-			$(".video-caption h1").html(res.blogTitle);
-			$(".video-caption div").html(res.blogSubTitle);
-			$(".copyright a").html(res.blogTitle);
-			$("head title").html(res.blogTitle);
-			$('.home-blog-panel .more-item-link a').attr('href', 'https://twitter.com/' + res.twitter.account);
+		
+			$('.logo-title').html(res.siteTitle);
+			$('.logo-subtitle').html(res.siteSubTitle);
+		
+			$(".video-caption h1").html(res.siteTitle);
+			$(".video-caption div").html(res.siteSubTitle);
+			$(".copyright a").html(res.siteTitle);
+			$("head title").html(res.siteTitle);
+
+			$('.home-blog-panel .more-item-link a').attr('href', res.twitter.moreLink).html(res.twitter.moreText);
+			$('.services-panel3 .more-item-link a').attr('href', res.youtube.moreLink).html(res.youtube.moreText);
+			$('.portfolio-panel3 .more-item-link a').attr('href', res.instagram.moreLink).html(res.instagram.moreText);
+
 			$('.home-blog-panel .block-title h1').html(res.twitter.title);
 			$('.home-contact-panel .block-title h1').html(res.contact.title);
 			$('.portfolio-panel3 .block-title h1').html(res.instagram.title);
+
+			$('.facebook').attr('href', 'https://facebook.com/' + res.facebook.account);
+			$('.twitter').attr('href', 'https://twitter.com/' + res.twitter.account);
+			$('.instagram').attr('href', 'https://instagram.com/' + res.instagram.account);
+			$('.youtube').attr('href', 'https://youtube.com/' + res.youtube.moreLink);
+			
+
 			//$("#personalPhoto").css('backgroundImage', 'url(' + res.about.photo + ')');
 			$('#personalPhoto').append(`<figure>
 <img src="${res.about.photo}" alt="image" />
 </figure>`);
 			fitImg();
+			
 			$('label[for="name"]').html(res.contact.formFields.name);
 			$('label[for="email"]').html(res.contact.formFields.email);
 			$('label[for="mysubject"]').html(res.contact.formFields.mysubject);
@@ -515,10 +530,16 @@ jQuery(document).ready(function() {
 			buildMenu(res.menu);
 			initYoutubeBackground(res.youtubeBackgroundVideo);
 			loadVids(res.youtube.playlists);
+
 			$.get(res.about.text, function(response){
 				$('#about').html('<h2>' + res.about.title + '</h2>' + response);
+				if(res.about.moreLink && res.about.moreText){
+					$('#about').append(`<div data-height="23"></div>
+                        <div class="button raised blue ripple">
+                            <a href="${res.about.moreLink}">${res.about.moreText}</a>
+                        </div>`);
+				}
 			});
-		}
 	});
 
 	/********* End main config *******/
