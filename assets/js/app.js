@@ -579,8 +579,7 @@ jQuery(document).ready(function() {
 			resultsLoop(data);
 			var owlVideoThumb = $("#video-thumb");
 			owlVideoThumb.owlCarousel({
-				dots: false,
-				nav: false,
+				dots: true,
 				responsiveClass: true,
 				responsive:{
 					0:{
