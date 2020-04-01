@@ -54,19 +54,19 @@
     "errorMessage": "Ошибка",
     "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
     "formFields": {
-          "name": "Ваше имя",
-          "email": "Ваша почта",
-          "mysubject": "Тема",
-          "mymessage": "Сообщение",
-          "submit":  "Отправить"
-    },
-    "footer": {
-      "subdescription": "Участник политических ток-шоу на российском телевидении",
-      "description": {
-        "part1": "Персона",
-        "part2": "Нон-дезидерата",
-        "part3": "в Евросоюзе"
-      }
+      "name": "Ваше имя",
+      "email": "Ваша почта",
+      "mysubject": "Тема",
+      "mymessage": "Сообщение",
+      "submit": "Отправить"
+    }
+  },
+  "footer": {
+    "subtitle": "Участник политических ток-шоу на российском телевидении",
+    "title": {
+      "part1": "Персона",
+      "part2": "Нон-дезидерата",
+      "part3": "в Евросоюзе"
     }
   }
 }

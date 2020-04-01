@@ -1893,7 +1893,7 @@ blockquote.blockquote2 > span ~ span:before {
     height: 100%;
 }
 
-/*.services-panel3 .block-title {
+/*.panel-youtube .block-title {
 	position: absolute;
 	top: 0;
 	left: auto;
@@ -2293,25 +2293,25 @@ blockquote.blockquote2 > span ~ span:before {
 /********************************************
 11.0 Home services panel style 3
 *********************************************/
-.services-panel3 .carousel-block-title h1 {
+.panel-youtube .carousel-block-title h1 {
 	padding: 0 30px;
 }
 
-.services-panel3 .service-item {
+.panel-youtube .service-item {
 	padding: 50px 40px;
 }
 
-.services-panel3 .service-item .box-icon {
+.panel-youtube .service-item .box-icon {
 	height: 28vh;
 	font-size: 18vh;
 	margin: -20px 0 0;
 }
 
-.services-panel3 .service-item a .box-icon {
+.panel-youtube .service-item a .box-icon {
 	color: #878787;
 }
 
-.services-panel3 .service-item h2 {
+.panel-youtube .service-item h2 {
 	margin: 0 0 20px;
 	font-size: 1.7142em;
 	font-weight: 600;
@@ -2319,17 +2319,17 @@ blockquote.blockquote2 > span ~ span:before {
 	color: #474747;
 }
 
-.services-panel3 .service-item .item-list-description {
+.panel-youtube .service-item .item-list-description {
 	margin: 0 0 30px;
 }
 
-.services-panel3 .service-item .button {
+.panel-youtube .service-item .button {
 	margin: 0;
 }
 
 /* ===== Services Panel Style 3 Dark Version ===== */
-.services-panel3 .service-item.dark a .box-icon,
-.services-panel3 .service-item.dark h2 {
+.panel-youtube .service-item.dark a .box-icon,
+.panel-youtube .service-item.dark h2 {
 	color: #fff;
 }
 
@@ -2541,30 +2541,30 @@ blockquote.blockquote2 > span ~ span:before {
 /********************************************
 14.0 Home content block panel style 3
 *********************************************/
-.content-block3 .container-fluid {
+.panel-about .container-fluid {
 	position: relative;
 	z-index: 2;
 }
 
-.content-block3 .image-block {
+.panel-about .image-block {
 	padding: 0;
 }
 
-.content-block3 .image-block img {
+.panel-about .image-block img {
 	width: 100%;
 	height: auto;
 }
 
-.content-block3 .img-height {
+.panel-about .img-height {
 	min-height: 100vw;
 }
 
-.content-block3.text-left .text-block,
-.content-block3.text-right .text-block {
+.panel-about.text-left .text-block,
+.panel-about.text-right .text-block {
 	padding: 60px 30px;
 }
 
-.content-block3 .text-block h2 {
+.panel-about .text-block h2 {
 	position: relative;
 	font-size: 2.1428em;
 	font-weight: 400;
@@ -2576,7 +2576,7 @@ blockquote.blockquote2 > span ~ span:before {
 	border-bottom: rgba(224,224,224,1) solid 1px;
 }
 
-.content-block3 .text-block h2:before {
+.panel-about .text-block h2:before {
 	position: absolute;
 	content: '';
 	left: 0;
@@ -2587,26 +2587,26 @@ blockquote.blockquote2 > span ~ span:before {
 	background-color: rgba(71,71,71,1);
 }
 
-.content-block3.text-left .text-block h2,
-.content-block3.text-left .text-block p {
+.panel-about.text-left .text-block h2,
+.panel-about.text-left .text-block p {
 	text-align: right;
 }
 
-.content-block3.text-left .text-block h2:before {
+.panel-about.text-left .text-block h2:before {
 	left: inherit;
 	right: 0;
 }
 
-.content-block3.text-left .text-block .button {
+.panel-about.text-left .text-block .button {
 	float: right;
 }
 
-.content-block3.dark .text-block h2 {
+.panel-about.dark .text-block h2 {
 	color: #fff;
 	border-bottom: rgba(255,255,255,0.4) solid 1px;
 }
 
-.content-block3.dark .text-block h2:before {
+.panel-about.dark .text-block h2:before {
 	background-color: rgba(255,255,255,1);
 }
 
@@ -2856,53 +2856,53 @@ blockquote.blockquote2 > span ~ span:before {
 /********************************************
 17.0 Home portfolio panel style 3
 *********************************************/
-.portfolio-panel3 .container {
+.panel-instagram .container {
 	padding: 60px 15px 0px 15px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
-.portfolio-panel3 .block-title {
+.panel-instagram .block-title {
 	margin: 0 0 58px;
 }
 
-.portfolio-panel3 .portfolio-tabs-wrapper {
+.panel-instagram .portfolio-tabs-wrapper {
 	position: relative;
 	background-color: rgba(255,255,255,0.8);
 	z-index: 2;
 	margin: 0 0 61px;
 }
 
-.portfolio-panel3 .portfolio-tabs-list {
+.panel-instagram .portfolio-tabs-list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.portfolio-panel3 .portfolio-tabs-list li {
+.panel-instagram .portfolio-tabs-list li {
 	position: relative;
 	width: 33.3333%;
 	float: left;
 }
 
-.portfolio-panel3 .portfolio-tabs-list li img {
+.panel-instagram .portfolio-tabs-list li img {
 	width: 100%;
 	height: auto;
 }
 
-.portfolio-panel3 .portfolio-tabs {
+.panel-instagram .portfolio-tabs {
 	margin-top: 100vw;
 }
 
-.portfolio-panel3 .portfolio-tabs-detail {
+.panel-instagram .portfolio-tabs-detail {
 	padding: 60px 40px;
 	background-color: #fff;
 }
 
 /* === Only Chrome === */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    .normalScroll .portfolio-panel3 .portfolio-tabs-img {
+    .normalScroll .panel-instagram .portfolio-tabs-img {
         margin-top: -17px;
     }
 }
@@ -2910,18 +2910,18 @@ blockquote.blockquote2 > span ~ span:before {
  
 /* === Only Firefox === */
 @-moz-document url-prefix() {
-    .normalScroll .portfolio-panel3 .portfolio-tabs-img {
+    .normalScroll .panel-instagram .portfolio-tabs-img {
         margin-top: -17px;
     }
 }
 /* === END === */
 
-.portfolio-panel3 .portfolio-tabs-img img {
+.panel-instagram .portfolio-tabs-img img {
 	width: 100%;
 	height: auto;
 }
 
-.portfolio-panel3 .portfolio-tabs-list li .thumbnail-hover {
+.panel-instagram .portfolio-tabs-list li .thumbnail-hover {
 	background-color: rgba(33,33,33,0.3);
 	opacity: 0;
 	
@@ -2932,12 +2932,12 @@ blockquote.blockquote2 > span ~ span:before {
 	transition: opacity 0.2s ease-in-out;
 }
 
-.portfolio-panel3 .portfolio-tabs-list li:hover .thumbnail-hover,
-.portfolio-panel3 .portfolio-tabs-list li a.tabulous_active .thumbnail-hover {
+.panel-instagram .portfolio-tabs-list li:hover .thumbnail-hover,
+.panel-instagram .portfolio-tabs-list li a.tabulous_active .thumbnail-hover {
 	opacity: 1;
 }
 
-.portfolio-panel3 .portfolio-tabs-detail h2 {
+.panel-instagram .portfolio-tabs-detail h2 {
 	position: relative;
 	font-size: 2.1428em;
 	font-weight: 400;
@@ -2949,7 +2949,7 @@ blockquote.blockquote2 > span ~ span:before {
 	border-bottom: rgba(224,224,224,1) solid 1px;
 }
 
-.portfolio-panel3 .portfolio-tabs-detail h2:before {
+.panel-instagram .portfolio-tabs-detail h2:before {
 	position: absolute;
 	content: '';
 	left: 0;
@@ -2960,7 +2960,7 @@ blockquote.blockquote2 > span ~ span:before {
 	background-color: rgba(71,71,71,1);
 }
 
-.portfolio-panel3 .portfolio-tabs-detail .item-list-description {
+.panel-instagram .portfolio-tabs-detail .item-list-description {
 	margin: 0 0 34px;
 }
 
@@ -2977,7 +2977,7 @@ blockquote.blockquote2 > span ~ span:before {
 /********************************************
 18.0 Home blog panel
 *********************************************/
-.home-blog-panel .container {
+.panel-twitter .container {
 	position: relative;
 	padding: 60px 15px 0px 15px;
 	z-index: 2;
@@ -2987,12 +2987,12 @@ blockquote.blockquote2 > span ~ span:before {
 	box-sizing: border-box;
 }
 
-.home-blog-panel .block-title {
+.panel-twitter .block-title {
 	margin: 0 0 43px;
 }
 
-.home-blog-panel .owl-dots {
-	margin-bottom: 25px;
+.panel-twitter .owl-dots {
+	/*margin-bottom: 25px;*/
 }
 
 
@@ -3446,6 +3446,8 @@ blockquote.blockquote2 > span ~ span:before {
 .footer-subdescription {
 	font-size: 1.2857em;
 	line-height: 1.4em;
+	max-width: 350px;
+	margin: 0 auto;
 }
 
 .footer-panel .social-media {
@@ -4016,9 +4018,7 @@ h1.page-title:before,
 .related-work .owl-controls {
 	display: none;
 }
-.owl-nav.disabled {
-	display: none;
-}
+
 
 .related-work-thumb {
 	position: relative;
@@ -5044,15 +5044,15 @@ circle {
 		font-size: 3.5714em;
 	}
 	
-	.services-panel3 .carousel-block-title h1 {
+	.panel-youtube .carousel-block-title h1 {
 		padding: 0 40px;
 	}
 	
-	.services-panel3 .service-item .box-icon {
+	.panel-youtube .service-item .box-icon {
 		margin: 0;
 	}
 	
-	.services-panel3 .service-item .item-list-description {
+	.panel-youtube .service-item .item-list-description {
 		margin: 0 0 40px;
 	}
 	
@@ -5064,12 +5064,12 @@ circle {
 		float: right;
 	}
 	
-	.content-block3.text-left .text-block,
-	.content-block3.text-right .text-block {
+	.panel-about.text-left .text-block,
+	.panel-about.text-right .text-block {
 		padding: 60px 50px;
 	}
 	
-	.portfolio-panel3 .portfolio-tabs-detail .item-list-description {
+	.panel-instagram .portfolio-tabs-detail .item-list-description {
 		margin: 0 0 44px;
 	}
 	
@@ -5256,39 +5256,39 @@ circle {
 		margin: 25px 25px 0 0;
 	}
 	
-	.services-panel3 .service-item .box-icon {
+	.panel-youtube .service-item .box-icon {
 		margin: 0 0 40px;
 	}
 
-	.services-panel3 .service-item .item-list-description {
+	.panel-youtube .service-item .item-list-description {
 		margin: 0 0 60px;
 	}
 	
-	.services-panel3 .service-item .button {
+	.panel-youtube .service-item .button {
 		margin: 0 0 40px;
 	}
 	
-	.content-block3 .content-height,
-	.content-block3 .img-height {
+	.panel-about .content-height,
+	.panel-about .img-height {
 		min-height: 100vh;
 	}
 	
-	.content-block3.text-left .text-block {
+	.panel-about.text-left .text-block {
 		padding: 80px 50px 80px 80px;
 	}
 	
-	.content-block3.text-right .text-block {
+	.panel-about.text-right .text-block {
 		padding: 80px 80px 80px 50px;
 	}
 	
-	.portfolio-panel3 .portfolio-tabs-wrapper {
+	.panel-instagram .portfolio-tabs-wrapper {
 		height: 33.3333vw;
 		overflow: hidden;
 	}
 	
 	/* === Only Chrome === */
     @media screen and (-webkit-min-device-pixel-ratio:0) {
-        .normalScroll .portfolio-panel3 .portfolio-tabs-wrapper {
+        .normalScroll .panel-instagram .portfolio-tabs-wrapper {
             height: 32.9795vw;
         }
     }
@@ -5296,36 +5296,36 @@ circle {
     
     /* === Only Firefox === */
     @-moz-document url-prefix() {
-        .normalScroll .portfolio-panel3 .portfolio-tabs-wrapper {
+        .normalScroll .panel-instagram .portfolio-tabs-wrapper {
             height: 32.9355vw;
         }
     }
     /* === END === */
 		
-	.portfolio-panel3 .portfolio-tabs-list {
+	.panel-instagram .portfolio-tabs-list {
 		width: 33.3333%;
 		float: left;
 	}
 	
-	.portfolio-panel3 .portfolio-detail-wrapper {
+	.panel-instagram .portfolio-detail-wrapper {
 		width: 66.6666%;
 		float: right;
 	}
 	
-	.portfolio-panel3 .portfolio-tabs {
+	.panel-instagram .portfolio-tabs {
 		width: 66.6666%;
 		height: 640px;
 		display: table;
 		margin-top: 0;
 	}
 	
-	.portfolio-panel3 .portfolio-tabs-img {
+	.panel-instagram .portfolio-tabs-img {
 		display: table-cell;
 		vertical-align: top;
 		width: 50%;
 	}
 	
-	.portfolio-panel3 .portfolio-tabs-detail {
+	.panel-instagram .portfolio-tabs-detail {
 		display: table-cell;
 		vertical-align: top;
 		width: 50%;

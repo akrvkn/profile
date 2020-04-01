@@ -427,7 +427,7 @@ jQuery(document).ready(function() {
 						var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
 						var name = $(v).find('.tweetAuthor-name').text();
 						$('#twitterBlog').append(createTwitterBlogItem(text, media, time, link, name));
-						var owlBlog = $(".home-blog-panel .box-carousel-wrapper");
+						var owlBlog = $(".panel-twitter .box-carousel-wrapper");
 						if (i === 2) {
 							owlBlog.owlCarousel({
 								dots: false,
@@ -467,14 +467,21 @@ jQuery(document).ready(function() {
 			$(".video-caption div").html(res.siteSubTitle);
 			$(".copyright a").html(res.siteTitle);
 			$("head title").html(res.siteTitle);
+			console.log(res.footer);
+			$('.footer-description').html(res.footer.title.part1 + ' <span data-color="#00acc1">' + res.footer.title.part2 + '</span> ' + res.footer.title.part3);
+			$('.footer-subdescription').html(res.footer.subtitle);
 
-			$('.home-blog-panel .more-item-link a').attr('href', res.twitter.moreLink).html(res.twitter.moreText);
-			$('.services-panel3 .more-item-link a').attr('href', res.youtube.moreLink).html(res.youtube.moreText);
-			$('.portfolio-panel3 .more-item-link a').attr('href', res.instagram.moreLink).html(res.instagram.moreText);
+			setDataColors();
 
-			$('.home-blog-panel .block-title h1').html(res.twitter.title);
+
+			$('.panel-twitter .more-item-link a').attr('href', res.twitter.moreLink).html(res.twitter.moreText);
+			$('.panel-youtube .more-item-link a').attr('href', res.youtube.moreLink).html(res.youtube.moreText);
+			$('.panel-instagram .more-item-link a').attr('href', res.instagram.moreLink).html(res.instagram.moreText);
+
+			$('.panel-twitter .block-title h1').html(res.twitter.title);
 			$('.home-contact-panel .block-title h1').html(res.contact.title);
-			$('.portfolio-panel3 .block-title h1').html(res.instagram.title);
+			$('.panel-instagram .block-title h1').html(res.instagram.title);
+			$('.panel-youtube .block-title h1').html(res.youtube.title);
 
 			$('.facebook').attr('href', 'https://facebook.com/' + res.facebook.account);
 			$('.twitter').attr('href', 'https://twitter.com/' + res.twitter.account);
@@ -514,7 +521,7 @@ jQuery(document).ready(function() {
 				initInstagramAPI(res.instagram.userId, res.instagram.accessToken);
 				// Fix Auto Height tabs_container
 				$(window).on("load resize", function() {
-					var pHeight = $('.portfolio-panel3 .portfolio-detail-wrapper');
+					var pHeight = $('.panel-instagram .portfolio-detail-wrapper');
 					var ptHeight = $('.portfolio-tabs').height();
 
 					pHeight.height(ptHeight);
@@ -523,7 +530,7 @@ jQuery(document).ready(function() {
 				$.get(res.instagram.widget, function(html){
 					$('#instagramWidget').html(html);
 					$('#portfolioTabs').remove();
-					$('.portfolio-panel3 .overlay').remove();
+					$('.panel-instagram .overlay').remove();
 				});
 			}
 
@@ -686,7 +693,7 @@ jQuery(document).ready(function() {
 
 
 	function createTwitterBlogItem(txt, pic, time, link, name){
-		//var img = `<figure><img src="assets/images/upload/home-blog-panel-thumbnail1.jpg" alt="thumbnail" /></figure>`;
+		//var img = `<figure><img src="assets/images/upload/panel-twitter-thumbnail1.jpg" alt="thumbnail" /></figure>`;
 		var	img = pic === undefined ? '' : `<figure><a style="cursor: pointer" href="${link}"><img src="${pic}" style="width: 370px; height: 270px;" alt="thumbnail" /></a></figure>`;
 
 		return `<div class="carousel-item">
@@ -721,11 +728,12 @@ jQuery(document).ready(function() {
 		var heightAttr = $(this).attr('data-height')+'px';
 		return heightAttr;
 	});
-	
-	$("*").css('color', function () {
-		var colorAttr = $(this).data('color');
-		return colorAttr;
-	});
+	function setDataColors() {
+		$("*").css('color', function () {
+			var colorAttr = $(this).data('color');
+			return colorAttr;
+		});
+	}
 	
 	$("*").css('opacity', function () {
 		var opacityAttr = $(this).data('opacity');
