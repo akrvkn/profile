@@ -737,10 +737,10 @@ jQuery(document).ready(function() {
 		return bgcolorAttr;
 	});
 	
-	$(bgImage).css('background-image', function () {
+	/*$(bgImage).css('background-image', function () {
 		var bg = ('url(' + $(this).data("image-src") + ')');
 		return bg;
-	});
+	});*/
 	
 	$(".top-triangle").css("border-bottom-color", function () {
 		var topTriangle = $(this).data('shape-color');
