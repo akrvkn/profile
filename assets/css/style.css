@@ -98,6 +98,15 @@ body {
 	-webkit-touch-callout: none;
 }
 
+a {
+	text-decoration: none;
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}
+
 .container-wrapper {
 	height: 100vh;
 	overflow: hidden;
@@ -1565,7 +1574,7 @@ blockquote.blockquote2 > span ~ span:before {
 
 .box-carousel-wrapper .carousel-inner {
 	margin-bottom: 20px;
-	width: 370px;
+	/*width: 370px;*/
 	background-color: rgba(255,255,255,0.9);
 	
 	-webkit-box-shadow: 0px 3px 12px 0px rgba(0,0,0,0.3);
@@ -4005,6 +4014,9 @@ h1.page-title:before,
 }
 
 .related-work .owl-controls {
+	display: none;
+}
+.owl-nav.disabled {
 	display: none;
 }
 
