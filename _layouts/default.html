@@ -4,25 +4,12 @@
 <body marginwidth='0' marginheight='0'>
 
 {% include loader.html %}
-
-{% include menu.html %}
+{% include header.html %}
 
 <!--Fullpage Wrapper Start-->
 <div id="fullpage">
 
-    {% include sections/video-background.html %}
-
-    {% include sections/about.html %}
-
-    {% include sections/youtube.html %}
-
-    {% include sections/instagram.html %}
-
-    {% include sections/twitter.html %}
-
-    {% include sections/contact.html %}
-
-   {% include sections/footer.html %}
+    {{ content }}
 
 </div>
 <!--Fullpage Wrapper End-->
