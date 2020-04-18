@@ -286,7 +286,7 @@
     color: #fff;
 }
 .hover_menu_style2.nav-fixed .navbar-expand-lg .navbar-nav > li > .nav-link::before {
-    background-color: #333333;
+    background-color: #fff;
 }
 .nav-fixed.hover_menu_style2 .navbar-expand-lg .navbar-nav > li > .nav-link {
     padding-left: 0;
@@ -404,7 +404,7 @@
 }
 .light_skin.nav-fixed .navbar-nav > li > a,
 .light_skin.nav-fixed .navbar-toggler {
-    color: #333333;
+    color: #fff;
 }
 .sticky_light_skin.light_skin.nav-fixed .logo_dark {
     display: none;
@@ -774,10 +774,10 @@ header.light_skin .social_icons li a {
     color: #fff;
 }
 header.light_skin.nav-fixed .social_icons li a {
-    color: #000;
+    color: #fff;
 }
 header.light_skin.nav-fixed .social_icons li a:hover {
-    color: #0E93D8;
+    color: #cccccc;
 }
 .navbar .btn {
     padding: 10px 25px;
