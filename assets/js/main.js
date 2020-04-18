@@ -511,14 +511,14 @@ jQuery(document).ready(function() {
 	});*/
 
 	// CALL FILTER FUNCTION IF ANY FILTER HAS BEEN CLICKED
-	jQuery('.filter').on("click", function() {
+	/*jQuery('.filter').on("click", function() {
 		jQuery('.filter').each(function() {
 			jQuery(this).removeClass("selected")
 		});
 		api.megafilter(jQuery(this).data('category'));
 		portfolioPage.megafilter(jQuery(this).data('category'));
 		jQuery(this).addClass("selected");
-	});
+	});*/
 
 
 	// ===== FancyBox Settings ===== //
@@ -527,7 +527,7 @@ jQuery(document).ready(function() {
 	});*/
 
 	// ===== Change burger menu background-color on the fly with Midnight jQuery ===== //
-	//$('.nav-fixed').midnight();
+	//$('.nav-menu').midnight();
 
 
 
