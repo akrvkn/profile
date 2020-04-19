@@ -692,6 +692,357 @@ blockquote.blockquote2 > span ~ span:before {
 	padding-top: 12px;
 }
 
+/********************************************
+4.1 Burger menu
+*********************************************/
+
+.nav-open .burger-wrap {
+	margin: 20px 0 0 30px;
+}
+.nav-open {
+	height: 60px !important;
+	width: 80px;
+}
+
+.menu-burger {
+	width: 40px;
+	height: 22px;
+	overflow: hidden;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	-ms-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+
+.menu-burger:hover {
+	height: 38px;
+	margin-top: -8px;
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(360deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(360deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(360deg);
+	transition:all 0.3s linear;
+	transform: rotate(360deg);
+	cursor: pointer;
+}
+
+.menu-burger .menu1 {
+	width: 40px;
+	height: 4px;
+	margin-bottom: 5px;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	-ms-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+
+.menu-burger:hover .menu1 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(-45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(-45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(-45deg);
+	transition:all 0.3s linear;
+	transform: rotate(-45deg);
+	width: 25px;
+	margin-left: -2px;
+	margin-top: 8px;
+	margin-bottom: 5px;
+}
+
+.menu-burger .menu2 {
+	width: 40px;
+	height: 4px;
+}
+
+.menu-burger:hover .menu2 {
+	border-radius: 4px;
+}
+
+.menu-burger .menu3 {
+	width: 40px;
+	height: 4px;
+	margin-top: 5px;
+	-webkit-transition:all 0.3s linear;
+	-moz-transition:all 0.3s linear;
+	-ms-transition:all 0.3s linear;
+	transition:all 0.3s linear;
+}
+
+.menu-burger:hover .menu3 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(45deg);
+	transition:all 0.3s linear;
+	transform: rotate(45deg);
+	width: 25px;
+	margin-left: -2px;
+	margin-top: 5px;
+}
+
+#main-menu.right .menu-burger:hover .menu1 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(45deg);
+	transition:all 0.3s linear;
+	transform: rotate(45deg);
+	margin-left: 17px;
+}
+
+#main-menu.right .menu-burger:hover .menu3 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(-45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(-45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(-45deg);
+	transition:all 0.3s linear;
+	transform: rotate(-45deg);
+	margin-left: 17px;
+}
+/* ===== Dark Burger ===== */
+.menu-burger .menu1,
+.menu-burger .menu2,
+.menu-burger .menu3 {
+	background-color: #fff;
+}
+
+.navbar-dark .navbar-toggler {
+	border: none;
+	background-color: #474747;
+}
+
+.nav-open .midnightHeader.darkColor .menu-burger .menu1,
+.nav-open .midnightHeader.darkColor .menu-burger .menu2,
+.nav-open .midnightHeader.darkColor .menu-burger .menu3 {
+	background-color: #474747;
+}
+
+/* ===== Dark Burger ===== */
+.nav-open .midnightHeader.default .menu-burger .menu1,
+.nav-open .midnightHeader.default .menu-burger .menu2,
+.nav-open .midnightHeader.default .menu-burger .menu3 {
+	background-color: #fff;
+}
+
+.nav-open .midnightHeader.darkColor .menu-burger .menu1,
+.nav-open .midnightHeader.darkColor .menu-burger .menu2,
+.nav-open .midnightHeader.darkColor .menu-burger .menu3 {
+	background-color: #474747;
+}
+
+/* ===== Navigation Menu ===== */
+
+#main-menu {
+	background-color: #1b1b1b;
+}
+
+#main-menu .nav-menu {
+	list-style: none;
+	padding: 0;
+
+}
+
+#main-menu .nav-menu li {
+	position: relative;
+	border-top: #303030 solid 1px;
+}
+
+#main-menu .nav-menu li:last-child {
+	border-bottom: #303030 solid 1px;
+}
+
+#main-menu .nav-menu li a {
+	display: block;
+	font-size: 1.142em;
+	font-weight: 500;
+	color: #878787;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 10px 30px;
+
+	-webkit-transition: color 0.65s ease-in-out;
+	-moz-transition: color 0.65s ease-in-out;
+	-ms-transition: color 0.65s ease-in-out;
+	transition: color 0.65s ease-in-out;
+}
+
+#main-menu .nav-menu li:hover a {
+	color: #fff;
+}
+
+#main-menu .nav-menu li span {
+	width: 45px;
+	height: 45px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: #404040;
+	cursor: pointer;
+
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+#main-menu .nav-menu li:hover span {
+	background-color: #606060;
+}
+
+#main-menu .nav-menu li span:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	width: 14px;
+	height: 2px;
+	margin-top: -1px;
+	margin-right: -7px;
+	background-color: #878787;
+
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+#main-menu .nav-menu li span:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	width: 14px;
+	height: 2px;
+	margin-top: -1px;
+	margin-right: -7px;
+	background-color: #878787;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+
+	-webkit-transition: background-color 0.3s ease-in-out;
+	-moz-transition: background-color 0.3s ease-in-out;
+	-ms-transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-in-out;
+}
+
+#main-menu .nav-menu li:hover span:before,
+#main-menu .nav-menu li:hover span:after {
+	background-color: #fff;
+}
+
+#main-menu .nav-menu li:after {
+	position: absolute;
+	content: '';
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 0;
+	background-color: #404040;
+	z-index: -1;
+
+	-webkit-transition: width 0.5s ease-in-out;
+	-moz-transition: width 0.5s ease-in-out;
+	-ms-transition: width 0.5s ease-in-out;
+	transition: width 0.5s ease-in-out;
+}
+
+#main-menu .nav-menu li:hover:after {
+	width: 100%;
+}
+
+.dropdown-menu > a {
+	padding: 10px 60px 10px 30px !important;
+}
+
+.dropdown-menu ul {
+	list-style: none;
+	padding-left: 20px;
+	border-top: #303030 solid 1px;
+	background-color: #1b1b1b;
+}
+
+.dropdown-menu ul li:first-child {
+	border-top: none !important;
+}
+
+.dropdown-menu ul li:last-child {
+	border-bottom: none !important;
+}
+
+.dropdown-menu ul li a {
+	text-transform: capitalize !important;
+
+	-webkit-transition: color 0.3s ease-in-out !important;
+	-moz-transition: color 0.3s ease-in-out !important;
+	-ms-transition: color 0.3s ease-in-out !important;
+	transition: color 0.3s ease-in-out !important;
+}
+
+.dropdown-menu ul li,
+.dropdown-menu ul ul {
+	border-top: #303030 solid 1px !important;
+}
+
+.dropdown-menu ul ul ul {
+	padding: 0;
+}
+
+.dropdown-menu:hover ul li a,
+.dropdown-menu.active ul li a {
+	color: #878787 !important;
+}
+
+.dropdown-menu > ul > li:hover > a {
+	color: #fff !important;
+}
+
+.dropdown-menu:hover ul li span {
+	background-color: #404040 !important;
+}
+
+.dropdown-menu > ul > li:hover > span {
+	background-color: #606060 !important;
+}
+
+.dropdown-menu:hover ul li span:before,
+.dropdown-menu:hover ul li span:after {
+	background-color: #878787 !important;
+}
+
+.dropdown-menu > ul > li:hover > span:before,
+.dropdown-menu > ul > li:hover > span:after {
+	background-color: #fff !important;
+}
+
+#main-menu .nav-menu li.active a {
+	color: #fff;
+}
+
+#main-menu .nav-menu li.active:after {
+	width: 100%;
+}
+
+#main-menu .nav-menu li.active > span {
+	background-color: #606060 !important;
+}
+
+#main-menu .nav-menu li.active > span:before,
+#main-menu .nav-menu li.active > span:after {
+	background-color: #fff !important;
+}
+
 
 /********************************************
 4.5 Navbar settings
@@ -703,6 +1054,12 @@ blockquote.blockquote2 > span ~ span:before {
 	left: 0;
 	z-index: 99999;
 	color: #fff;
+}
+
+.navbar-collapse {
+	position: fixed;
+	top: 60px;
+	left: 20px;
 }
 
 

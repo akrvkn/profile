@@ -888,6 +888,8 @@ jQuery(document).ready(function() {
 
     "use strict";
 
+    $('.nav-open').midnight();
+
     // ===== Pre Loader ===== //
     $(window).on("load", function(){
         $('.loader-wrapper').fadeOut(300);
