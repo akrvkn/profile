@@ -697,10 +697,10 @@ blockquote.blockquote2 > span ~ span:before {
 *********************************************/
 
 .nav-open .burger-wrap {
-	margin: 20px 0 0 30px;
+	margin: 40px 0 0 30px;
 }
 .nav-open {
-	height: 60px !important;
+	height: 80px !important;
 	width: 80px;
 }
 
@@ -786,7 +786,7 @@ blockquote.blockquote2 > span ~ span:before {
 	margin-top: 5px;
 }
 
-#main-menu.right .menu-burger:hover .menu1 {
+.menu-burger:hover .menu1 {
 	-webkit-transition:all 0.3s linear;
 	-webkit-transform: rotate(45deg);
 	-moz-transition:all 0.3s linear;
@@ -798,7 +798,7 @@ blockquote.blockquote2 > span ~ span:before {
 	margin-left: 17px;
 }
 
-#main-menu.right .menu-burger:hover .menu3 {
+.menu-burger:hover .menu3 {
 	-webkit-transition:all 0.3s linear;
 	-webkit-transform: rotate(-45deg);
 	-moz-transition:all 0.3s linear;
@@ -1058,8 +1058,8 @@ blockquote.blockquote2 > span ~ span:before {
 
 .navbar-collapse {
 	position: fixed;
-	top: 60px;
-	left: 20px;
+	top: 80px;
+	left: 30px;
 }
 
 
