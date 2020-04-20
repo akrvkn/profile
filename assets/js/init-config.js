@@ -818,6 +818,18 @@ function initFullPage(){
     });
 }
 
+function menuOpen(){
+    $('html').addClass('menu-visible');
+    $('#main-menu').animate({ opacity: 1, left: 30 }, 1000, 'easeOutExpo');
+}
+
+function menuClose(){
+    $('html').removeClass('menu-visible');
+    $('#main-menu').animate({ opacity: 0, left: -280 }, 1500, 'easeOutExpo');
+
+}
+
+
 $.getJSON("config.json", function (res) {
     //console.log(twttr);
     $('.logo-title').html(res.siteTitle);
@@ -889,6 +901,19 @@ jQuery(document).ready(function() {
     "use strict";
 
     $('.nav-open').midnight();
+    $('.nav-close').midnight();
+
+    let menu = $('#nav-btn'),
+        body = $('html');
+
+    menu.click(function() {
+        if (body.hasClass('menu-visible')) {
+            menuClose();
+        } else {
+            body.addClass('menu-visible');
+            menuOpen();
+        }
+    });
 
     // ===== Pre Loader ===== //
     $(window).on("load", function(){

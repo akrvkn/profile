@@ -696,12 +696,24 @@ blockquote.blockquote2 > span ~ span:before {
 4.1 Burger menu
 *********************************************/
 
-.nav-open .burger-wrap {
+.nav-open .burger-wrap, .nav-close .burger-wrap {
 	margin: 40px 0 0 30px;
 }
-.nav-open {
+.nav-open , .nav-close{
 	height: 80px !important;
 	width: 80px;
+}
+
+.nav-close {
+	display: none;
+}
+
+.menu-visible .nav-close {
+	display: block;
+}
+
+.menu-visible .nav-open {
+	display: none;
 }
 
 .menu-burger {
@@ -714,7 +726,7 @@ blockquote.blockquote2 > span ~ span:before {
 	transition:all 0.3s linear;
 }
 
-.menu-burger:hover {
+/*.menu-burger:hover {
 	height: 38px;
 	margin-top: -8px;
 	-webkit-transition:all 0.3s linear;
@@ -726,7 +738,7 @@ blockquote.blockquote2 > span ~ span:before {
 	transition:all 0.3s linear;
 	transform: rotate(360deg);
 	cursor: pointer;
-}
+}*/
 
 .menu-burger .menu1 {
 	width: 40px;
@@ -738,7 +750,7 @@ blockquote.blockquote2 > span ~ span:before {
 	transition:all 0.3s linear;
 }
 
-.menu-burger:hover .menu1 {
+/*.menu-burger:hover .menu1 {
 	-webkit-transition:all 0.3s linear;
 	-webkit-transform: rotate(-45deg);
 	-moz-transition:all 0.3s linear;
@@ -751,16 +763,16 @@ blockquote.blockquote2 > span ~ span:before {
 	margin-left: -2px;
 	margin-top: 8px;
 	margin-bottom: 5px;
-}
+}*/
 
 .menu-burger .menu2 {
 	width: 40px;
 	height: 4px;
 }
 
-.menu-burger:hover .menu2 {
+/*.menu-burger:hover .menu2 {
 	border-radius: 4px;
-}
+}*/
 
 .menu-burger .menu3 {
 	width: 40px;
@@ -772,7 +784,7 @@ blockquote.blockquote2 > span ~ span:before {
 	transition:all 0.3s linear;
 }
 
-.menu-burger:hover .menu3 {
+/*.menu-burger:hover .menu3 {
 	-webkit-transition:all 0.3s linear;
 	-webkit-transform: rotate(45deg);
 	-moz-transition:all 0.3s linear;
@@ -808,7 +820,39 @@ blockquote.blockquote2 > span ~ span:before {
 	transition:all 0.3s linear;
 	transform: rotate(-45deg);
 	margin-left: 17px;
+}*/
+
+.nav-close .menu-burger .menu1 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(-45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(-45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(-45deg);
+	transition:all 0.3s linear;
+	transform: rotate(-45deg);
+	width: 25px;
+	margin-left: 3px;
+	margin-top: 11px;
+	margin-bottom: 0px;
 }
+
+.nav-close .menu-burger .menu3 {
+	-webkit-transition:all 0.3s linear;
+	-webkit-transform: rotate(45deg);
+	-moz-transition:all 0.3s linear;
+	-moz-transform: rotate(45deg);
+	-ms-transition:all 0.3s linear;
+	-ms-transform: rotate(45deg);
+	transition:all 0.3s linear;
+	transform: rotate(45deg);
+	width: 25px;
+	margin-left: 3px;
+	margin-top: -4px;
+	margin-bottom: 0px;
+}
+
+
 /* ===== Dark Burger ===== */
 .menu-burger .menu1,
 .menu-burger .menu2,
@@ -840,10 +884,29 @@ blockquote.blockquote2 > span ~ span:before {
 	background-color: #474747;
 }
 
+/* ===== Dark Burger ===== */
+.nav-close .midnightHeader.default .menu-burger .menu1,
+.nav-close .midnightHeader.default .menu-burger .menu2,
+.nav-close .midnightHeader.default .menu-burger .menu3 {
+	background-color: #fff;
+}
+
+.nav-close .midnightHeader.darkColor .menu-burger .menu1,
+.nav-close .midnightHeader.darkColor .menu-burger .menu2,
+.nav-close .midnightHeader.darkColor .menu-burger .menu3 {
+	background-color: #474747;
+}
+
 /* ===== Navigation Menu ===== */
 
 #main-menu {
 	background-color: #1b1b1b;
+	opacity: 0;
+	left: -250px;
+}
+
+#nav-btn {
+	cursor: pointer;
 }
 
 #main-menu .nav-menu {
