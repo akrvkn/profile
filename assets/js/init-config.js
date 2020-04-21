@@ -1,6 +1,6 @@
-var yt_video = "123";
+var yt_video = "1";
 
-var v_start = 0;
+var v_start, v_end;
 
 var tag,
     tv,
@@ -88,8 +88,9 @@ function onPlayerStateChange(e) {
         tv.seekTo(vid[currVid].startSeconds);
     }
     if (e.data === YT.PlayerState.ENDED) {
-        $(".hero-video").css("opacity","0.01");
-        $(".hero-video").stop().animate({opacity:1},{duration:6000});
+        var heroVideo = $(".hero-video");
+        heroVideo.css("opacity","0.01");
+        heroVideo.stop().animate({opacity:1},{duration:6000});
         tv.playVideo();
     }
 }
@@ -103,8 +104,9 @@ function onPlayerStateChange(e) {
         if(typeof yt_video !== "undefined"){
             if(yt_video!==undefined && yt_video!=="" && yt_video!==" "){
                 addHeroVideo();
-                $(".hero-video").append('<div class="screen mute" id="tv"></div>');
-                $(".hero-video").css({opacity:0});
+                var heroVideo = $(".hero-video");
+                heroVideo.append('<div class="screen mute" id="tv"></div>');
+                heroVideo.css({opacity:0});
                 createdVideoDiv=1;
             }
         }
@@ -116,8 +118,8 @@ function onPlayerStateChange(e) {
         });
 
         function isMobile(){
-            var isMobile = ('ontouchstart' in document.documentElement || navigator.userAgent.match(/Mobi/)?true:false);
-            return isMobile;
+            //var isMobile = ('ontouchstart' in document.documentElement || navigator.userAgent.match(/Mobi/)?true:false);
+            return !!('ontouchstart' in document.documentElement || navigator.userAgent.match(/Mobi/));
         }
 
         function addHeroVideo(){
@@ -131,7 +133,7 @@ function onPlayerStateChange(e) {
         function setHeroVideo(){
             if($(".h-video").length && !isMobile()){
                 /* To local Hero Video */
-                if(typeof local_video!=="undefined"){
+                /*if(typeof local_video!=="undefined"){
                     if(local_video!==undefined && local_video!=="" && local_video!==" "){
                         $(".hero-video").remove();
                         $(".hero-video").each(function(){
@@ -160,7 +162,7 @@ function onPlayerStateChange(e) {
                         if(isMobile())
                             $('#video_cover').css({display:"block"}).animate({opacity:1});
                     }
-                }
+                }*/
                 /* To Youtube and Vimeo */
                 videoRescale();
             }
@@ -168,15 +170,16 @@ function onPlayerStateChange(e) {
 
         function videoRescale(){
             ytVidRescale();
-            vmVidRescale();
+            //vmVidRescale();
         }
 
         function ytVidRescale(){
             if(typeof yt_video !== "undefined"){
                 if(yt_video!==undefined && yt_video!=="" && yt_video!==" "){
                     var c = setInterval(function(){
-                        var w = $(".hero-video").width(),
-                            h = $(".hero-video").height();
+                        var heroVideo =  $(".hero-video");
+                        var w = heroVideo.width(),
+                            h = heroVideo.height();
                         if (w/h > 16/9){
                             if(tv!==undefined)
                                 tv.setSize(w, w/16*9);
@@ -188,38 +191,12 @@ function onPlayerStateChange(e) {
                             $('.hero-video .screen').css({'left': -($('.hero-video .screen').outerWidth()-w)/2});
                         }
                         if(ytLoaded){
-                            if($(".hero-video").css("opacity")==="0"){
-                                $(".hero-video").css("opacity","0.01");
-                                $(".hero-video").stop().animate({opacity:1},{duration:6000});
+                            if(heroVideo.css("opacity")==="0"){
+                                heroVideo.css("opacity","0.01");
+                                heroVideo.stop().animate({opacity:1},{duration:6000});
                             }
                         }
                     },1);
-                    setTimeout(function(){
-                        clearInterval(c);
-                    },4000);
-                }
-            }
-        }
-
-        function vmVidRescale(){
-            if(typeof vm_video !== "undefined"){
-                if(vm_video!==undefined && vm_video!=="" && vm_video!==" "){
-                    var c = setInterval(function(){
-                        var theWidth = $(".hero-video").width();
-                        var theHeight = $(".hero-video").height();
-                        var newWidth = (theHeight*1.77777778);
-                        var newHeight = (theWidth/1.77777778);
-                        if ( (theWidth > 1280) && (newHeight > theHeight )) {
-                            $('.fullvid').css({'width':theWidth+5, 'height':newHeight+5});
-                        }
-                        if ( (theHeight > 720) && (newWidth > theWidth )) {
-                            $('.fullvid').css({'height':theHeight+5, 'width':newWidth+5});
-                        }
-                    },1);
-                    if($(".hero-video").css("opacity")==="0"){
-                        $(".hero-video").css("opacity","0.01");
-                        $(".hero-video").stop().delay(2000).animate({opacity:1},{duration:3000});
-                    }
                     setTimeout(function(){
                         clearInterval(c);
                     },4000);
@@ -742,7 +719,7 @@ function initFullPage(){
         loopHorizontal: true,
         //responsive: 900,
         afterLoad: function(anchorLink, index){
-            if(index == 2){
+            if(index === 2){
                 $('.panel-2 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-2 .animate-fadeInUp, .panel-2 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-2 .animate-fadeInLeft, .panel-2 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -750,7 +727,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 3){
+            if(index === 3){
                 $('.panel-3 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-3 .animate-fadeInUp, .panel-3 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-3 .animate-fadeInLeft, .panel-3 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -758,7 +735,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 4){
+            if(index === 4){
                 $('.panel-4 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-4 .animate-fadeInUp, .panel-4 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-4 .animate-fadeInLeft, .panel-4 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -766,7 +743,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 5){
+            if(index === 5){
                 $('.panel-5 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-5 .animate-fadeInUp, .panel-5 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-5 .animate-fadeInLeft, .panel-5 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -774,7 +751,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 6){
+            if(index === 6){
                 $('.panel-6 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-6 .animate-fadeInUp, .panel-6 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-6 .animate-fadeInLeft, .panel-6 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -782,7 +759,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 7){
+            if(index === 7){
                 $('.panel-7 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-7 .animate-fadeInUp, .panel-7 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-7 .animate-fadeInLeft, .panel-7 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -790,7 +767,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 8){
+            if(index === 8){
                 $('.panel-8 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-8 .animate-fadeInUp, .panel-8 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-8 .animate-fadeInLeft, .panel-8 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -798,7 +775,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 9){
+            if(index === 9){
                 $('.panel-9 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-9 .animate-fadeInUp, .panel-9 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-9 .animate-fadeInLeft, .panel-9 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
@@ -806,7 +783,7 @@ function initFullPage(){
                     loadDaBars();
                 });
             }
-            if(index == 10){
+            if(index === 10){
                 $('.panel-10 .animate-fadeIn').animate({ opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-10 .animate-fadeInUp, .panel-10 .animate-fadeInDown').animate({ top: '0', opacity: 1 }, 1500, 'easeOutExpo');
                 $('.panel-10 .animate-fadeInLeft, .panel-10 .animate-fadeInRight').animate({ left: '0', opacity: 1 }, 1500, 'easeOutExpo');
