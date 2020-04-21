@@ -2401,52 +2401,6 @@ circle {
 	.blog-entry .blog-meta ul li:first-child {
 		display: none;
 	}
-
-	.comment-wrapper {
-		display: table;
-		width: 100%;
-	}
-
-	.comment-avatar {
-		display: table-cell;
-		vertical-align: top;
-		width: 130px;
-		margin: 0;
-	}
-
-	.comment-avatar figure {
-		margin-left: inherit;
-		margin-right: inherit;
-	}
-
-	.comment-detail {
-		display: table-cell;
-		vertical-align: top;
-		padding: 30px 30px 7px 30px;
-	}
-
-	.comment-detail:before {
-		left: 0;
-		margin-top: 30px;
-		margin-left: -20px;
-		border-top: 10px solid transparent;
-		border-bottom: 10px solid transparent;
-		border-right:10px solid #f7f7f7;
-	}
-
-	.comment-name {
-		margin: 0px 70px 10px 0px;
-	}
-
-	.comment-reply {
-		position: absolute;
-		top: 30px;
-		right: 30px;
-	}
-
-	.comment-list > li > ul {
-		margin-left: 130px;
-	}
 }
 
 @media (min-width: 992px) {
@@ -2461,18 +2415,6 @@ circle {
 
 	#main-menu.right .burger-wrap {
 		margin: 25px 25px 0 0;
-	}
-
-	.services-panel3 .service-item .box-icon {
-		margin: 0 0 40px;
-	}
-
-	.services-panel3 .service-item .item-list-description {
-		margin: 0 0 60px;
-	}
-
-	.services-panel3 .service-item .button {
-		margin: 0 0 40px;
 	}
 
 	.panel-about .content-height,
