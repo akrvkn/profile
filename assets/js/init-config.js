@@ -1,7 +1,5 @@
 var yt_video = "1";
 
-var v_start, v_end;
-
 var tag,
     tv,
     vid,
@@ -22,16 +20,8 @@ var tag,
         iv_load_policy: 3
     };
 
-var videoStartTime,
-    videoEndTime;
-if (typeof v_start !== "number")
-    videoStartTime = 1;
-else
-    videoStartTime = v_start;
-if (typeof v_end !== "number")
+var videoStartTime = 1,
     videoEndTime = 999999;
-else
-    videoEndTime = v_end;
 
 function initYoutubeBackground(video) {
     yt_video = video;
@@ -188,7 +178,8 @@ function onPlayerStateChange(e) {
                         else {
                             if(tv!==undefined)
                                 tv.setSize(h/9*16, h);
-                            $('.hero-video .screen').css({'left': -($('.hero-video .screen').outerWidth()-w)/2});
+                            var heroScreen = $('.hero-video .screen');
+                            heroScreen.css({'left': -(heroScreen.outerWidth()-w)/2});
                         }
                         if(ytLoaded){
                             if(heroVideo.css("opacity")==="0"){
@@ -202,158 +193,6 @@ function onPlayerStateChange(e) {
                     },4000);
                 }
             }
-        }
-
-
-        /* Object Fit Polyfill to Background Videos ------------------------------*/
-
-        var objectFitVideos = function () {
-            var testImg                = new Image(),
-                supportsObjectFit      = 'object-fit' in testImg.style,
-                supportsObjectPosition = 'object-position' in testImg.style,
-                propRegex              = /(object-fit|object-position)\s*:\s*([-\w\s%]+)/g;
-            if (!supportsObjectFit || !supportsObjectPosition) {
-                initialize();
-                throttle('resize', 'optimizedResize');
-            }
-
-            function getStyle ($el) {
-                var style  = getComputedStyle($el).fontFamily,
-                    parsed = null,
-                    props  = {};
-                while ((parsed = propRegex.exec(style)) !== null) {
-                    props[parsed[1]] = parsed[2];
-                }
-                if (props['object-position'])
-                    return parsePosition(props);
-                return props;
-            }
-
-            function initialize () {
-                var videos = document.querySelectorAll('video'),
-                    index  = -1;
-                while (videos[++index]) {
-                    var style = getStyle(videos[index]);
-                    if (style['object-fit'] || style['object-position']) {
-                        style['object-fit'] = style['object-fit'] || 'fill';
-                        fitIt(videos[index], style);
-                    }
-                }
-            }
-
-            function fitIt ($el, style) {
-                if (style['object-fit'] === 'fill')
-                    return;
-                var setCss = $el.style,
-                    getCss = window.getComputedStyle($el);
-                var $wrap = document.createElement('object-fit');
-                $wrap.appendChild($el.parentNode.replaceChild($wrap, $el));
-                var wrapCss = {
-                    height:    '100%',
-                    width:     '100%',
-                    boxSizing: 'content-box',
-                    display:   'inline-block',
-                    overflow:  'hidden'
-                };
-                'backgroundColor backgroundImage borderColor borderStyle borderWidth bottom fontSize lineHeight left opacity margin position right top visibility'.replace(/\w+/g, function (key) {
-                    wrapCss[key] = getCss[key];
-                });
-                for (var key in wrapCss)
-                    $wrap.style[key] = wrapCss[key];
-                setCss.border  = setCss.margin = setCss.padding = 0;
-                setCss.display = 'block';
-                setCss.opacity = 1;
-                $el.addEventListener('loadedmetadata', doWork);
-                window.addEventListener('optimizedResize', doWork);
-                if ($el.readyState >= 1) {
-                    $el.removeEventListener('loadedmetadata', doWork);
-                    doWork();
-                }
-
-                function doWork () {
-                    var videoWidth  = $el.videoWidth,
-                        videoHeight = $el.videoHeight,
-                        videoRatio  = videoWidth / videoHeight;
-                    var wrapWidth  = $wrap.clientWidth,
-                        wrapHeight = $wrap.clientHeight,
-                        wrapRatio  = wrapWidth / wrapHeight;
-                    var newHeight = 0,
-                        newWidth  = 0;
-                    setCss.marginLeft = setCss.marginTop = 0;
-                    if (videoRatio < wrapRatio ?
-                        style['object-fit'] === 'contain' : style['object-fit'] === 'cover') {
-                        newHeight = wrapHeight * videoRatio;
-                        newWidth  = wrapWidth / videoRatio;
-                        setCss.width  = Math.round(newHeight) + 'px';
-                        setCss.height = wrapHeight + 'px';
-                        if (style['object-position-x'] === 'left')
-                            setCss.marginLeft = 0;
-                        else if (style['object-position-x'] === 'right')
-                            setCss.marginLeft = Math.round(wrapWidth - newHeight) + 'px';
-                        else
-                            setCss.marginLeft = Math.round((wrapWidth - newHeight) / 2) + 'px';
-                    }
-                    else {
-                        newWidth = wrapWidth / videoRatio;
-                        setCss.width     = wrapWidth + 'px';
-                        setCss.height    = Math.round(newWidth) + 'px';
-                        if (style['object-position-y'] === 'top')
-                            setCss.marginTop = 0;
-                        else if (style['object-position-y'] === 'bottom')
-                            setCss.marginTop = Math.round(wrapHeight - newWidth) + 'px';
-                        else
-                            setCss.marginTop = Math.round((wrapHeight - newWidth) / 2) + 'px';
-                    }
-                }
-            }
-
-            function parsePosition (style) {
-                if (~style['object-position'].indexOf('left'))
-                    style['object-position-x'] = 'left';
-                else if (~style['object-position'].indexOf('right'))
-                    style['object-position-x'] = 'right';
-                else
-                    style['object-position-x'] = 'center';
-                if (~style['object-position'].indexOf('top'))
-                    style['object-position-y'] = 'top';
-                else if (~style['object-position'].indexOf('bottom'))
-                    style['object-position-y'] = 'bottom';
-                else
-                    style['object-position-y'] = 'center';
-                return style;
-            }
-
-            function throttle (type, name, obj) {
-                obj = obj || window;
-                var running = false,
-                    evt     = null;
-                try {
-                    evt = new CustomEvent(name);
-                } catch (e) {
-                    evt = document.createEvent('Event');
-                    evt.initEvent(name, true, true);
-                }
-                var func = function () {
-                    if (running) return;
-                    running = true;
-                    requestAnimationFrame(function () {
-                        obj.dispatchEvent(evt);
-                        running = false;
-                    });
-                };
-                obj.addEventListener(type, func);
-            }
-        };
-
-        function checkPolifill(){
-            if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
-                module.exports = objectFitVideos;
-            setTimeout(function(){
-                if($("#background_video").length){
-                    objectFitVideos();
-                    $('#background_video').get(0).play();
-                }
-            },1500);
         }
 
     });
@@ -391,7 +230,7 @@ function loadVids(data) {
 
 function mainVid(id) {
     $('#video-main').html(`
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=${id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/videoseries?list=${id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         `);
 }
 
@@ -402,7 +241,7 @@ function resultsLoop(data) {
                     <div class="carousel-item" data-key="${item.id}">
                         <div class="carousel-inner">
                             <div class="youtube-thumb-overlay"></div>
-                            <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             <div class="content-block-detail">                                  
                                 <h3">${item.title}</h3>                                
                             </div>                        
@@ -503,7 +342,7 @@ function createTwitterBlogItem(txt, pic, time, link, name){
 
 function createPhotoElement(k, photo) {
 
-    var innerHtml = $('<img>')
+    var innerHtml = $('<img src="" alt="img">')
         .attr('src', photo.images.thumbnail.url);
     var thumbHover = $('<span>')
         .addClass('thumbnail-hover');
@@ -551,8 +390,9 @@ function didLoadInstagram(event, response) {
 }
 
 function initInstagramAPI(userID, accessToken){
-    $('#instagramTabs').on('didLoadInstagram', didLoadInstagram);
-    $('#instagramTabs').instagram({
+    var tabs = $('#instagramTabs');
+    tabs.on('didLoadInstagram', didLoadInstagram);
+    tabs.instagram({
         count: 9,
         userId: userID,
         accessToken: accessToken
@@ -593,8 +433,7 @@ function buildMenu(items){
 
 function setDataBgColor() {
     $("*").css('background-color', function () {
-        var bgcolorAttr = $(this).data('bg-color');
-        return bgcolorAttr;
+        return $(this).data('bg-color');
     });
 }
 
@@ -611,22 +450,19 @@ function setDataBackground() {
 
 function setDataOpacity(){
     $("*").css('opacity', function () {
-        var opacityAttr = $(this).data('opacity');
-        return opacityAttr;
+        return $(this).data('opacity');
     });
 }
 
 function setDataColors(){
     $("*").css('color', function () {
-        var colorAttr = $(this).data('color');
-        return colorAttr;
+        return $(this).data('color');
     });
 }
 
 function setDataHeight(){
     $("*").css('height', function () {
-        var heightAttr = $(this).attr('data-height')+'px';
-        return heightAttr;
+        return $(this).attr('data-height') + 'px';
     });
 }
 
@@ -701,13 +537,14 @@ function initFullPage(){
         });
     });
     // ===== jQuery Fullpage Settings ===== //
+    var fullPage  = $('#fullpage');
     var customScroll = false;  // ===== CHANGE THIS VARIABLE TO 'true' IF YOU NEED TO USE AUTO SCROLLING FUNCTION ===== //
 
-    if (customScroll == false) {
-        $('#fullpage').addClass("normalScroll");
+    if (customScroll === false) {
+        fullPage.addClass("normalScroll");
     }
 
-    $('#fullpage').fullpage({
+    fullPage.fullpage({
         autoScrolling: customScroll,
         scrollOverflow: customScroll,
         resize: false,
@@ -839,9 +676,10 @@ $.getJSON("config.json", function (res) {
 </figure>`);
 
     $.get(res.about.text, function(response){
-        $('#about').html('<h2>' + res.about.title + '</h2>' + response);
+        var about = $('#about');
+        about.html('<h2>' + res.about.title + '</h2>' + response);
         if(res.about.moreLink && res.about.moreText){
-            $('#about').append(`<div data-height="23"></div>
+            about.append(`<div data-height="23"></div>
                         <div class="button raised blue ripple">
                             <a href="${res.about.moreLink}">${res.about.moreText}</a>
                         </div>`);
@@ -918,7 +756,7 @@ jQuery(document).ready(function() {
 
 
     // ===== jQuery SlimScroll Settings ===== //
-    var buildScroll = $('.nav-inner-wrap, .container-wrapper');
+    //var buildScroll = $('.nav-inner-wrap, .container-wrapper');
     var destroyScroll = $('');
 
     destroyScroll.slimScroll({  // ===== CHANGE 'destroyScroll' TO 'buildScroll' WHEN YOU USING AUTO SCROLLING FUNCTION ===== //
@@ -1004,11 +842,8 @@ jQuery(document).ready(function() {
             var fullPageContainer = $('#fullpage');
             var value =  window.location.hash.replace('#', '').split('/');
             var destiny = value[0];
-            var section = $('.panel-1');
-            if($('[data-anchor="'+destiny+'"]').length) {
-                section = $('[data-anchor="' + destiny + '"]');
-            }
-
+            var anchor = $('[data-anchor="' + destiny + '"]');
+            var section = anchor.length ? anchor : $('.panel-1');
             if (fullPageContainer.hasClass("addAutoScroll")) {
                 $.fn.fullpage.reBuild();
             }
@@ -1031,46 +866,42 @@ jQuery(document).ready(function() {
 
     // ===== Form Submit Settings ===== //
     $("#submit_message").on("click", function() {
-        $('#reply_message').removeClass();
-        $('#reply_message').html('')
-        var regEx = "";
-
-        // validate Name
-        var name = $("input#name").val();
-        regEx=/^[A-Za-z .'-]+$/;
-        if (name == "" || name == "Name"  || !regEx.test(name)) {
-            $("input#name").val('');
-            $("input#name").focus();
+        $('#reply_message').removeClass().html('');
+        var name = $("input#name");
+        var regEx=/^[A-Za-z .'-]+$/;
+        if (name.val() === "" || name.val() === "Name"  || !regEx.test(name.val())) {
+            name.val('');
+            name.focus();
             return false;
         }
 
         // validate Email
-        var email = $("input#email").val();
+        var email = $("input#email");
         regEx=/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
-        if (email == "" || email == "Email" || !regEx.test(email)) {
-            $("input#email").val('');
-            $("input#email").focus();
+        if (email.val() === "" || email.val() === "Email" || !regEx.test(email.val())) {
+            email.val('');
+            email.focus();
             return false;
         }
 
         // validate Subject
-        var mysubject = $("input#mysubject").val();
+        var mysubject = $("input#mysubject");
         regEx=/^[A-Za-z0-9 .'-]+$/;
-        if (mysubject == "" || mysubject == "Mysubject"  || !regEx.test(mysubject)) {
-            $("input#mysubject").val('');
-            $("input#mysubject").focus();
+        if (mysubject.val() === "" || mysubject.val() === "Mysubject"  || !regEx.test(mysubject.val())) {
+            mysubject.val('');
+            mysubject.focus();
             return false;
         }
 
         // validate Message
-        var mymessage = $("textarea#mymessage").val();
-        if (mymessage == "" || mymessage == "Mymessage" || mymessage.length < 2) {
-            $("textarea#mymessage").val('');
-            $("textarea#mymessage").focus();
+        var mymessage = $("textarea#mymessage");
+        if (mymessage.val() === "" || mymessage.val() === "Mymessage" || mymessage.length < 2) {
+            mymessage.val('');
+            mymessage.focus();
             return false;
         }
 
-        var dataString = 'name='+ $("input#name").val() + '&email=' + $("input#email").val() + '&mysubject='+ $("input#mysubject").val() + '&mymessage=' + $("textarea#mymessage").val();
+        var dataString = 'name='+ name.val() + '&email=' + email.val() + '&mysubject='+ mysubject.val() + '&mymessage=' + mymessage.val();
 
         $('.loading').fadeIn(500);
 
@@ -1081,8 +912,8 @@ jQuery(document).ready(function() {
             data: dataString,
             success: function() {
                 $('.loading').hide();
-                $('#reply_message').addClass('list3');
-                $('#reply_message').html("<span>Mail sent successfully</span>")
+                $('#reply_message').addClass('list3')
+                    .html("<span>Mail sent successfully</span>")
                     .hide()
                     .fadeIn(1500);
                 $('#form_contact')[0].reset();
