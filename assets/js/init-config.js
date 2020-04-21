@@ -72,15 +72,9 @@ function onPlayerReady(){
     ytLoaded = 1;
 }
 
-var done = false;
-function pauseVideo() {
-    tv.pauseVideo();
-}
-
 function onPlayerStateChange(e) {
     if (e.data === 1){
         $('#tv').addClass('active');
-        setInterval(pauseVideo, v_end*1000);
     }
     else if (e.data === 2){
         $('#tv').removeClass('active');
@@ -94,7 +88,6 @@ function onPlayerStateChange(e) {
         tv.seekTo(vid[currVid].startSeconds);
     }
     if (e.data === YT.PlayerState.ENDED) {
-        console.log('end');
         $(".hero-video").css("opacity","0.01");
         $(".hero-video").stop().animate({opacity:1},{duration:6000});
         tv.playVideo();
@@ -1122,5 +1115,3 @@ jQuery(document).ready(function() {
     });
 
 });
-
-
