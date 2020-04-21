@@ -3,6 +3,8 @@
   "siteTitle": "Сергей Михеев",
   "siteSubTitle": "Политолог",
   "youtubeBackgroundVideo": "vqqt5p0q-eU",
+  "youtubeVideoStart": "1",
+  "youtubeVideoEnd": "20",
   "menu": [
     {"id": 1,"title": "В начало", "link": "index.html#panelBlock1"},
     {"id": 2,"title": "О себе", "link": "index.html#panelBlock2"},
