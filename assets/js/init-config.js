@@ -28,7 +28,6 @@ function initYoutubeBackground(video, start, end) {
     videoStartTime = start;
     videoEndTime = end;
     if (typeof yt_video !== "undefined") {
-        console.log(videoEndTime);
         if (yt_video !== undefined && yt_video !== "" && yt_video !== " ") {
             tag = document.createElement('script');
             tag.src = 'https://www.youtube.com/player_api';
@@ -327,7 +326,7 @@ function createPhotoElement(k, photo) {
         .append(innerHtml);
 }
 
-function createPhotoBig(k, photo) {
+function createPhotoBig(k, photo, moreText) {
     //console.log(photo);
     //var tags = photo.tags.length === 0 ? '#' + photo.user.username : photo.tags.toString().replace(',', '#');
     return `<div id="portfolio-tabs-${k}" class="portfolio-tabs">
@@ -338,7 +337,7 @@ function createPhotoBig(k, photo) {
                         <h2>@${photo.username}</h2>
                         <div class="item-list-description">${photo.caption}</div>
                         <div class="button raised dark-grey ripple">
-                            <a href="${photo.permalink}">Open</a>
+                            <a href="${photo.permalink}">${moreText}</a>
                         </div>
                     </section>
                 </div>`;
@@ -628,6 +627,7 @@ $.getJSON("config.json", function (res) {
     $('.panel-youtube .more-item-link a').html(res.youtube.moreText).attr('href', res.youtube.moreLink);
     $('.panel-twitter .more-item-link a').html(res.twitter.moreText).attr('href', res.twitter.moreLink);
     $('.panel-instagram .more-item-link a').html(res.instagram.moreText).attr('href', res.instagram.moreLink);
+    $('.portfolio-tabs a').html(res.instagram.moreText);
 
 
     $('label[for="name"]').html(res.contact.formFields.name);
@@ -675,7 +675,20 @@ $.getJSON("config.json", function (res) {
         });
         feed.run();
     }
-
+    function readInstaData(response) {
+        //var that = this;
+        $.each(response.data, function(i, photo) {
+            //var k = i + 1;
+            $('.portfolio-tabs-list').append(createPhotoElement(i, photo));
+            $('.portfolio-detail-wrapper').append(createPhotoBig(i, photo, res.instagram.moreText));
+            if(i === response.data.length - 1){
+                $('#instagramTabs').tabulous({
+                    effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
+                });
+                setTabsHeight();
+            }
+        });
+    }
 
     if (res.twitter) {
         $('body').append(`<div id="twitterTimeline">
@@ -704,21 +717,6 @@ $.getJSON("config.json", function (res) {
     initAnimations();
     initFullPage();
 });
-
-function readInstaData(response) {
-    //var that = this;
-    $.each(response.data, function(i, photo) {
-        //var k = i + 1;
-        $('.portfolio-tabs-list').append(createPhotoElement(i, photo));
-        $('.portfolio-detail-wrapper').append(createPhotoBig(i, photo));
-        if(i === response.data.length - 1){
-            $('#instagramTabs').tabulous({
-                effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
-            });
-            setTabsHeight();
-        }
-    });
-}
 
 jQuery(document).ready(function() {
 
