@@ -1,0 +1,74 @@
+{
+  "license": "",
+  "siteTitle": "Сергей Михеев",
+  "siteSubTitle": "Политолог",
+  "youtubeBackgroundVideo": "vqqt5p0q-eU",
+  "youtubeVideoStart": "1",
+  "youtubeVideoEnd": "20",
+  "menu": [
+    {"id": 1,"title": "В начало", "link": "index.html#panelBlock1"},
+    {"id": 2,"title": "О себе", "link": "index.html#panelBlock2"},
+    {"id": 3,"title": "Трансляции", "link": "index.html#panelBlock3"},
+    {"id": 4,"title": "Фрагменты", "link": "index.html#panelBlock4"},
+    {"id": 5,"title": "Блог", "link": "index.html#panelBlock5"},
+    {"id": 6,"title": "Контакт", "link": "index.html#panelBlock6"}
+  ],
+  "about": {
+    "title": "О себе", "text": "about.html",
+    "photo": "https://avatars.mds.yandex.net/get-zen_doc/1595998/pub_5e1714911e8e3f00b2258602_5e17285c5d636200b1862a64/scale_1200",
+    "moreLink": "http://miheev-politolog.ru",
+    "moreText": "Подробнее"
+  },
+  "facebook": {
+    "account":  "miheevpolitolog"
+  },
+  "twitter": {
+    "title": "Блог",
+    "account": "miheevpolitolog",
+    "moreLink": "https://twitter.com/miheevpolitolog",
+    "moreText": "Все записи"
+  },
+  "youtube": {
+    "title": "Трансляции",
+    "moreLink": "https://www.youtube.com/channel/UCjHHzZ7KcWwej-W_7B0NskA",
+    "moreText": "Все видео",
+    "playlists": [
+    {"id": "PLagHeXKVfqd3IJ0KAADG8bYNItkjbFlzp", "title": "Вечер с Владимиром Соловьёвым"},
+    {"id": "PLagHeXKVfqd3oLDoGlDQSH-lPvN5XbB57", "title": "Железная логика"},
+    {"id": "PLagHeXKVfqd3VtpAdpa98NVRTjuPqnHr4", "title": "Царьград"},
+    {"id": "PLagHeXKVfqd09kGiqXMW2gpMbma6JVtyA", "title": "Разные ТВ и радио эфиры"}
+  ]
+  },
+  "instagram": {
+    "title": "Фрагменты",
+    "account": "politologmiheev",
+    "moreLink": "https://instagram.com/politologmiheev",
+    "moreText": "Инстаграм",
+    "count": 9,
+    "userId": 314046394,
+    "accessToken": "314046394.673793e.88345306c6d54356a699021df0503000",
+    "widget": "widget-instagram.html"
+    },
+  "contact": {
+    "title": "Контакт",
+    "action": "post",
+    "successMessage": "Ваше письмо отправлено",
+    "errorMessage": "Ошибка",
+    "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
+    "formFields": {
+      "name": "Ваше имя",
+      "email": "Ваша почта",
+      "mysubject": "Тема",
+      "mymessage": "Сообщение",
+      "submit": "Отправить"
+    }
+  },
+  "footer": {
+    "subtitle": "Участник политических ток-шоу на российском телевидении",
+    "title": {
+      "part1": "Персона",
+      "part2": "Нон-дезидерата",
+      "part3": "в Евросоюзе"
+    }
+  }
+}

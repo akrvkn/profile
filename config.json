@@ -1,74 +1,76 @@
 {
-  "license": "",
-  "siteTitle": "Сергей Михеев",
-  "siteSubTitle": "Политолог",
-  "youtubeBackgroundVideo": "vqqt5p0q-eU",
+  "license": "MIT",
+  "siteTitle": "Lorem Ipsum",
+  "siteSubTitle": "dolor sit amet",
+  "youtubeBackgroundVideo": "ONSsnNcxhg8",
   "youtubeVideoStart": "1",
-  "youtubeVideoEnd": "20",
+  "youtubeVideoEnd": "103",
   "menu": [
-    {"id": 1,"title": "В начало", "link": "index.html#panelBlock1"},
-    {"id": 2,"title": "О себе", "link": "index.html#panelBlock2"},
-    {"id": 3,"title": "Трансляции", "link": "index.html#panelBlock3"},
-    {"id": 4,"title": "Фрагменты", "link": "index.html#panelBlock4"},
-    {"id": 5,"title": "Блог", "link": "index.html#panelBlock5"},
-    {"id": 6,"title": "Контакт", "link": "index.html#panelBlock6"}
+    {"id": 1,"title": "Home", "link": "index.html#panelBlock1"},
+    {"id": 2,"title": "About", "link": "index.html#panelBlock2"},
+    {"id": 3,"title": "Youtube", "link": "index.html#panelBlock3"},
+    {"id": 4,"title": "Instagram", "link": "index.html#panelBlock4"},
+    {"id": 5,"title": "Twitter", "link": "index.html#panelBlock5"},
+    {"id": 6,"title": "Contact", "link": "index.html#panelBlock6"}
   ],
   "about": {
-    "title": "О себе", "text": "about.html",
-    "photo": "https://avatars.mds.yandex.net/get-zen_doc/1595998/pub_5e1714911e8e3f00b2258602_5e17285c5d636200b1862a64/scale_1200",
-    "moreLink": "http://miheev-politolog.ru",
-    "moreText": "Подробнее"
+    "title": "About",
+    "text": "about.html",
+    "photo": "https://www.noobie.com/wp-content/uploads/2019/02/close-happy-young-bearded-handsome-man-email-list-ss-1080x721.jpg",
+    "moreLink": "https://google.com/",
+    "moreText": "More"
   },
   "facebook": {
     "account":  "miheevpolitolog"
   },
   "twitter": {
-    "title": "Блог",
-    "account": "miheevpolitolog",
-    "moreLink": "https://twitter.com/miheevpolitolog",
-    "moreText": "Все записи"
+    "title": "Twitter",
+    "account": "css",
+    "moreLink": "https://twitter.com/css",
+    "moreText": "All tweets"
   },
   "youtube": {
-    "title": "Трансляции",
-    "moreLink": "https://www.youtube.com/channel/UCjHHzZ7KcWwej-W_7B0NskA",
-    "moreText": "Все видео",
+    "title": "CSS Tricks",
+    "moreLink": "https://www.youtube.com/user/realcsstricks",
+    "moreText": "All video",
     "playlists": [
-    {"id": "PLagHeXKVfqd3IJ0KAADG8bYNItkjbFlzp", "title": "Вечер с Владимиром Соловьёвым"},
-    {"id": "PLagHeXKVfqd3oLDoGlDQSH-lPvN5XbB57", "title": "Железная логика"},
-    {"id": "PLagHeXKVfqd3VtpAdpa98NVRTjuPqnHr4", "title": "Царьград"},
-    {"id": "PLagHeXKVfqd09kGiqXMW2gpMbma6JVtyA", "title": "Разные ТВ и радио эфиры"}
+    {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
+    {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
+    {"id": "PL3C27A57493214D30", "title": "Building a Website"},
+    {"id": "PL7646335BD1B09ABF", "title": "Converting a Photoshop Mockup"},
+    {"id": "PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS", "title": "CSS-Tricks Eye Tracking Study"}
   ]
   },
   "instagram": {
-    "title": "Фрагменты",
-    "account": "politologmiheev",
-    "moreLink": "https://instagram.com/politologmiheev",
-    "moreText": "Инстаграм",
+    "title": "Instagram",
+    "account": "product.daily",
+    "moreLink": "https://instagram.com/product.daily",
+    "moreText": "Instagram",
     "count": 9,
-    "userId": 314046394,
-    "accessToken": "314046394.673793e.88345306c6d54356a699021df0503000",
+    "userId": 0,
+    "accessToken": "",
     "widget": "widget-instagram.html"
     },
   "contact": {
-    "title": "Контакт",
+    "title": "Contact",
     "action": "post",
-    "successMessage": "Ваше письмо отправлено",
-    "errorMessage": "Ошибка",
+    "successMessage": "Your message sent",
+    "errorMessage": "Error",
     "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
     "formFields": {
-      "name": "Ваше имя",
-      "email": "Ваша почта",
-      "mysubject": "Тема",
-      "mymessage": "Сообщение",
-      "submit": "Отправить"
+      "name": "Name",
+      "email": "E-mail",
+      "mysubject": "Subject",
+      "mymessage": "Message",
+      "submit": "Send"
     }
   },
   "footer": {
-    "subtitle": "Участник политических ток-шоу на российском телевидении",
+    "subtitle": "consectetur adipiscing elit sed do eiusmod",
     "title": {
-      "part1": "Персона",
-      "part2": "Нон-дезидерата",
-      "part3": "в Евросоюзе"
+      "part1": "Pri quas",
+      "part2": "audiam",
+      "part3": "virtute ut"
     }
   }
 }

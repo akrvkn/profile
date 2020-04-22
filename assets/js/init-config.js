@@ -23,9 +23,12 @@ var tag,
 var videoStartTime = 1,
     videoEndTime = 999999;
 
-function initYoutubeBackground(video) {
+function initYoutubeBackground(video, start, end) {
     yt_video = video;
+    videoStartTime = start;
+    videoEndTime = end;
     if (typeof yt_video !== "undefined") {
+        console.log(videoEndTime);
         if (yt_video !== undefined && yt_video !== "" && yt_video !== " ") {
             tag = document.createElement('script');
             tag.src = 'https://www.youtube.com/player_api';
@@ -122,38 +125,6 @@ function onPlayerStateChange(e) {
 
         function setHeroVideo(){
             if($(".h-video").length && !isMobile()){
-                /* To local Hero Video */
-                /*if(typeof local_video!=="undefined"){
-                    if(local_video!==undefined && local_video!=="" && local_video!==" "){
-                        $(".hero-video").remove();
-                        $(".hero-video").each(function(){
-                            $(this)[0].parentNode.removeChild($(this)[0]);
-                        });
-                        $(".hero-header").each(function(){
-                            if($(this).hasClass("h-video")){
-                                addHeroVideo();
-                                $(".hero-video").css({opacity:1}).append('<div id="video-container"><video id="background_video" loop muted></video><div id="video_cover"></div>');
-                                var bv = new Bideo();
-                                bv.init({
-                                    videoEl: document.querySelector('#background_video'),
-                                    container: document.querySelector('.hero-video'),
-                                    resize: true,
-                                    isMobile: isMobile(),
-                                    src: local_video
-                                });
-                            }
-                        });
-                        $('#video_cover').css({opacity:0});
-                        if($('#video-container').css("opacity")==="0"){
-                            $('#video-container').css("opacity","0.01");
-                            $('#video-container').stop().delay(600).animate({opacity:1},{duration:3000});
-                        }
-                        checkPolifill();
-                        if(isMobile())
-                            $('#video_cover').css({display:"block"}).animate({opacity:1});
-                    }
-                }*/
-                /* To Youtube and Vimeo */
                 videoRescale();
             }
         }
@@ -374,7 +345,6 @@ function createPhotoBig(k, photo) {
 }
 
 function didLoadInstagram(event, response) {
-
     //var that = this;
     $.each(response.data, function(i, photo) {
         //var k = i + 1;
@@ -422,13 +392,10 @@ function initSectionHeaders(){
 }
 
 function buildMenu(items){
-    //$('.nav-menu').empty();
+    var menu = $('.nav-menu').empty();
     items.forEach(function(item){
-
-            $('.nav-menu').append(`<li data-menuanchor="panelBlock${item.id}"><a class="nav-link nav_item" href="${item.link}">${item.title}</a></li>`);
-       // }
+            menu.append(`<li data-menuanchor="panelBlock${item.id}"><a class="nav-link nav_item" href="${item.link}">${item.title}</a></li>`);
     });
-
 }
 
 function setDataBgColor() {
@@ -538,7 +505,7 @@ function initFullPage(){
     });
     // ===== jQuery Fullpage Settings ===== //
     var fullPage  = $('#fullpage');
-    var customScroll = false;  // ===== CHANGE THIS VARIABLE TO 'true' IF YOU NEED TO USE AUTO SCROLLING FUNCTION ===== //
+    var customScroll = true;  // ===== CHANGE THIS VARIABLE TO 'true' IF YOU NEED TO USE AUTO SCROLLING FUNCTION ===== //
 
     if (customScroll === false) {
         fullPage.addClass("normalScroll");
@@ -645,7 +612,6 @@ function menuClose(){
 
 
 $.getJSON("config.json", function (res) {
-    //console.log(twttr);
     $('.logo-title').html(res.siteTitle);
     $('.logo-subtitle').html(res.siteSubTitle);
 
@@ -658,6 +624,11 @@ $.getJSON("config.json", function (res) {
     $('.panel-youtube .block-title h1').html(res.youtube.title);
     $('.panel-twitter .block-title h1').html(res.twitter.title);
     $('.panel-instagram .block-title h1').html(res.instagram.title);
+
+    $('.panel-youtube .more-item-link a').html(res.youtube.moreText).attr('href', res.youtube.moreLink);
+    $('.panel-twitter .more-item-link a').html(res.twitter.moreText).attr('href', res.twitter.moreLink);
+    $('.panel-instagram .more-item-link a').html(res.instagram.moreText).attr('href', res.instagram.moreLink);
+
 
     $('label[for="name"]').html(res.contact.formFields.name);
     $('label[for="email"]').html(res.contact.formFields.email);
@@ -686,6 +657,14 @@ $.getJSON("config.json", function (res) {
         }
     });
 
+    function initInstagramWidget(){
+        var instagramPanel = $('#instagramTabs').empty();
+        $.get(res.instagram.widget, function(response){
+            instagramPanel.html(response);
+        });
+    }
+
+
     if (res.twitter) {
         $('body').append(`<div id="twitterTimeline">
 <a class="twitter-timeline" data-tweet-limit="3"
@@ -695,9 +674,13 @@ $.getJSON("config.json", function (res) {
 </div>`);
     }
 
-    initYoutubeBackground(res.youtubeBackgroundVideo);
+    initYoutubeBackground(res.youtubeBackgroundVideo, res.youtubeVideoStart, res.youtubeVideoEnd);
     loadVids(res.youtube.playlists);
-    initInstagramAPI(res.instagram.userId, res.instagram.accessToken);
+    if(res.instagram.accessToken && res.instagram.userId) {
+        initInstagramAPI(res.instagram.userId, res.instagram.accessToken);
+    }else{
+        initInstagramWidget();
+    }
     fitImg();
     initSectionHeaders();
     buildMenu(res.menu);
