@@ -314,7 +314,7 @@ function createTwitterBlogItem(txt, pic, time, link, name){
 function createPhotoElement(k, photo) {
 
     var innerHtml = $('<img src="" alt="img">')
-        .attr('src', photo.images.thumbnail.url);
+        .attr('src', photo.media_url);
     var thumbHover = $('<span>')
         .addClass('thumbnail-hover');
 
@@ -329,22 +329,22 @@ function createPhotoElement(k, photo) {
 
 function createPhotoBig(k, photo) {
     //console.log(photo);
-    var tags = photo.tags.length === 0 ? '#' + photo.user.username : photo.tags.toString().replace(',', '#');
+    //var tags = photo.tags.length === 0 ? '#' + photo.user.username : photo.tags.toString().replace(',', '#');
     return `<div id="portfolio-tabs-${k}" class="portfolio-tabs">
                     <figure class="portfolio-tabs-img">
-                        <img src="${photo.images.standard_resolution.url}" width="640" height="640" alt="portfolio" />
+                        <img src="${photo.media_url}" width="640" height="640" alt="portfolio" />
                     </figure>
                     <section class="portfolio-tabs-detail">
-                        <h2>${tags}</h2>
-                        <div class="item-list-description">${photo.caption.text}</div>
+                        <h2>@${photo.username}</h2>
+                        <div class="item-list-description">${photo.caption}</div>
                         <div class="button raised dark-grey ripple">
-                            <a href="#">Открыть</a>
+                            <a href="${photo.permalink}">Open</a>
                         </div>
                     </section>
                 </div>`;
 }
 
-function didLoadInstagram(event, response) {
+/*function didLoadInstagram(event, response) {
     //var that = this;
     $.each(response.data, function(i, photo) {
         //var k = i + 1;
@@ -367,7 +367,7 @@ function initInstagramAPI(userID, accessToken){
         userId: userID,
         accessToken: accessToken
     });
-}
+}*/
 
 function fitImg(){
     $('.fit-img').each(function() {
@@ -664,6 +664,18 @@ $.getJSON("config.json", function (res) {
         });
     }
 
+    function initInstagramAPI(token) {
+        var feed = new Instafeed({
+            accessToken: token,
+            limit: 9,
+            /*templateBoundaries: ['`', '`'],
+            template: '<a href="`link`"><figure><img title="`caption`" src="`image`" /></figure></a>'*/
+            mock: true,
+            success: readInstaData
+        });
+        feed.run();
+    }
+
 
     if (res.twitter) {
         $('body').append(`<div id="twitterTimeline">
@@ -676,8 +688,8 @@ $.getJSON("config.json", function (res) {
 
     initYoutubeBackground(res.youtubeBackgroundVideo, res.youtubeVideoStart, res.youtubeVideoEnd);
     loadVids(res.youtube.playlists);
-    if(res.instagram.accessToken && res.instagram.userId) {
-        initInstagramAPI(res.instagram.userId, res.instagram.accessToken);
+    if(res.instagram.accessToken) {
+        initInstagramAPI(res.instagram.accessToken);
     }else{
         initInstagramWidget();
     }
@@ -693,6 +705,20 @@ $.getJSON("config.json", function (res) {
     initFullPage();
 });
 
+function readInstaData(response) {
+    //var that = this;
+    $.each(response.data, function(i, photo) {
+        //var k = i + 1;
+        $('.portfolio-tabs-list').append(createPhotoElement(i, photo));
+        $('.portfolio-detail-wrapper').append(createPhotoBig(i, photo));
+        if(i === response.data.length - 1){
+            $('#instagramTabs').tabulous({
+                effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
+            });
+            setTabsHeight();
+        }
+    });
+}
 
 jQuery(document).ready(function() {
 
