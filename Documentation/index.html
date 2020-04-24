@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>Uniqo - Social Network Aggregator HTML Template Documentation</title>
+<link rel="stylesheet" href="assets/css/screen.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print">
+<script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="assets/js/main.js"></script>
+    
+</head>
+
+    <body>
+    <div class="container"> <a href="#" id="scroll_top" title="Go to top"><img src="assets/images/top_arrow.png" alt="top_arrow" /></a>
+      <div class="heade_block">
+        <div>
+          <p> HTML Template Documentation </p>
+          <h1> Uniqo </h1>
+        </div>
+      </div>
+      <hr>
+      <div class="main_content">
+          <div class="menu_left">
+            <ol class="list_item">
+              <li><a class="menu-item active-item" href="#introduction">​​Introduction</a></li>
+              <li><a class="menu-item" href="#features">​​Features</a></li>
+              <li><a class="menu-item" href="#hero">Hero Header Section</a></li>
+                <li><a class="menu-item" href="#about">About Section</a></li>
+                <li><a class="menu-item" href="#youtube">Youtube Section</a></li>
+                <li><a class="menu-item" href="#instagram">Instagram Section</a></li>
+                <li><a class="menu-item" href="#twitter">Twitter Section</a></li>
+                <li><a class="menu-item" href="#contact">Contact Form Section</a></li>
+                <li><a class="menu-item" href="#footer">Footer Section</a></li>
+              <li><a class="menu-item" href="#includes">​​​​Package ​​includes​​ </a></li>
+              <li><a class="menu-item" href="#Modification">​​Modification</a></li>
+              <li><a class="menu-item" href="#credits">​​Credits</a></li>
+              <li><a class="menu-item" href="#info">Contact​​ information</a></li>
+              <li><a class="menu-item" href="#faq">FAQ's</a></li>
+            </ol>
+          </div>
+          <div class="content">
+            <div class="content_block active">
+              <h3 id="introduction"><strong>Introduction</strong></h3>
+              <br>
+                <p><strong> Uniqo - Social Network Aggregator HTML Template </strong></p>
+                <p>Uniqo is a Social Network Aggregator HTML template, using most popular design trends as HTML5, CSS3 and jQuery. The template have fullpage scroll function and separate panel sections, so you can create various styles of page to suit your needs.</p>
+                <p> Social network aggregation is the process of collecting content from multiple social network services into one unified presentation. Uniqo aside from simplifying the user's social networking experiences. The template designed to help companies and individuals improve engagement with their brands by creating aggregated social streams that can be embedded into an existing website and customized to look visually intrinsic to the site. This allows potential customers to interact with all the social media posts maintained by the brand without requiring them to jump from site to site. This has the benefit of keeping customers on the brand's site for a longer period of time.</p>
+                
+                </br></br>
+                <strong> Configuration and Installation </strong></br></br>
+                <p> Main-Package zip: Main zip file HTML and Documentation Included</p>
+                <p> (1) Main and (2) Documentation folder </p>
+                <p> Open the "Main" folder and run index.html in your browser </p>
+                <ol>
+                    <li>Open the <code>Main</code> Folder to find all the Templates Files</li>
+                    <li>You will need to Upload these files to your Web Server using FTP in order to use it on your Website.</li>
+                    <li>Make sure you upload the required files/folders listed below:
+                        <ul>
+                            <li><code>Main/assets/css</code> - Extra Stylesheets Folder</li>
+                            <li><code>Main/assets/js</code> - Javacripts Folder</li>
+                            <li><code>Main/index.html</code> - Index File/Homepage</li>
+                            <li><code>Main/config.json</code> - Main Configuration File</li>
+                            <li><code>Main/about.html</code> - Text Used by About Section</li>
+                            <li><code>Main/widget-instagram.html</code> - Widget Used by Instagram Section ( if no accessToken exists )</li>
+                        </ul>
+                        The other files can be used according to your preferences.
+                    </li>
+                    <li>You're now good to go..! Edit main coniguration file (config.json), fill it with your social network accounts and show off your Brand New Beautiful Website in style.</li>
+                </ol>
+                </br>
+                <strong> Main Configuration File Structure </strong></br></br>
+                <div class="image_block">
+                    <b>config.json </b>
+                    <p> If you want to change anything here its easy to modify it:</p>
+                    <pre>
+{
+  "siteTitle": "Lorem Ipsum",
+  "siteSubTitle": "dolor sit amet",
+  "youtubeBackgroundVideo": "ONSsnNcxhg8",
+  "youtubeVideoStart": "1",
+  "youtubeVideoEnd": "103",
+  "menu": [
+    {"id": 1,"title": "Home", "link": "index.html#panelBlock1"},
+    {"id": 2,"title": "About", "link": "index.html#panelBlock2"},
+    {"id": 3,"title": "Youtube", "link": "index.html#panelBlock3"},
+    {"id": 4,"title": "Instagram", "link": "index.html#panelBlock4"},
+    {"id": 5,"title": "Twitter", "link": "index.html#panelBlock5"},
+    {"id": 6,"title": "Contact", "link": "index.html#panelBlock6"}
+  ],
+  "about": {
+    "title": "About",
+    "text": "about.html",
+    "photo": "https://www.noobie.com/wp-content/uploads/2019/02/close-happy-young-bearded-handsome-man-email-list-ss-1080x721.jpg",
+    "moreLink": "https://google.com/",
+    "moreText": "More"
+  },
+  "facebook": {
+    "account":  "#"
+  },
+  "twitter": {
+    "title": "Twitter",
+    "account": "css",
+    "moreLink": "https://twitter.com/css",
+    "moreText": "All tweets"
+  },
+  "youtube": {
+    "title": "Youtube Channel",
+    "moreLink": "https://www.youtube.com/user/realcsstricks",
+    "moreText": "All video",
+    "playlists": [
+    {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
+    {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
+    {"id": "PL3C27A57493214D30", "title": "Building a Website"},
+    {"id": "PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS", "title": "CSS-Tricks Eye Tracking Study"}
+  ]
+  },
+  "instagram": {
+    "title": "Instagram",
+    "account": "product.daily",
+    "moreLink": "https://instagram.com/product.daily",
+    "moreText": "Open",
+    "count": 9,
+    "accessToken": "IGQVJYZAnRvVXJ0Q1ZAsU1lUeHM3TEJtZATY2LVJMdEZAmVXFMZADZAGUHI0bTdQUGU5dWJQZAzJMZA3BNaDlZAZAmtlNVBqVk1jcFNUXy05V01TY2NSdzI5SU1NaUpKSkwzQXBSV29sNG9URXVsOVVwczlsSFRiSQZDZD",
+    "widget": "widget-instagram.html"
+    },
+  "contact": {
+    "title": "Contact",
+    "action": "post",
+    "successMessage": "Your message sent",
+    "errorMessage": "Error",
+    "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
+    "formFields": {
+      "name": "Name",
+      "email": "E-mail",
+      "mysubject": "Subject",
+      "mymessage": "Message",
+      "submit": "Send"
+    }
+  },
+  "footer": {
+    "subtitle": "consectetur adipiscing elit sed do eiusmod",
+    "title": {
+      "part1": "Pri quas",
+      "part2": "audiam",
+      "part3": "virtute ut"
+    }
+  }
+}
+                    </pre>
+                </div>
+                    
+              <hr>
+            </div>
+            
+            <div class="content_block">
+              <h3 id="features"><strong>Features</strong></h3>
+              </br>
+              <ul>
+                    <li> Build On Boostrap 4 - Grid </li>
+                    <li> Easy to Customize </li>
+                    <li> HTML & CSS Valid Files </li>
+                    <li> Awesome Animation </li>
+                    <li> Creative And Modern Design </li>
+                    <li> Responsive layout & Clean Design </li>
+                    <li> SEO Optimized </li>
+                    <li> Flexible and Multi-purpose </li>
+                    <li> Working Contact Form </li>
+                    <li> 8 Page hero Headers</li>
+                    <li> Clean, Optimize & Commented code</li>
+                    <li> HTML 5 video</li>
+                    <li> Developer friendly codes</li>
+                    <li> Cross browser compatible</li>
+                    <li> Well Documentation</li>
+                    <li> Experts Support </li>
+                    <li> And much more…</li>
+                </ul>
+              <hr>
+            </div>
+
+              <div class="content_block">
+                  <h3 id="hero"><strong>Hero Header Section</strong></h3>
+                  </br>
+                  <p>You can change the video background, title and subtitle of your page by edit youtubeBackgroundVideo, siteTitle, siteSubTitle in <strong> config.json </strong> file</p>
+                  <p> Fields youtubeVideoStart, youtubeVideoEnd count seconds of video to play</p>
+                  <pre>
+  "siteTitle": "Lorem Ipsum",
+  "siteSubTitle": "dolor sit amet",
+  "youtubeBackgroundVideo": "ONSsnNcxhg8",
+  "youtubeVideoStart": "1",
+  "youtubeVideoEnd": "103",
+  "menu": [
+    {"id": 1,"title": "Home", "link": "index.html#panelBlock1"},
+    {"id": 2,"title": "About", "link": "index.html#panelBlock2"},
+    {"id": 3,"title": "Youtube", "link": "index.html#panelBlock3"},
+    {"id": 4,"title": "Instagram", "link": "index.html#panelBlock4"},
+    {"id": 5,"title": "Twitter", "link": "index.html#panelBlock5"},
+    {"id": 6,"title": "Contact", "link": "index.html#panelBlock6"}
+  ],
+                  </pre>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="about"><strong>About us Section</strong></h3>
+                  </br>
+                  <p>ou can change the name, photo, link name, and link in the corresponding fields of the <strong>config.json</strong> file</p>
+                  <p> The text field indicates the file to upload</p>
+                  <pre>
+    "about": {
+    "title": "About",
+    "text": "about.html",
+    "photo": "https://www.noobie.com/wp-content/uploads/2019/02/close-happy-young-bearded-handsome-man-email-list-ss-1080x721.jpg",
+    "moreLink": "https://google.com/",
+    "moreText": "More"
+  },
+                  </pre>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="youtube"><strong>Youtube Section</strong></h3>
+                  </br>
+                  <p>To load playlists, edit the "playlists" array in the <strong>config.json</strong> file</p>
+                  <p> All Youtube playlist IDs start with PL</p>
+                  <pre>
+    "youtube": {
+    "title": "Youtube Channel",
+    "moreLink": "https://www.youtube.com/user/realcsstricks",
+    "moreText": "All video",
+    "playlists": [
+    {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
+    {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
+    {"id": "PL3C27A57493214D30", "title": "Building a Website"},
+    {"id": "PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS", "title": "CSS-Tricks Eye Tracking Study"}
+  ]
+  },
+                  </pre>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="instagram"><strong>Instagram Section</strong></h3>
+                  </br>
+                  <p>Instagram Section is a simple way to display your Instagram photos on your website, powered by the new Instagram Basic Display API.</p>
+                  <p>Setting up Instagram is pretty straight-forward - there are 2 main steps.</p>
+                    <ol>
+                        <li>Create a Facebook app linked to Instagram, and add yourself as a test user. See <a href="https://github.com/stevenschobert/instafeed.js/wiki/Managing-Access-Tokens">Managing User Tokens</a>.</li>
+                        <li>Create an access token and provide it to an <a href="https://github.com/companionstudio/instagram-token-agent">Instagram Token service</a></li>
+                    </ol>
+                  <p>If you don't want to use the Instagram API, you can use any free service to create an HTML widget.</p>
+                  <p>Sample widget <strong>widget-instagram.html</strong> was generated by <a href="https://powr.io">Powr.io</a> service.</p>
+                  <p>If the access Token field remains empty, a file is loaded from the widget field.</p>
+                  <pre>
+    "instagram": {
+    "title": "Instagram",
+    "account": "product.daily",
+    "moreLink": "https://instagram.com/product.daily",
+    "moreText": "Open",
+    "count": 9,
+    "accessToken": "IGQVJYZAnRvVXJ0Q1ZAsU1lUeHM3TEJtZATY2LVJMdEZAmVXFMZADZAGUHI0bTdQUGU5dWJQZAzJMZA3BNaDlZAZAmtlNVBqVk1jcFNUXy05V01TY2NSdzI5SU1NaUpKSkwzQXBSV29sNG9URXVsOVVwczlsSFRiSQZDZD",
+    "widget": "widget-instagram.html"
+    },
+                  </pre>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="twitter"><strong>Twitter Section</strong></h3>
+                  </br>
+                  <p>You can change the name, link name, and link in the corresponding fields of the <strong>config.json</strong> file</p>
+                  <p> To download the tweets you want to specify a name for the account</p>
+                  <pre>
+   "twitter": {
+    "title": "Twitter",
+    "account": "css",
+    "moreLink": "https://twitter.com/css",
+    "moreText": "All tweets"
+  },
+                  </pre>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="contact"><strong>Contact Form Section</strong></h3>
+                  </br>
+                  <ul>
+                      <li> Contact</li>
+                  </ul>
+                  <hr>
+              </div>
+              <div class="content_block">
+                  <h3 id="footer"><strong>Footer Section</strong></h3>
+                  </br>
+                  <ul>
+                      <li> Footer</li>
+                  </ul>
+                  <hr>
+              </div>
+            
+            <div class="content_block">
+              <h3 id="includes"><strong>​​Package​​ includes ​​</strong></h3>
+              </br>
+              <ul>
+                <br>
+                <li> HTML Template Pack </li>
+                <li> Documentation File </li>
+              </ul>
+              <hr>
+            </div>
+            <div class="content_block">
+              <h3 id="Modification"><strong>Modification</strong></h3></br>
+              <p> Uniqo - Creative Business & Portfolio Multi-purpose HTML5 Template for all your needs and it has a lot of features, stiky menu, Multiple Header options, Multiple Footer Options, Multiple Contact forms and countdowns and more.  </p>
+              </br>
+                <div class="image_block">
+                    <b>01 Header </b>
+                    <p> And a <strong> Header </strong> section, if you want to change anything here its easy to modify it:</p>
+                    <img src="assets/images/header-code.jpg" alt="Header"/>
+                    <br><br>
+                    <p> And this is how it look live: </p>
+                    <img src="assets/images/header.jpg" alt="Header"/>
+                </div>
+                <div class="image_block">
+                    <b>02 Slider </b>
+                    <p> As example we have the <strong>Slider </strong> section, the code below::</p>
+                    <img src="assets/images/banner-code.jpg" alt="Banner"/>
+                    <br><br>
+                    <p> And this is how it look live: </p>
+                    <img src="assets/images/banner.jpg" alt="Banner"/>
+                </div>
+                <div class="image_block">
+                    <b>03 Banner </b>
+                    <p> As example we have the <strong> Banner with Single Image</strong> section, the code below::</p>
+                    <img src="assets/images/banner-code-image.jpg" alt="Banner"/>
+                    <br><br>
+                    <p> And this is how it look live: </p>
+                    <img src="assets/images/banner-image.jpg" alt="Banner"/>
+                </div>
+                <div class="image_block">
+                    <b>04 Footer option 1 </b>
+                    <p> As example we have the Footer option 1, the code below::</p>
+                    <img src="assets/images/footer1-code.jpg" alt="Footer-1"/>
+                    <br><br>
+                    <p> And this is how it look live: </p>
+                    <img src="assets/images/footer1.jpg" alt="Footer-1"/>
+                </div>
+                <div class="image_block">
+                    <b>05 Footer option 2 </b>
+                    <p> As example we have the Footer option 2, the code below::</p>
+                    <img src="assets/images/footer2-code.jpg" alt="Footer-2"/>
+                    <br><br>
+                    <p> And this is how it look live: </p>
+                    <img src="assets/images/footer2.jpg" alt="Footer-2"/>
+                </div>
+                <div class="image_block">
+                    <b>06 Modify your email here to recive emails from contact form: </b>
+                    <p> As example we have the contact form(contact.php), the code below::</p>
+                    <p> NOTE: 'email@example.com' enter your email account to receive the messages from contact form  </p>
+                    <img src="assets/images/contact-code.jpg" alt="contact-form"/>
+                    <br><br>
+                </div>
+              <hr>
+            </div>
+            <div class="content_block">
+              <h3 id="credits"><strong>Credits</strong></h3>
+              </br>
+              <ul>
+                <li>Fonts : <a href="https://fonts.google.com/specimen/Roboto" rel="nofollow">Google Webfonts - Roboto </a>, <a href="https://fonts.googleapis.com/css?family=Courgette" rel="nofollow">Google Webfonts - Courgette </a>, <a href="https://fonts.googleapis.com/css?family=Montserrat" rel="nofollow">Google Webfonts - Montserrat </a>, <a href="https://fonts.googleapis.com/css?family=Poppins" rel="nofollow">Google Webfonts - Poppins </a> </li>
+                <li>Icons : <a href="http://ionicons.com/" rel="nofollow">ionicons</a>, <a href="https://themify.me/themify-icons" rel="nofollow">Themify Icons</a>,  <a href="https://icomoon.io" rel="nofollow">IcoMoon Icons</a>, <a href="https://fontawesome.com/icons" rel="nofollow">fontawesome free Icons</a>  </li>
+                <li>Images : <a href="https://pixabay.com/" rel="nofollow"> pixabay </a>, <a href="http://freepik.com/" rel="nofollow"> freepik </a>, <a href="https://unsplash.com/" rel="nofollow"> unsplash </a> </li>
+                <li>JQuery (Javascript) : <a href="https://jquery.org" rel="nofollow">jQuery </a>, <a href="http://getbootstrap.com" rel="nofollow">Bootstrap  </a>, <a href="http://pixelcog.github.io/parallax.js" rel="nofollow">Parallax </a>, <a href="http://owlgraphic.com/owlcarousel" rel="nofollow"> Owl Carousel </a>, <a href="https://github.com/mattboldt/typed.js" rel="nofollow"> typed-js </a>, <a href="http://hilios.github.io/jQuery.countdown/" rel="nofollow"> countdown  </a>,<a href="https://github.com/bfintal/Counter-Up" rel="nofollow"> Counter up  </a>, <a href="http://jqueryui.com" rel="nofollow"> jqueryui  </a>, <a href="https://isotope.metafizzy.co" rel="nofollow">isotope</a>, <a href="http://www.elevateweb.co.uk/image-zoom" rel="nofollow">elevatezoom</a>, <a href="http://fitvidsjs.com/" rel="nofollow">fitvids</a>, <a href="https://cdnjs.com/libraries/magnific-popup.js/" rel="nofollow"> magnific-popup </a>, <a href="http://imakewebthings.com/waypoints/" rel="nofollow"> waypoints </a>, <a href="https://github.com/micku7zu/vanilla-tilt.js/" rel="nofollow"> vanilla-tilt </a>, <a href="https://github.com/marghoobsuleman/ms-Dropdown" rel="nofollow"> jquery.dd </a>, <a href="https://github.com/fengyuanchen/datepicker" rel="nofollow"> datepicker.min.js </a>, <a href="https://github.com/dmuy/MDTimePicker" rel="nofollow"> mdtimepicker.min.js </a>, <a href="https://github.com/chartjs/Chart.js" rel="nofollow"> Chart.js </a>, <a href="https://github.com/bigspotteddog/ScrollToFixed" rel="nofollow"> Scroll to fixed js </a></li>
+              </ul>
+              <hr>
+              <h3 id="notes"><strong>Please Note:</strong></h3>
+              </br>
+              <p> All images are just used for preview purpose only and NOT included in the final purchase files. </p>
+    
+            </div>
+            <div class="content_block">
+              <h3 id="info"><strong>Contact​​ information</strong></h3>
+              </br>
+                <b>If​​ you ​​have ​​any​​ questions​​ or ​​need​​ customization, ​​please​​ contact​​ us​​ via ​​e-mail​​ or through​​ profile​​ page.</b><br>
+                <br>
+                <b>Themeforest</b> ​​- ​​<a target="_blank" href="http://themeforest.net/user/anil_z">http://themeforest.net/user/anil_z</a> <br>
+                <b>Email</b> ​​- ​​<a href="mailto:anil@bestwebcreator.com">anil@bestwebcreator.com</a><br>
+              <hr>
+            </div>
+            
+            <div class="content_block">
+              <h3 id="faq"><strong>FAQ</strong></h3>
+              </br>
+                </br>
+                <strong>How to remove the top menu sticky as scrolling?</strong><br><br>
+                <ul>
+                    <li>Open Up your HTML file <b><i>'Main/'</i></b> file location. (For Example, 'index.html'</li>
+                    <li>Then Search For the Comment <b><i>'&lt;!-- START HEADER --&gt;'</i></b></li>
+                    <li>show this line - &lt;header class="header_wrap fixed-top"&gt;</li>
+                    <li>add class name - &lt;header class="header_wrap fixed-top <strong>no-sticky</strong>"&gt; <b>(add class name 'no-sticky')</b></li>
+                </ul>
+                </br>
+                <strong> Where i can define my e-mail account to receive the messages from contact form? </strong><br><br>
+                <ul>
+                    <li>Open Up your HTML file <b><i>'Main'</i></b> file location. (For Example, 'Main/contact.php'</li>
+                    <li>show this line number 11 - $mailTo     = 'email@example.com'</li>
+                    <li>'email@example.com' enter your email account to receive the messages from contact form</li>
+                </ul>
+              <hr>
+              <strong>Thank you </strong>so much for choosing <strong>"Uniqo HTML Template"</strong> we hope you will enjoy using it!
+              <hr>
+            </div>
+          </div>
+      </div>
+    </div>
+</body>
+</html>
