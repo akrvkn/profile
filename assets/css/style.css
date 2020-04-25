@@ -915,6 +915,37 @@ h6 {
 	width: 7px !important;
 }
 
+/********************************************
+5.1 Pagepiling panel settings
+*********************************************/
+#pagepiling {
+	width: 100%;
+}
+
+#pagepiling.normalScroll {
+	overflow: hidden;
+}
+
+#pagepiling .section,
+#pagepiling .section .slide {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	overflow: hidden;
+	min-height: 100vh;
+}
+
+.vertical-top .pp-tableCell {
+	vertical-align: top;
+}
+
+.pp-tableCell .slimScrollBar,
+.pp-tableCell .slimScrollRail {
+	width: 7px !important;
+}
+
+
+
 
 /********************************************
 5.1 Top social media

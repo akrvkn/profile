@@ -485,6 +485,38 @@ function initAnimations(){
 
 }
 
+function initPagePiling(){
+    $('#pagepiling').pagepiling({
+        menu: '.nav-menu',
+        direction: 'vertical',
+        verticalCentered: true,
+        sectionsColor: [],
+        anchors: ['panelBlock1', 'panelBlock2', 'panelBlock3', 'panelBlock4', 'panelBlock5', 'panelBlock6', 'panelBlock7'],
+        scrollingSpeed: 700,
+        easing: 'swing',
+        loopBottom: false,
+        loopTop: false,
+        css3: true,
+        navigation: {
+            'textColor': '#000',
+            'bulletsColor': '#000',
+            'position': 'right',
+            'tooltips': ['panelBlock1', 'panelBlock2', 'panelBlock3', 'panelBlock4', 'panelBlock5', 'panelBlock6', 'panelBlock7']
+        },
+        normalScrollElements: null,
+        normalScrollElementTouchThreshold: 5,
+        touchSensitivity: 5,
+        keyboardScrolling: true,
+        sectionSelector: '.section',
+        animateAnchor: false,
+
+        //events
+        onLeave: function(index, nextIndex, direction){},
+        afterLoad: function(anchorLink, index){},
+        afterRender: function(){},
+    });
+}
+
 function initFullPage(){
     // ===== Load Progress Bar When Scroll To Element ===== //
     var progressBar = ".progress-bar-wrapper:in-viewport";
@@ -715,7 +747,8 @@ $.getJSON("config.json", function (res) {
     setDataBackground();
     setDataOpacity();
     initAnimations();
-    initFullPage();
+    //initFullPage();
+    initPagePiling();
 });
 
 jQuery(document).ready(function() {
@@ -828,7 +861,8 @@ jQuery(document).ready(function() {
     // Move down mouse icon
     $('#moveSectionDown').on("click", function(e){
         e.preventDefault();
-        $.fn.fullpage.moveSectionDown();
+        //$.fn.fullpage.moveSectionDown();
+        $.fn.pagepiling.moveSectionDown();
     });
 
     // Fixed to Fit to Section
@@ -851,12 +885,12 @@ jQuery(document).ready(function() {
             var destiny = value[0];
             var anchor = $('[data-anchor="' + destiny + '"]');
             var section = anchor.length ? anchor : $('.panel-1');
-            if (fullPageContainer.hasClass("addAutoScroll")) {
+            /*if (fullPageContainer.hasClass("addAutoScroll")) {
                 $.fn.fullpage.reBuild();
             }
             if (fullPageContainer.hasClass("addNormalScroll")) {
                 $('html, body').scrollTop(section.position().top);
-            }
+            }*/
         }, 1000);
     });
 

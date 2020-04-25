@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+{% include head-parallax.html %}
+<body>
+<div data-offset="90" data-spy="scroll" data-target=".navbar">
+    {% include loader-parallax.html %}
+    {% include header-parallax.html %}
+    {{ content }}
+    {% include scroll-top-parallax.html %}
+    {% include scripts-parallax.html %}
+</div>
+</body>
+</html>
