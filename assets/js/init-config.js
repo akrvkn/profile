@@ -496,7 +496,7 @@ function initPagePiling(){
         easing: 'swing',
         loopBottom: false,
         loopTop: false,
-        css3: true,
+        css3: false,
         navigation: {
             'textColor': '#000',
             'bulletsColor': '#000',
