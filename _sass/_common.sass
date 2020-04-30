@@ -1,0 +1,49 @@
+\:root
+  --c-text-common: #474747
+  --c-brand-yt: #f00
+  --c-brand-twttr: rgba(29,161,242,1.00)
+  --c-about-bg: #cd8a2e
+  --c-contact-bg: #006064
+  --c-brand-inst: #cd2e89
+  --c-text-accent: #83b8d4
+  --c-brand: #0962a8
+  --c-link-hover: #006699
+  --c-footer-bg: #522925
+  --c-gray-0: #474747
+  --c-gray-1: #a3a3a3
+  --c-grey-2: #f7f7f7
+
+  font-size: 16px
+*
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  box-sizing: border-box
+  outline: none
+  -webkit-tap-highlight-color: transparent
+  &:before, &:after
+    box-sizing: border-box
+
+html
+  scroll-behavior: smooth
+  height: 100vh
+  min-height: 100vh
+  overflow-x: hidden
+body
+  line-height: 1.6
+  font-size: 1rem
+  font-weight: 400
+  font-family: $f-common
+  color: var(--c-text-common)
+  background-color: #fff
+  position: relative
+  min-height: 100vh
+  scroll-snap-type: y mandatory
+  overflow-x: hidden
+  overflow: hidden auto
+
+h1, h2, h3, h4
+  font-family: $f-header
+  font-size: 2.4rem
+
+iframe
+  border: none

@@ -1,0 +1,133 @@
+.video-caption {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  text-align: center;
+  z-index: 2;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.slide-extralarge-title {
+  font-size: 5vw;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 5.4vw;
+  margin: 0;
+  margin-bottom: 2.4vw;
+}
+
+.slide-description-small {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  line-height: 1.95vw;
+  margin: 0;
+  margin-bottom: 2.05vw;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* solves problem with overflowing video in Mac with Chrome */
+.video-background {
+  overflow: hidden;
+}
+
+.hero-texture{
+  position: absolute;
+  z-index: 2;
+  background-image: url(https://www.transparenttextures.com/patterns/black-lozenge.png);
+  background-repeat: repeat;
+  background-position: center center;
+}
+.hero-video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+.hero-video .screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  margin: auto;
+  opacity: 0;
+  transition: opacity .5s;
+}
+.hero-video .screen.active {
+  opacity: 1;
+}
+.fullvid {
+  width: 1280px;
+  height: 720px;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  z-index: -2;
+  -webkit-transform: translate(-50%, 50%);
+  -moz-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+}
+.h-video .hero-image{
+  display: none !important;
+}
+.is-mobile .h-video .hero-image{
+  display: block !important;
+}
+.is-mobile .hero-video{
+  display: none !important;
+}
+
+.hero-header .canvas-bg,
+.hero-header .overlay,
+.hero-header .dot-overlay,
+.search-magnifier,
+.header-centralizer,
+.hero-mask,
+.hero-texture{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-header .canvas-bg{
+  z-index: -1;
+}
+.hero-header .overlay{
+  display: none;
+  height: 99.99%;
+  background: rgba(38,163,135,0.8);
+}
+.hero-header.light .overlay{
+  background: rgba(255,255,255,0.80);
+}
+.hero-header.dark .overlay{
+  background: rgba(50,50,50,0.8);
+}
+.hero-header.in-color .overlay{
+  background: rgb(38,163,135);
+}
+.hero-header.transparent .overlay{
+  background: rgba(0,0,0,0.4) !important;
+}

@@ -1,0 +1,80 @@
+/********************************************
+5.2 Block title
+*********************************************/
+.block-title {
+  /*position: relative;*/
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0px;
+  overflow: hidden;
+  z-index: 2;
+  text-align: center;
+}
+
+.block-title h2 {
+  display: inline-flex;
+  margin: 0;
+  font-size: 2.1428rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.2em;
+  padding: 0 10px;
+  white-space: nowrap;
+}
+
+.line-before,
+.line-after {
+  position: relative;
+  height: 2px;
+  width: 100px;
+  top: 30px;
+}
+
+.line-before:before {
+  position: absolute;
+  content: ' ';
+  width: 100px;
+  height: 1px;
+  left: 0;
+  bottom: 7px;
+  background-color: rgba(224,224,224,1);
+}
+
+.line-before:after {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 1px;
+  right: 0;
+  bottom: 7px;
+  background-color: rgba(71,71,71,.6);
+}
+
+.line-after:before {
+  position: absolute;
+  content: '';
+  width: 100px;
+  height: 1px;
+  left: 0;
+  bottom: 7px;
+  background-color: rgba(224,224,224,1);
+}
+
+.line-after:after {
+  position: absolute;
+  content: '';
+  width: 30px;
+  height: 1px;
+  left: 0;
+  bottom: 7px;
+  background-color: rgba(71,71,71,.6);
+}
+
+@media (max-width: 580px) {
+  .block-title {
+    margin: 20px 0 0 20px;
+    justify-content: flex-start;
+  }
+}

@@ -918,9 +918,6 @@ h6 {
 /********************************************
 5.1 Pagepiling panel settings
 *********************************************/
-#pagepiling {
-	width: 100%;
-}
 
 #pagepiling.normalScroll {
 	overflow: hidden;
@@ -1819,7 +1816,13 @@ h6 {
 	box-sizing: border-box;
 }
 
+.panel-youtube .playerArea {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
 .panel-youtube .block-title {
+	display: block;
 	margin: 0 0 43px;
 }
 
@@ -2278,6 +2281,10 @@ circle {
 		font-size: 170px;
 	}
 
+	.panel-youtube .block-title {
+		display: none;
+	}
+
 	.carousel-block-title h1 {
 		font-size: 3.5714em;
 	}
@@ -2342,6 +2349,10 @@ circle {
 	#main-menu .nav-open {
 		height: 57px !important;
 		width: 66px;
+	}
+
+	.panel-youtube .block-title {
+		display: none;
 	}
 
 	#main-menu.left .burger-wrap {

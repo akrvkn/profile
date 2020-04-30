@@ -747,8 +747,8 @@ $.getJSON("config.json", function (res) {
     setDataBackground();
     setDataOpacity();
     initAnimations();
-    //initFullPage();
-    initPagePiling();
+    initFullPage();
+    //initPagePiling();
 });
 
 jQuery(document).ready(function() {

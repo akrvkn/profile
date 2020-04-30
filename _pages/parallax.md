@@ -1,16 +1,11 @@
 ---
 title: Parallax Page
 layout: parallax
-permalink: demo1/
+permalink: parallax/
 ---
 
-{% include sections/parallax/home.html %}
-{% include sections/parallax/services.html %}
-{% include sections/parallax/corporate.html %}
-{% include sections/parallax/social.html %}
-{% include sections/parallax/portfolio.html %}
-{% include sections/parallax/pricing.html %}
-{% include sections/parallax/reviews.html %}
-{% include sections/parallax/contact.html %}
-{% include sections/parallax/address.html %}
-{% include sections/parallax/footer.html %}
+
+{% include sections/parallax/hero-video.html %}
+{% include sections/parallax/youtube.html %}
+{% include sections/parallax/twitter.html %}
+{% include sections/parallax/instagram.html %}
