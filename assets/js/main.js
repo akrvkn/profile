@@ -486,7 +486,7 @@ function loadVids(data) {
     var id = data[0].id;
     mainVid(id);
     resultsLoop(data);
-    var swiper = new Swiper('.swiper-container', {
+    var swiper = new Swiper('#ytSlider', {
         slidesPerView: 1,
         spaceBetween: 10,
         // init: false,
@@ -519,27 +519,6 @@ function loadVids(data) {
     });
 }
 
-//TWITTER
-window.twttr = (function (d,s,id) {
-    var t, js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-    js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-    return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-}(document, "script", "twitter-wjs"));
-
-var twLoaded;
-
-twttr.ready(
-    function (twttr) {
-        twttr.events.bind(
-            'loaded',
-            function (event) {
-                twLoaded = 1;
-                event.widgets.forEach(function (widget) {
-                    parseTwitterData(widget.id);
-                });
-            });
-    });
 
 function parseTwitterData(id){
     var twitterBlog = $('#twitterBlog');
@@ -573,15 +552,15 @@ function parseTwitterData(id){
 
 function createTwitterTweet(txt, pic, avatar, time, link, name, title){
     var	img = pic === undefined ? '' : `<p><a style="cursor: pointer;" data-fancybox href="${pic.split('&')[0] + '&name=small'}"><img src="${pic.split('&')[0] + '&name=small'}"  class="user-pic" alt="thumbnail" /></a></p>`;
-    return `<div class="reviews item">
-            <div class="review-body">
+    return `<div class="tw-items item">
+            <div class="tw-body">
                
                 <p class="user-comment">${txt}</p>
                 <p class="comment-date">${time}</p>
                 ${img}
                 <p class="comment-date"><a href="${link}">Open</a></p>
             </div>
-            <div class="user-img"><img src="${avatar}" class="rounded-circle" alt="img"></div>
+            <div class="user-img"><img src="${avatar}" width="48" height="48" class="rounded-circle" alt="img"></div>
             <h4 class="user-name">${name}</h4>
             <p class="user-designation">- ${title} -</p>
          </div>`;
@@ -605,7 +584,7 @@ $(document).ready(function() {
         });
 
     });
-    var swiperYT = new Swiper('.swiper-container', {
+    /*var swiperYT = new Swiper('#ytSlider', {
         slidesPerView: 1,
         spaceBetween: 10,
         // init: false,
@@ -627,7 +606,7 @@ $(document).ready(function() {
                 spaceBetween: 50,
             },
         }
-    });
+    });*/
 
     $('.morphing-menu a').on('click', function(){
         $('.morphing-menu input').prop('checked', false);
@@ -644,8 +623,8 @@ function initPagePiling(res){
         menu: '.nav-menu',
         direction: 'vertical',
         verticalCentered: true,
-        sectionsColor: ['#474747', 'red', 'rgba(29,161,242,1.00)', '#cd2e89'],
-        anchors: ['section1', 'section2', 'section3', 'section4'],
+        sectionsColor: ['#474747', '#ffffff', 'red', 'rgba(29,161,242,1.00)', '#cd2e89'],
+        anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
         scrollingSpeed: 700,
         easing: 'swing',
         loopBottom: false,
@@ -673,6 +652,27 @@ function initPagePiling(res){
 }
 
 function initTwitterAPI(res){
+    //TWITTER
+    window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+
+    var twLoaded;
+
+    twttr.ready(
+        function (twttr) {
+            twttr.events.bind(
+                'loaded',
+                function (event) {
+                    twLoaded = 1;
+                    event.widgets.forEach(function (widget) {
+                        parseTwitterData(widget.id);
+                    });
+                });
+        });
     $('body').append(`<div id="twitterTimeline" class="timeline">
                 <a class="twitter-timeline" data-tweet-limit="9"
                    href="https://twitter.com/${res.twitter.account}">
@@ -691,10 +691,10 @@ function initConfig(res){
     if(res.instagram.accessToken) {
         initInstagramAPI(res.instagram.accessToken);
     }else{
-        //initInstagramWidget();
+        initInstagramWidget();
     }
     if (res.twitter) {
-        //initTwitterAPI(res);
+        initTwitterAPI(res);
     }
 }
 
@@ -737,7 +737,7 @@ $(function() {
 
     // Figure out and save aspect ratio for each video
     $allVideos.each(function() {
-       //console.log( this.height, this.width );
+        //console.log( this.height, this.width );
         var aspectRatio = parseInt(this.height) / parseInt(this.width);
         $(this)
             .data('aspectRatio', aspectRatio)
