@@ -21,8 +21,10 @@ var tag,
         controls: 0,
         disablekb: 1,
         enablejsapi: 0,
-        iv_load_policy: 3
+        iv_load_policy: 3,
+        origin: window.location.href
     };
+//console.log(window.location.href);
 
 var videoStartTime = 1,
     videoEndTime = 999999;
@@ -427,6 +429,23 @@ function createPhotoBig(k, photo) {
                 </div>`;
 }
 
+function fitImg(){
+    $('.fit-img').each(function() {
+        var $div = $(this),
+            $img = $('img', $div),
+            src = $img.attr('src');
+        $div.css('backgroundImage', 'url(' + src + ')');
+        $img.remove();
+    });
+}
+
+function setDataHeight(){
+    $("*").css('height', function () {
+        return $(this).attr('data-height') + 'px';
+    });
+}
+
+
 function setTabsHeight(){
     var pHeight = $('.portfolio-detail-wrapper');
     var ptHeight = $('.portfolio-tabs').height();
@@ -442,12 +461,23 @@ function loadSectionFromURL(){
     }
 }
 
-function setDataBackground() {
+function setSVGBackground() {
     var bgImage = ".section"
     $(bgImage).css('background-image', function () {
         var bg = '';
+        if(typeof  $(this).data("image-svg") !== "undefined" ) {
+            bg = ('url(data:image/svg+xml;base64,' + btoa($(this).data("image-svg")) + ')');
+        }
+        return bg;
+    });
+}
+
+function setDataBackground() {
+    var bgImage = "#fullpage .section"
+    $(bgImage).css('background-image', function () {
+        var bg = '';
         if(typeof  $(this).data("image-src") !== "undefined" ) {
-            bg = ('url(data:image/svg+xml;base64,' + btoa($(this).data("image-src")) + ')');
+            bg = ('url(' + $(this).data("image-src") + ')');
         }
         return bg;
     });
@@ -551,7 +581,7 @@ function parseTwitterData(id){
 }
 
 function createTwitterTweet(txt, pic, avatar, time, link, name, title){
-    var	img = pic === undefined ? '' : `<p><a style="cursor: pointer;" data-fancybox href="${pic.split('&')[0] + '&name=small'}"><img src="${pic.split('&')[0] + '&name=small'}"  class="user-pic" alt="thumbnail" /></a></p>`;
+    var	img = pic === undefined ? '' : `<p><a style="cursor: pointer;" data-fancybox data-options='{"smallBtn":"true"}' href="${pic.split('&')[0] + '&name=small'}"><img src="${pic.split('&')[0] + '&name=small'}"  class="user-pic" alt="thumbnail" /></a></p>`;
     return `<div class="tw-items item">
             <div class="tw-body">
                
@@ -584,30 +614,6 @@ $(document).ready(function() {
         });
 
     });
-    /*var swiperYT = new Swiper('#ytSlider', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        // init: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 4,
-                spaceBetween: 40,
-            },
-            1024: {
-                slidesPerView: 5,
-                spaceBetween: 50,
-            },
-        }
-    });*/
-
     $('.morphing-menu a').on('click', function(){
         $('.morphing-menu input').prop('checked', false);
     });
@@ -623,8 +629,8 @@ function initPagePiling(res){
         menu: '.nav-menu',
         direction: 'vertical',
         verticalCentered: true,
-        sectionsColor: ['#474747', '#ffffff', 'red', 'rgba(29,161,242,1.00)', '#cd2e89'],
-        anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
+        sectionsColor: ['#474747', '#ffffff', 'red', 'rgba(29,161,242,1.00)', '#cd2e89', '#009b72', '#474747'],
+        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
         scrollingSpeed: 700,
         easing: 'swing',
         loopBottom: false,
@@ -635,7 +641,7 @@ function initPagePiling(res){
             'bulletsColor': '#ffffff',
             'position': 'right'
         },
-        normalScrollElements: null,
+        normalScrollElements: '.swiper-container',
         normalScrollElementTouchThreshold: 5,
         touchSensitivity: 5,
         keyboardScrolling: true,
@@ -683,8 +689,10 @@ function initTwitterAPI(res){
 
 function initConfig(res){
     //setDataBgColor();
+    setDataHeight();
     initYoutubeBackground(res.youtubeBackgroundVideo, res.youtubeVideoStart, res.youtubeVideoEnd);
     initPagePiling(res);
+    setSVGBackground();
     setDataBackground();
     $('#video-thumb').empty();
     loadVids(res.youtube.playlists);
@@ -696,6 +704,8 @@ function initConfig(res){
     if (res.twitter) {
         initTwitterAPI(res);
     }
+    $('#personalPhoto').append(`<figure><img src="${res.about.photo}" alt="image" /></figure>`);
+    fitImg();
 }
 
 
