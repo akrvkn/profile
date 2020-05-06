@@ -1,7 +1,7 @@
 ---
 title: Page Piling
 layout: pagepiling
-permalink: pagepiling/
+permalink: default.html
 ---
 
 

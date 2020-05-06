@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en-US">
 <head lang="en">
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
-<title>Uniqo - Social Network Aggregator HTML Template Documentation</title>
+<title>Ubiquitous - Social Network Aggregator HTML Template Documentation</title>
 <link rel="stylesheet" href="assets/css/screen.css" type="text/css" media="screen, projection">
 <link rel="stylesheet" href="assets/css/print.css" type="text/css" media="print">
 <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
@@ -15,7 +14,7 @@
       <div class="heade_block">
         <div>
           <p> HTML Template Documentation </p>
-          <h1> Uniqo </h1>
+          <h1> Ubiquitous </h1>
         </div>
       </div>
       <hr>
@@ -32,19 +31,18 @@
                 <li><a class="menu-item" href="#contact">Contact Form Section</a></li>
                 <li><a class="menu-item" href="#footer">Footer Section</a></li>
               <li><a class="menu-item" href="#includes">​​​​Package ​​includes​​ </a></li>
-              <li><a class="menu-item" href="#Modification">​​Modification</a></li>
+              <li><a class="menu-item" href="#modification">​​Modification</a></li>
               <li><a class="menu-item" href="#credits">​​Credits</a></li>
               <li><a class="menu-item" href="#info">Contact​​ information</a></li>
-              <li><a class="menu-item" href="#faq">FAQ's</a></li>
             </ol>
           </div>
           <div class="content">
             <div class="content_block active">
               <h3 id="introduction"><strong>Introduction</strong></h3>
               <br>
-                <p><strong> Uniqo - Social Network Aggregator HTML Template </strong></p>
-                <p>Uniqo is a Social Network Aggregator HTML template, using most popular design trends as HTML5, CSS3 and jQuery. The template have fullpage scroll function and separate panel sections, so you can create various styles of page to suit your needs.</p>
-                <p> Social network aggregation is the process of collecting content from multiple social network services into one unified presentation. Uniqo aside from simplifying the user's social networking experiences. The template designed to help companies and individuals improve engagement with their brands by creating aggregated social streams that can be embedded into an existing website and customized to look visually intrinsic to the site. This allows potential customers to interact with all the social media posts maintained by the brand without requiring them to jump from site to site. This has the benefit of keeping customers on the brand's site for a longer period of time.</p>
+                <p><strong> Ubiquitous - Social Network Aggregator HTML Template </strong></p>
+                <p>Ubiquitous is a Social Network Aggregator HTML template, using most popular design trends as HTML5, CSS3 and jQuery. The template have fullpage scroll function and separate panel sections, so you can create various styles of page to suit your needs.</p>
+                <p> Social network aggregation is the process of collecting content from multiple social network services into one unified presentation. Ubiquitous aside from simplifying the user's social networking experiences. The template designed to help companies and individuals improve engagement with their brands by creating aggregated social streams that can be embedded into an existing website and customized to look visually intrinsic to the site. This allows potential customers to interact with all the social media posts maintained by the brand without requiring them to jump from site to site. This has the benefit of keeping customers on the brand's site for a longer period of time.</p>
                 
                 </br></br>
                 <strong> Configuration and Installation </strong></br></br>
@@ -74,39 +72,30 @@
                     <p> If you want to change anything here its easy to modify it:</p>
                     <pre>
 {
-  "siteTitle": "Lorem Ipsum",
-  "siteSubTitle": "dolor sit amet",
-  "youtubeBackgroundVideo": "ONSsnNcxhg8",
-  "youtubeVideoStart": "1",
-  "youtubeVideoEnd": "103",
   "menu": [
-    {"id": 1,"title": "Home", "link": "index.html#panelBlock1"},
-    {"id": 2,"title": "About", "link": "index.html#panelBlock2"},
-    {"id": 3,"title": "Youtube", "link": "index.html#panelBlock3"},
-    {"id": 4,"title": "Instagram", "link": "index.html#panelBlock4"},
-    {"id": 5,"title": "Twitter", "link": "index.html#panelBlock5"},
-    {"id": 6,"title": "Contact", "link": "index.html#panelBlock6"}
+    {"id": 1, "title": "Home", "anchor": "#section1"},
+    {"id": 2, "title": "About", "anchor": "#section2"},
+    {"id": 3, "title": "Youtube", "anchor": "#section3"},
+    {"id": 4, "title": "Twitter", "anchor": "#section4"},
+    {"id": 5, "title": "Instagram", "anchor": "#section5"},
+    {"id": 6, "title": "Contact", "anchor": "#section6"}
   ],
+  "hero": {
+    "title": "Lorem Ipsum",
+    "subtitle": "dolor sit amet",
+    "image": "assets/images/hero-bg-image.jpg",
+    "youtubeBackgroundVideo": "ONSsnNcxhg8",
+    "youtubeVideoStart": "3",
+    "youtubeVideoEnd": "103"
+  },
   "about": {
     "title": "About",
     "text": "about.html",
-    "photo": "https://www.noobie.com/wp-content/uploads/2019/02/close-happy-young-bearded-handsome-man-email-list-ss-1080x721.jpg",
-    "moreLink": "https://google.com/",
-    "moreText": "More"
-  },
-  "facebook": {
-    "account":  "#"
-  },
-  "twitter": {
-    "title": "Twitter",
-    "account": "css",
-    "moreLink": "https://twitter.com/css",
-    "moreText": "All tweets"
+    "image": "assets/images/about-1080x721.jpg"
   },
   "youtube": {
-    "title": "Youtube Channel",
-    "moreLink": "https://www.youtube.com/user/realcsstricks",
-    "moreText": "All video",
+    "title": "My Channel",
+    "account": "realcsstricks",
     "playlists": [
     {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
     {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
@@ -114,13 +103,16 @@
     {"id": "PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS", "title": "CSS-Tricks Eye Tracking Study"}
   ]
   },
+  "twitter": {
+    "title": "Twitter",
+    "account": "css",
+    "description": "TDuis porta, dui vel dictum laoreet, tortor lectus iaculis dui, quis volutpat eros velit sed diam. Duis interdum eu sem sed rhoncus. Maecenas fringilla quam sit amet consectetur justo pulvinar."
+  },
   "instagram": {
     "title": "Instagram",
     "account": "product.daily",
-    "moreLink": "https://instagram.com/product.daily",
-    "moreText": "Open",
     "count": 9,
-    "accessToken": "IGQVJYZAnRvVXJ0Q1ZAsU1lUeHM3TEJtZATY2LVJMdEZAmVXFMZADZAGUHI0bTdQUGU5dWJQZAzJMZA3BNaDlZAZAmtlNVBqVk1jcFNUXy05V01TY2NSdzI5SU1NaUpKSkwzQXBSV29sNG9URXVsOVVwczlsSFRiSQZDZD",
+    "accessToken": "IGQVJVRWVjSE8wTWlXbUZA2RHY1a2xRZAVJHZAzBWTXQ3Ml92Uk9ZATWxlV2VQdmV5dUhGdUUxbjQ0djl1RTlmVkhFV21BMGpMa3otdGRkWGtTYW8wX0pJVlhoX0N3NjNXdHF5UlJ5SHlWOElLUk96RUJGTAZDZD",
     "widget": "widget-instagram.html"
     },
   "contact": {
@@ -138,12 +130,8 @@
     }
   },
   "footer": {
-    "subtitle": "consectetur adipiscing elit sed do eiusmod",
-    "title": {
-      "part1": "Pri quas",
-      "part2": "audiam",
-      "part3": "virtute ut"
-    }
+    "title": "Pri quas audiam virtute ut",
+    "subtitle": "consectetur adipiscing elit sed do eiusmod"
   }
 }
                     </pre>
@@ -183,34 +171,27 @@
                   <p>You can change the video background, title and subtitle of your page by edit youtubeBackgroundVideo, siteTitle, siteSubTitle in <strong> config.json </strong> file</p>
                   <p> Fields youtubeVideoStart, youtubeVideoEnd count seconds of video to play</p>
                   <pre>
-  "siteTitle": "Lorem Ipsum",
-  "siteSubTitle": "dolor sit amet",
-  "youtubeBackgroundVideo": "ONSsnNcxhg8",
-  "youtubeVideoStart": "1",
-  "youtubeVideoEnd": "103",
-  "menu": [
-    {"id": 1,"title": "Home", "link": "index.html#panelBlock1"},
-    {"id": 2,"title": "About", "link": "index.html#panelBlock2"},
-    {"id": 3,"title": "Youtube", "link": "index.html#panelBlock3"},
-    {"id": 4,"title": "Instagram", "link": "index.html#panelBlock4"},
-    {"id": 5,"title": "Twitter", "link": "index.html#panelBlock5"},
-    {"id": 6,"title": "Contact", "link": "index.html#panelBlock6"}
-  ],
+  "hero": {
+    "title": "Lorem Ipsum",
+    "subtitle": "dolor sit amet",
+    "image": "assets/images/hero-bg-image.jpg",
+    "youtubeBackgroundVideo": "ONSsnNcxhg8",
+    "youtubeVideoStart": "3",
+    "youtubeVideoEnd": "103"
+  },
                   </pre>
                   <hr>
               </div>
               <div class="content_block">
                   <h3 id="about"><strong>About us Section</strong></h3>
                   </br>
-                  <p>ou can change the name, photo, link name, and link in the corresponding fields of the <strong>config.json</strong> file</p>
+                  <p>You can change the name, photo, link name, and link in the corresponding fields of the <strong>config.json</strong> file</p>
                   <p> The text field indicates the file to upload</p>
                   <pre>
     "about": {
     "title": "About",
     "text": "about.html",
-    "photo": "https://www.noobie.com/wp-content/uploads/2019/02/close-happy-young-bearded-handsome-man-email-list-ss-1080x721.jpg",
-    "moreLink": "https://google.com/",
-    "moreText": "More"
+    "image": "assets/images/about-1080x721.jpg"
   },
                   </pre>
                   <hr>
@@ -221,10 +202,9 @@
                   <p>To load playlists, edit the "playlists" array in the <strong>config.json</strong> file</p>
                   <p> All Youtube playlist IDs start with PL</p>
                   <pre>
-    "youtube": {
-    "title": "Youtube Channel",
-    "moreLink": "https://www.youtube.com/user/realcsstricks",
-    "moreText": "All video",
+     "youtube": {
+    "title": "My Channel",
+    "account": "realcsstricks",
     "playlists": [
     {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
     {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
@@ -251,10 +231,8 @@
     "instagram": {
     "title": "Instagram",
     "account": "product.daily",
-    "moreLink": "https://instagram.com/product.daily",
-    "moreText": "Open",
     "count": 9,
-    "accessToken": "IGQVJYZAnRvVXJ0Q1ZAsU1lUeHM3TEJtZATY2LVJMdEZAmVXFMZADZAGUHI0bTdQUGU5dWJQZAzJMZA3BNaDlZAZAmtlNVBqVk1jcFNUXy05V01TY2NSdzI5SU1NaUpKSkwzQXBSV29sNG9URXVsOVVwczlsSFRiSQZDZD",
+    "accessToken": "",
     "widget": "widget-instagram.html"
     },
                   </pre>
@@ -266,29 +244,65 @@
                   <p>You can change the name, link name, and link in the corresponding fields of the <strong>config.json</strong> file</p>
                   <p> To download the tweets you want to specify a name for the account</p>
                   <pre>
-   "twitter": {
+    "twitter": {
     "title": "Twitter",
     "account": "css",
-    "moreLink": "https://twitter.com/css",
-    "moreText": "All tweets"
+    "description": "TDuis porta, dui vel dictum laoreet, tortor lectus iaculis dui, quis volutpat eros velit sed diam. Duis interdum eu sem sed rhoncus. Maecenas fringilla quam sit amet consectetur justo pulvinar."
   },
                   </pre>
                   <hr>
               </div>
               <div class="content_block">
                   <h3 id="contact"><strong>Contact Form Section</strong></h3>
-                  </br>
-                  <ul>
-                      <li> Contact</li>
-                  </ul>
+                  <p>Change "url" field in <strong>config.json</strong> file match your server-side mail script, or use Google Apps to send messages via Google Mail as described below.</p>
+                      <pre>
+                          "contact": {
+    "title": "Contact",
+    "action": "post",
+    "successMessage": "Your message sent",
+    "errorMessage": "Error",
+    "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
+    "formFields": {
+      "name": "Name",
+      "email": "E-mail",
+      "mysubject": "Subject",
+      "mymessage": "Message",
+      "submit": "Send"
+    }
+  },
+                      </pre>
+
+                      <p>Send Email from a Static HTML Form using Google Apps Mail!</p>
+
+                      <p>A Step-by-Step Example of using an HTML Form to send a "Contact Us" Message via Email without a Backend Server using a Google Script - No PHP, Python, Ruby, Java, Node.js etc.</p>
+
+                  <p>See a working example here: <a href="https://github.com/dwyl/learn-to-send-email-via-google-script-html-no-server">https://dwyl.github.io/learn-to-send-email-via-google-script-html-no-server/</a></p>
+
+                      <p><strong>Why?</strong></p>
+                      <p> We needed a way of sending an email from a "static" HTML page when you don't (want to) have a server.</p>
+
+                      <p><strong>Key Advantages</strong></p>
+                         <p> No "Backend" to Deploy/Maintain/Pay for
+                          Fully Customisable - every aspect is customisable!
+                          Email sent via Google Mail which is Whitelisted Everywhere (high deliverability success)
+                          Collect/Store any form data in a Spreadsheet for easy viewing
+                          (perfect if you need to share it with non-technical people).
+                          Instead of using a server to send your email, which is easy but requires maintenance,
+                          use Google to send mail on your behalf and use Google Spreadsheets to keep track of the data!</p>
+                  <p>If you prefer a standard server script for sending messages, there is an example of this script included "mail.php", in which you need to edit the recipient's Email address.</p>
                   <hr>
               </div>
               <div class="content_block">
                   <h3 id="footer"><strong>Footer Section</strong></h3>
                   </br>
-                  <ul>
-                      <li> Footer</li>
-                  </ul>
+                  <p>
+                      <pre>
+                  "footer": {
+    "title": "Pri quas audiam virtute ut",
+    "subtitle": "consectetur adipiscing elit sed do eiusmod"
+  }
+              </pre>
+                  </p>
                   <hr>
               </div>
             
@@ -303,66 +317,22 @@
               <hr>
             </div>
             <div class="content_block">
-              <h3 id="Modification"><strong>Modification</strong></h3></br>
-              <p> Uniqo - Creative Business & Portfolio Multi-purpose HTML5 Template for all your needs and it has a lot of features, stiky menu, Multiple Header options, Multiple Footer Options, Multiple Contact forms and countdowns and more.  </p>
+              <h3 id="modification"><strong>Modification</strong></h3></br>
+              <p> Ubiquitous -  Social Network Aggregator HTML Template for all your communicatin needs and it has a lot of features, morphing menu, Multiple Header options, Multiple Section Options, Multiple Contact form scripts and more.  </p>
+                <p>
+                    You can change the background image of each section by adding the tag data-image-src="your-image-file-url"
+                </p>
+
               </br>
-                <div class="image_block">
-                    <b>01 Header </b>
-                    <p> And a <strong> Header </strong> section, if you want to change anything here its easy to modify it:</p>
-                    <img src="assets/images/header-code.jpg" alt="Header"/>
-                    <br><br>
-                    <p> And this is how it look live: </p>
-                    <img src="assets/images/header.jpg" alt="Header"/>
-                </div>
-                <div class="image_block">
-                    <b>02 Slider </b>
-                    <p> As example we have the <strong>Slider </strong> section, the code below::</p>
-                    <img src="assets/images/banner-code.jpg" alt="Banner"/>
-                    <br><br>
-                    <p> And this is how it look live: </p>
-                    <img src="assets/images/banner.jpg" alt="Banner"/>
-                </div>
-                <div class="image_block">
-                    <b>03 Banner </b>
-                    <p> As example we have the <strong> Banner with Single Image</strong> section, the code below::</p>
-                    <img src="assets/images/banner-code-image.jpg" alt="Banner"/>
-                    <br><br>
-                    <p> And this is how it look live: </p>
-                    <img src="assets/images/banner-image.jpg" alt="Banner"/>
-                </div>
-                <div class="image_block">
-                    <b>04 Footer option 1 </b>
-                    <p> As example we have the Footer option 1, the code below::</p>
-                    <img src="assets/images/footer1-code.jpg" alt="Footer-1"/>
-                    <br><br>
-                    <p> And this is how it look live: </p>
-                    <img src="assets/images/footer1.jpg" alt="Footer-1"/>
-                </div>
-                <div class="image_block">
-                    <b>05 Footer option 2 </b>
-                    <p> As example we have the Footer option 2, the code below::</p>
-                    <img src="assets/images/footer2-code.jpg" alt="Footer-2"/>
-                    <br><br>
-                    <p> And this is how it look live: </p>
-                    <img src="assets/images/footer2.jpg" alt="Footer-2"/>
-                </div>
-                <div class="image_block">
-                    <b>06 Modify your email here to recive emails from contact form: </b>
-                    <p> As example we have the contact form(contact.php), the code below::</p>
-                    <p> NOTE: 'email@example.com' enter your email account to receive the messages from contact form  </p>
-                    <img src="assets/images/contact-code.jpg" alt="contact-form"/>
-                    <br><br>
-                </div>
               <hr>
             </div>
             <div class="content_block">
               <h3 id="credits"><strong>Credits</strong></h3>
               </br>
               <ul>
-                <li>Fonts : <a href="https://fonts.google.com/specimen/Roboto" rel="nofollow">Google Webfonts - Roboto </a>, <a href="https://fonts.googleapis.com/css?family=Courgette" rel="nofollow">Google Webfonts - Courgette </a>, <a href="https://fonts.googleapis.com/css?family=Montserrat" rel="nofollow">Google Webfonts - Montserrat </a>, <a href="https://fonts.googleapis.com/css?family=Poppins" rel="nofollow">Google Webfonts - Poppins </a> </li>
-                <li>Icons : <a href="http://ionicons.com/" rel="nofollow">ionicons</a>, <a href="https://themify.me/themify-icons" rel="nofollow">Themify Icons</a>,  <a href="https://icomoon.io" rel="nofollow">IcoMoon Icons</a>, <a href="https://fontawesome.com/icons" rel="nofollow">fontawesome free Icons</a>  </li>
+                <li>Fonts :<a href="https://fonts.googleapis.com/css?family=Raleway" rel="nofollow">Google Webfonts - Raleway </a>, <a href="https://fonts.googleapis.com/css?family=Montserrat" rel="nofollow">Google Webfonts - Montserrat </a></li>
                 <li>Images : <a href="https://pixabay.com/" rel="nofollow"> pixabay </a>, <a href="http://freepik.com/" rel="nofollow"> freepik </a>, <a href="https://unsplash.com/" rel="nofollow"> unsplash </a> </li>
-                <li>JQuery (Javascript) : <a href="https://jquery.org" rel="nofollow">jQuery </a>, <a href="http://getbootstrap.com" rel="nofollow">Bootstrap  </a>, <a href="http://pixelcog.github.io/parallax.js" rel="nofollow">Parallax </a>, <a href="http://owlgraphic.com/owlcarousel" rel="nofollow"> Owl Carousel </a>, <a href="https://github.com/mattboldt/typed.js" rel="nofollow"> typed-js </a>, <a href="http://hilios.github.io/jQuery.countdown/" rel="nofollow"> countdown  </a>,<a href="https://github.com/bfintal/Counter-Up" rel="nofollow"> Counter up  </a>, <a href="http://jqueryui.com" rel="nofollow"> jqueryui  </a>, <a href="https://isotope.metafizzy.co" rel="nofollow">isotope</a>, <a href="http://www.elevateweb.co.uk/image-zoom" rel="nofollow">elevatezoom</a>, <a href="http://fitvidsjs.com/" rel="nofollow">fitvids</a>, <a href="https://cdnjs.com/libraries/magnific-popup.js/" rel="nofollow"> magnific-popup </a>, <a href="http://imakewebthings.com/waypoints/" rel="nofollow"> waypoints </a>, <a href="https://github.com/micku7zu/vanilla-tilt.js/" rel="nofollow"> vanilla-tilt </a>, <a href="https://github.com/marghoobsuleman/ms-Dropdown" rel="nofollow"> jquery.dd </a>, <a href="https://github.com/fengyuanchen/datepicker" rel="nofollow"> datepicker.min.js </a>, <a href="https://github.com/dmuy/MDTimePicker" rel="nofollow"> mdtimepicker.min.js </a>, <a href="https://github.com/chartjs/Chart.js" rel="nofollow"> Chart.js </a>, <a href="https://github.com/bigspotteddog/ScrollToFixed" rel="nofollow"> Scroll to fixed js </a></li>
+                <li>JQuery (Javascript) : <a href="https://jquery.org" rel="nofollow">jQuery </a>, <a href="http://getbootstrap.com" rel="nofollow">Bootstrap  </a>, <a href="https://github.com/alvarotrigo/pagePiling.js" rel="nofollow">Pagepiling </a>, <a href="https://swiperjs.com/" rel="nofollow"> Swiper Slider </a>, <a href="https://github.com/kenwheeler/slick" rel="nofollow"> Slick </a>, <a href="https://github.com/aarondo/tabulous.js" rel="nofollow"> Tabulous  </a>,<a href="https://github.com/fancyapps/fancybox" rel="nofollow"> Fancybox  </a></li>
               </ul>
               <hr>
               <h3 id="notes"><strong>Please Note:</strong></h3>
@@ -375,31 +345,7 @@
               </br>
                 <b>If​​ you ​​have ​​any​​ questions​​ or ​​need​​ customization, ​​please​​ contact​​ us​​ via ​​e-mail​​ or through​​ profile​​ page.</b><br>
                 <br>
-                <b>Themeforest</b> ​​- ​​<a target="_blank" href="http://themeforest.net/user/anil_z">http://themeforest.net/user/anil_z</a> <br>
-                <b>Email</b> ​​- ​​<a href="mailto:anil@bestwebcreator.com">anil@bestwebcreator.com</a><br>
-              <hr>
-            </div>
-            
-            <div class="content_block">
-              <h3 id="faq"><strong>FAQ</strong></h3>
-              </br>
-                </br>
-                <strong>How to remove the top menu sticky as scrolling?</strong><br><br>
-                <ul>
-                    <li>Open Up your HTML file <b><i>'Main/'</i></b> file location. (For Example, 'index.html'</li>
-                    <li>Then Search For the Comment <b><i>'&lt;!-- START HEADER --&gt;'</i></b></li>
-                    <li>show this line - &lt;header class="header_wrap fixed-top"&gt;</li>
-                    <li>add class name - &lt;header class="header_wrap fixed-top <strong>no-sticky</strong>"&gt; <b>(add class name 'no-sticky')</b></li>
-                </ul>
-                </br>
-                <strong> Where i can define my e-mail account to receive the messages from contact form? </strong><br><br>
-                <ul>
-                    <li>Open Up your HTML file <b><i>'Main'</i></b> file location. (For Example, 'Main/contact.php'</li>
-                    <li>show this line number 11 - $mailTo     = 'email@example.com'</li>
-                    <li>'email@example.com' enter your email account to receive the messages from contact form</li>
-                </ul>
-              <hr>
-              <strong>Thank you </strong>so much for choosing <strong>"Uniqo HTML Template"</strong> we hope you will enjoy using it!
+                <b>Email</b> ​​- ​​<a href="mailto:support@superuser.su">support@superuser.su</a><br>
               <hr>
             </div>
           </div>

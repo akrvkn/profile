@@ -1,6 +1,13 @@
+
+var config = {};
+var sendmailMethod = 'POST';
+var sendmailURL = 'mail.php';
+var successMessage = '';
+var sectionColors = ['#212121', '#ffffff', '#cd2e32', '#4baaf4', '#d24596', '#16a790', '#563b36'];
+
 /**
  * Video background
- *
+ * ONSsnNcxhg8
  */
 var yt_video = "1";
 
@@ -88,7 +95,7 @@ function onPlayerStateChange(e) {
     if (e.data === YT.PlayerState.ENDED) {
         var heroVideo = $(".hero-video");
         heroVideo.css("opacity","0.01");
-        heroVideo.stop().animate({opacity:1},{duration:6000});
+        heroVideo.stop().animate({opacity:1},{duration:3000});
         tv.playVideo();
     }
 }
@@ -154,7 +161,7 @@ function onPlayerStateChange(e) {
                         $('#video_cover').css({opacity:0});
                         if($('#video-container').css("opacity")==="0"){
                             $('#video-container').css("opacity","0.01");
-                            $('#video-container').stop().delay(600).animate({opacity:1},{duration:3000});
+                            $('#video-container').stop().delay(600).animate({opacity:1},{duration:6000});
                         }
                         checkPolifill();
                         if(isMobile())
@@ -361,6 +368,147 @@ function checkPolifill(){
 
 /****** End video background *****/
 
+/**
+ * Youtube video playlists
+ */
+
+function mainVid(id) {
+    $('.videoWrapper').html(`
+            <iframe width="1280" height="750" src="https://www.youtube.com/embed/videoseries?list=${id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        `);
+}
+
+function resultsLoop(data) {
+    var thumbs = $('#video-thumb').empty();
+    $.each(data, function (i, item) {
+        thumbs.append(`
+                    <div class="swiper-slide" data-key="${item.id}">
+                        <div class="carousel-inner">
+                            <div class="youtube-thumb-overlay"></div>
+                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <div class="content-block-detail">                                  
+                                <span>${item.title}</span>                                
+                            </div>                        
+                        </div>
+                    </div>
+                `);
+    });
+}
+
+function initYTGallery(){
+    new Swiper('#ytSlider', {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        // init: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            360: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        }
+    });
+}
+
+function loadVids(data) {
+    $('#video-thumb').empty();
+    var id = data[0].id;
+    mainVid(id);
+    resultsLoop(data);
+    initYTGallery();
+}
+
+/**
+ * Twitter
+ */
+function initTwitterAPI(){
+    //TWITTER
+    window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+    }(document, "script", "twitter-wjs"));
+
+    var twLoaded;
+
+    twttr.ready(
+        function (twttr) {
+            twttr.events.bind(
+                'loaded',
+                function (event) {
+                    twLoaded = 1;
+                    event.widgets.forEach(function (widget) {
+                        parseTwitterData(widget.id);
+                    });
+                });
+        });
+}
+
+function parseTwitterData(id){
+    var twitterBlog = $('#twitterBlog').empty();
+    var timeline = $('#' + id).contents().find('ol li.timeline-TweetList-tweet');
+    $.each(timeline, function (i, v) {
+        var text = $(v).find('.timeline-Tweet-text').text();
+        var avatar = $(v).find('.Avatar').attr('src');
+        var media = $(v).find('.NaturalImage-image').attr('src');
+        var time = $(v).find('time').text();
+        var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
+        var name = $(v).find('.TweetAuthor-screenName').text();
+        var title = $(v).find('.TweetAuthor-name').text();
+        twitterBlog.append(createTwitterTweet(text, media, avatar, time, link, name, title));
+        if(i === timeline.length - 1) {
+            twitterBlog.slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false
+            });
+            $('.next-review-btn').click(function () {
+                $('#twitterBlog').slick('slickNext');
+            });
+            $('.prev-review-btn').click(function () {
+                $('#twitterBlog').slick('slickPrev');
+            });
+        }
+    });
+}
+
+function createTwitterTweet(txt, pic, avatar, time, link, name, title){
+    var	img = pic === undefined ? '' : `<p><a style="cursor: pointer;" data-fancybox data-options='{"smallBtn":"true"}' href="${pic.split('&')[0] + '&name=small'}"><img src="${pic.split('&')[0] + '&name=small'}"  class="user-pic" alt="thumbnail" /></a></p>`;
+    return `<div class="tw-items item">
+            <div class="tw-body">
+               
+                <p class="user-comment">${txt}</p>
+                <p class="comment-date">${time}</p>
+                ${img}
+                <p class="comment-date"><a href="${link}">Open</a></p>
+            </div>
+            <div class="user-img"><img src="${avatar}" width="48" height="48" class="rounded-circle" alt="img"></div>
+            <h4 class="user-name">${name}</h4>
+            <p class="user-designation">- ${title} -</p>
+         </div>`;
+}
 
 /**
  * Instagram API
@@ -373,6 +521,8 @@ function initInstagramWidget(widget){
 }
 
 function initInstagramAPI(token) {
+    $('.portfolio-detail-wrapper').empty();
+    $('.portfolio-tabs-list').empty();
     var feed = new Instafeed({
         accessToken: token,
         limit: 8,
@@ -429,6 +579,18 @@ function createPhotoBig(k, photo) {
                 </div>`;
 }
 
+/**
+ * Main DOM functions
+ */
+
+function buildMenu(items){
+    //var menu = $('#nav-menu').empty();
+    items.forEach(function(item){
+        //menu.append(`<li data-menuanchor="${item.anchor}"><a class="nav-link nav_item" href="${item.anchor}">${item.title}</a></li>`);
+        $('[data-menuanchor="' + item.anchor + '"] a').html(item.title);
+    });
+}
+
 function fitImg(){
     $('.fit-img').each(function() {
         var $div = $(this),
@@ -436,6 +598,12 @@ function fitImg(){
             src = $img.attr('src');
         $div.css('backgroundImage', 'url(' + src + ')');
         $img.remove();
+    });
+}
+
+function setDataOpacity(){
+    $("*").css('opacity', function () {
+        return $(this).data('opacity');
     });
 }
 
@@ -462,23 +630,15 @@ function loadSectionFromURL(){
 }
 
 function setSVGBackground() {
-    var bgImage = ".section"
-    $(bgImage).css('background-image', function () {
-        var bg = '';
-        if(typeof  $(this).data("image-svg") !== "undefined" ) {
-            bg = ('url(data:image/svg+xml;base64,' + btoa($(this).data("image-svg")) + ')');
-        }
+    $("[data-image-svg]").css('background-image', function () {
+        var bg = ('url(data:image/svg+xml;base64,' + btoa($(this).data("image-svg")) + ')');
         return bg;
     });
 }
 
 function setDataBackground() {
-    var bgImage = "#fullpage .section"
-    $(bgImage).css('background-image', function () {
-        var bg = '';
-        if(typeof  $(this).data("image-src") !== "undefined" ) {
-            bg = ('url(' + $(this).data("image-src") + ')');
-        }
+    $("[data-image-src]").css('background-image', function () {
+        var bg = ('url(' + $(this).data("image-src") + ')');
         return bg;
     });
 }
@@ -489,147 +649,13 @@ function setDataBgColor() {
     });
 }
 
-function mainVid(id) {
-    $('.videoWrapper').html(`
-            <iframe width="1280" height="750" src="https://www.youtube.com/embed/videoseries?list=${id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        `);
-}
 
-function resultsLoop(data) {
-
-    $.each(data, function (i, item) {
-        $('#video-thumb').append(`
-                    <div class="swiper-slide" data-key="${item.id}">
-                        <div class="carousel-inner">
-                            <div class="youtube-thumb-overlay"></div>
-                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            <div class="content-block-detail">                                  
-                                <h3">${item.title}</h3>                                
-                            </div>                        
-                        </div>
-                    </div>
-                `);
-    });
-}
-
-function loadVids(data) {
-    var id = data[0].id;
-    mainVid(id);
-    resultsLoop(data);
-    var swiper = new Swiper('#ytSlider', {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        // init: false,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        breakpoints: {
-            360: {
-                slidesPerView: 1,
-                spaceBetween: 0,
-            },
-            480: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-            },
-            640: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
-        }
-    });
-}
-
-
-function parseTwitterData(id){
-    var twitterBlog = $('#twitterBlog');
-    var timeline = $('#' + id).contents().find('ol li.timeline-TweetList-tweet');
-    $.each(timeline, function (i, v) {
-        var text = $(v).find('.timeline-Tweet-text').text();
-        var avatar = $(v).find('.Avatar').attr('src');
-        var media = $(v).find('.NaturalImage-image').attr('src');
-        var time = $(v).find('time').text();
-        var link = $(v).find('a.timeline-Tweet-timestamp').attr('href');
-        var name = $(v).find('.TweetAuthor-screenName').text();
-        var title = $(v).find('.TweetAuthor-name').text();
-        twitterBlog.append(createTwitterTweet(text, media, avatar, time, link, name, title));
-        if(i === timeline.length - 1) {
-            twitterBlog.slick({
-                vertical: true,
-                verticalSwiping: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false
-            });
-            $('.next-review-btn').click(function () {
-                $('#twitterBlog').slick('slickNext');
-            });
-            $('.prev-review-btn').click(function () {
-                $('#twitterBlog').slick('slickPrev');
-            });
-        }
-    });
-}
-
-function createTwitterTweet(txt, pic, avatar, time, link, name, title){
-    var	img = pic === undefined ? '' : `<p><a style="cursor: pointer;" data-fancybox data-options='{"smallBtn":"true"}' href="${pic.split('&')[0] + '&name=small'}"><img src="${pic.split('&')[0] + '&name=small'}"  class="user-pic" alt="thumbnail" /></a></p>`;
-    return `<div class="tw-items item">
-            <div class="tw-body">
-               
-                <p class="user-comment">${txt}</p>
-                <p class="comment-date">${time}</p>
-                ${img}
-                <p class="comment-date"><a href="${link}">Open</a></p>
-            </div>
-            <div class="user-img"><img src="${avatar}" width="48" height="48" class="rounded-circle" alt="img"></div>
-            <h4 class="user-name">${name}</h4>
-            <p class="user-designation">- ${title} -</p>
-         </div>`;
-}
-
-$(document).ready(function() {
-    $.getJSON("/config.json", function (res) {
-        initConfig(res);
-    });
-
-    $('#video-thumb').on('click', '.swiper-slide', function () {
-        var id = $(this).attr('data-key');
-        $( ".video-main" ).animate({
-            opacity: 0
-        }, 500, function() {
-            // Animation complete.
-            mainVid(id);
-            $( ".video-main" ).animate({
-                opacity: 1
-            }, 500);
-        });
-
-    });
-    $('.morphing-menu a').on('click', function(){
-        $('.morphing-menu input').prop('checked', false);
-    });
-    $('#video-thumb').on('click', '.carousel-item', function () {
-        var id = $(this).attr('data-key');
-        mainVid(id);
-    });
-
-});
-
-function initPagePiling(res){
+function initPagePiling(){
     $('#pagepiling').pagepiling({
         menu: '.nav-menu',
         direction: 'vertical',
         verticalCentered: true,
-        sectionsColor: ['#474747', '#ffffff', 'red', 'rgba(29,161,242,1.00)', '#cd2e89', '#009b72', '#474747'],
+        sectionsColor: sectionColors,
         anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
         scrollingSpeed: 700,
         easing: 'swing',
@@ -641,7 +667,7 @@ function initPagePiling(res){
             'bulletsColor': '#ffffff',
             'position': 'right'
         },
-        normalScrollElements: '.swiper-container',
+        normalScrollElements: '.swiper-container, .tw-slider-container',
         normalScrollElementTouchThreshold: 5,
         touchSensitivity: 5,
         keyboardScrolling: true,
@@ -657,55 +683,46 @@ function initPagePiling(res){
     });
 }
 
-function initTwitterAPI(res){
-    //TWITTER
-    window.twttr = (function (d,s,id) {
-        var t, js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
-        js.src="https://platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
-        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
-    }(document, "script", "twitter-wjs"));
-
-    var twLoaded;
-
-    twttr.ready(
-        function (twttr) {
-            twttr.events.bind(
-                'loaded',
-                function (event) {
-                    twLoaded = 1;
-                    event.widgets.forEach(function (widget) {
-                        parseTwitterData(widget.id);
-                    });
-                });
-        });
-    $('body').append(`<div id="twitterTimeline" class="timeline">
-                <a class="twitter-timeline" data-tweet-limit="9"
-                   href="https://twitter.com/${res.twitter.account}">
-                    Tweets by @${res.twitter.account}
-                </a>
-            </div>`);
-}
-
-function initConfig(res){
-    //setDataBgColor();
+/*"accessToken",: "IGQVJVRWVjSE8wTWlXbUZA2RHY1a2xRZAVJHZAzBWTXQ3Ml92Uk9ZATWxlV2VQdmV5dUhGdUUxbjQ0djl1RTlmVkhFV21BMGpMa3otdGRkWGtTYW8wX0pJVlhoX0N3NjNXdHF5UlJ5SHlWOElLUk96RUJGTAZDZD"*/
+function initConfig(){
+    var res = config;
     setDataHeight();
-    initYoutubeBackground(res.youtubeBackgroundVideo, res.youtubeVideoStart, res.youtubeVideoEnd);
-    initPagePiling(res);
+    setDataBgColor();
+    setDataOpacity();
     setSVGBackground();
     setDataBackground();
-    $('#video-thumb').empty();
-    loadVids(res.youtube.playlists);
-    if(res.instagram.accessToken) {
-        initInstagramAPI(res.instagram.accessToken);
-    }else{
-        initInstagramWidget();
+    initYTGallery();
+    if(res.hasOwnProperty('menu')) {
+        initPagePiling();
+        sendmailMethod = res.contact.action;
+        sendmailURL = res.contact.url;
+        successMessage = res.contact.successMessage;
+        buildMenu(res.menu);
+        $(".bg-video").remove();
+        initYoutubeBackground(res.hero.youtubeBackgroundVideo, res.hero.youtubeVideoStart, res.hero.youtubeVideoEnd);
+        $('#video-thumb').empty();
+        loadVids(res.youtube.playlists);
+        if (res.instagram.accessToken) {
+            initInstagramAPI(res.instagram.accessToken);
+        } else {
+            /*$('#instagramTabs').tabulous({
+                effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
+            });*/
+            initInstagramWidget(res.instagram.widget);
+        }
+        if (res.twitter.account) {
+            $('.twitter-timeline').attr('href', 'https://twitter.com/' + res.twitter.account);
+        }
+        $('#image-block').empty().append(`<figure><img src="${res.about.image}" alt="image" /></figure>`);
+    } else {
+        initPagePiling();
+        $('#instagramTabs').tabulous({
+            effect: 'slideUp' //** This Template use effect slideUp only for the proper design.
+        });
     }
-    if (res.twitter) {
-        initTwitterAPI(res);
-    }
-    $('#personalPhoto').append(`<figure><img src="${res.about.photo}" alt="image" /></figure>`);
     fitImg();
+    initTwitterAPI();
+    $('.loader-wrapper').fadeOut(500);
 }
 
 
@@ -776,6 +793,165 @@ $(function() {
 
         // Kick off one resize to fix all videos on page load
     }).smartresize();
+
+});
+
+
+function sendMail(){
+    $('#reply_message').removeClass().html('');
+    var name = $("input#name");
+    if (name.val() === "" || name.val() === "Name" ) {
+        name.val('');
+        name.focus();
+        return false;
+    }
+
+    // validate Email
+    var email = $("input#email");
+    regEx=/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+    if (email.val() === "" || email.val() === "Email" || !regEx.test(email.val())) {
+        email.val('');
+        email.focus();
+        return false;
+    }
+
+    // validate Subject
+    var mysubject = $("input#mysubject");
+    if (mysubject.val() === "" || mysubject.val() === "Mysubject" ) {
+        mysubject.val('');
+        mysubject.focus();
+        return false;
+    }
+
+    // validate Message
+    var mymessage = $("textarea#mymessage");
+    /*if (mymessage.val() === "" || mymessage.val() === "Mymessage" || mymessage.length < 2) {
+        mymessage.val('');
+        mymessage.focus();
+        return false;
+    }*/
+
+    var phone = $("input#phone");
+
+    var dataString = 'name='+ name.val() + '&email=' + email.val() + '&mysubject='+ mysubject.val() + '&mymessage=' + mymessage.val() + '&phone' + phone.val();
+
+    $('.loading').fadeIn(500);
+    // Send form data to mailer.php
+    $.ajax({
+        type: sendmailMethod,
+        url: sendmailURL,
+        data: dataString,
+        success: function(data) {
+            console.log(data);
+            $('.loading').hide();
+            $('#reply_message').addClass('list3')
+                .html("<span>Mail sent successfully</span>")
+                .hide()
+                .fadeIn(1500);
+            $('#form_contact')[0].reset();
+        }
+    });
+    return false;
+}
+
+
+jQuery(document).ready(function() {
+    "use strict";
+    // ===== Pre Loader ===== //
+
+    // ===== Hide Elements On Small Devices ===== //
+    if (navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/) ||
+        navigator.userAgent.match(/Windows Phone/i) ||
+        navigator.userAgent.match(/ZuneWP7/i)
+    ) {
+        $('.bg-video video').hide();
+        $('.h-video').hide();
+        $('.section').css('min-height', '0px');
+        //$(".section").css('background-image', 'none');
+    }
+
+    $.getJSON( "/config.json")
+        .done(function( res ) {
+            config = res;
+            $('.logo-title').html(res.hero.title);
+            $('.logo-subtitle').html(res.hero.subtitle);
+
+            $(".video-caption h1").html(res.hero.title);
+            $(".video-caption div").html(res.hero.subtitle);
+            $(".copyright a").html(res.hero.title);
+            $("head title").html(res.hero.title);
+
+            $('.panel-about .block-title h2').html(res.about.title);
+            $('.panel-contact .block-title h2').html(res.contact.title);
+            $('.panel-youtube .block-title h2').html(res.youtube.title);
+            $('.panel-twitter .block-title h2').html(res.twitter.title);
+            $('.panel-twitter .author strong').html('@' + res.twitter.account);
+            $('.panel-twitter .tw-description').html(res.twitter.description);
+            $('.panel-instagram .block-title h2').html(res.instagram.title);
+            $('.panel-instagram .instagram-account a').attr('href', 'https://instagram.com/' + res.instagram.account).html('@' + res.instagram.account);
+            $('.footer-description').html(res.footer.title);
+            $('.footer-subdescription').html(res.footer.subtitle);
+
+            sendmailMethod = res.contact.action;
+            sendmailURL = res.contact.url;
+            successMessage = res.contact.successMessage;
+            sectionColors = res.sectionColors;
+
+            $('label[for="name"]').html(res.contact.formFields.name);
+            $('label[for="email"]').html(res.contact.formFields.email);
+            $('label[for="mysubject"]').html(res.contact.formFields.mysubject);
+            $('label[for="mymessage"]').html(res.contact.formFields.mymessage);
+            $('#submit_message').val(res.contact.formFields.submit);
+            initConfig();
+            if (navigator.userAgent.match(/Android/i) ||
+                navigator.userAgent.match(/webOS/i) ||
+                navigator.userAgent.match(/iPhone/i) ||
+                navigator.userAgent.match(/iPad/i) ||
+                navigator.userAgent.match(/iPod/i) ||
+                navigator.userAgent.match(/BlackBerry/) ||
+                navigator.userAgent.match(/Windows Phone/i) ||
+                navigator.userAgent.match(/ZuneWP7/i)
+            ) {
+                //$(".section").css('background-image', 'none');
+                $(".panel-hero").css('background-image', 'url(' + config.hero.image + ')');
+            }
+        })
+        .fail(function() {
+            initConfig();
+        });
+
+    var videoThmb = $('#video-thumb');
+
+    videoThmb.on('click', '.swiper-slide', function () {
+        var id = $(this).attr('data-key');
+        $( ".video-main" ).animate({
+            opacity: 0
+        }, 500, function() {
+            // Animation complete.
+            mainVid(id);
+            $( ".video-main" ).animate({
+                opacity: 1
+            }, 500);
+        });
+
+    });
+    $('.morphing-menu a').on('click', function(){
+        $('.morphing-menu input').prop('checked', false);
+    });
+    videoThmb.on('click', '.carousel-item', function () {
+        var id = $(this).attr('data-key');
+        mainVid(id);
+    });
+
+    $("#submit_message").on("click", function(e) {
+        e.preventDefault();
+        sendMail();
+    });
 
 });
 

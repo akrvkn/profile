@@ -3,10 +3,17 @@
 <html>
 {% include pagepiling/head.html %}
 <body>
+{% include pagepiling/loader.html %}
 {% include pagepiling/menu.html %}
 <div id="pagepiling">
     {{ content }}
     {% include pagepiling/scripts.html %}
+</div>
+<div id="twitterTimeline" class="timeline">
+    <a class="twitter-timeline" data-tweet-limit="9"
+       href="https://twitter.com/css">
+        Tweets by @css
+    </a>
 </div>
 </body>
 </html>
