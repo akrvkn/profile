@@ -31,7 +31,6 @@ var tag,
         iv_load_policy: 3,
         origin: window.location.origin
     };
-console.log(window.location.origin);
 
 var videoStartTime = 1,
     videoEndTime = 999999;
@@ -712,6 +711,24 @@ function initConfig(){
         }
         if (res.twitter.account) {
             $('.twitter-timeline').attr('href', 'https://twitter.com/' + res.twitter.account);
+            $('.panel-twitter .block-title h2').html(res.twitter.title);
+            $('.panel-twitter .author strong').html('@' + res.twitter.account);
+            $('.panel-twitter .tw-description').html(res.twitter.description);
+            initTwitterAPI();
+        }else {
+            $('#twitterBlog').slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false
+            });
+            $('.next-review-btn').click(function () {
+                $('#twitterBlog').slick('slickNext');
+            });
+            $('.prev-review-btn').click(function () {
+                $('#twitterBlog').slick('slickPrev');
+            });
         }
         $('#image-block').empty().append(`<figure><img src="${res.about.image}" alt="image" /></figure>`);
     } else {
@@ -721,7 +738,6 @@ function initConfig(){
         });
     }
     fitImg();
-    initTwitterAPI();
     $('.loader-wrapper').fadeOut(500);
 }
 
@@ -889,9 +905,7 @@ jQuery(document).ready(function() {
             $('.panel-about .block-title h2').html(res.about.title);
             $('.panel-contact .block-title h2').html(res.contact.title);
             $('.panel-youtube .block-title h2').html(res.youtube.title);
-            $('.panel-twitter .block-title h2').html(res.twitter.title);
-            $('.panel-twitter .author strong').html('@' + res.twitter.account);
-            $('.panel-twitter .tw-description').html(res.twitter.description);
+
             $('.panel-instagram .block-title h2').html(res.instagram.title);
             $('.panel-instagram .instagram-account a').attr('href', 'https://instagram.com/' + res.instagram.account).html('@' + res.instagram.account);
             $('.footer-description').html(res.footer.title);
