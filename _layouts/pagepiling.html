@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <html>
-{% include pagepiling/head.html %}
+{% include sections/head.html %}
 <body>
-{% include pagepiling/loader.html %}
-{% include pagepiling/menu.html %}
+{% include sections/loader.html %}
+{% include sections/menu.html %}
 <div id="pagepiling">
     {{ content }}
-    {% include pagepiling/scripts.html %}
+    {% include sections/scripts.html %}
 </div>
 <div id="twitterTimeline" class="timeline">
     <a class="twitter-timeline" data-tweet-limit="9"

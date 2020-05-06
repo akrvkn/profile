@@ -29,9 +29,9 @@ var tag,
         disablekb: 1,
         enablejsapi: 0,
         iv_load_policy: 3,
-        origin: window.location.href
+        origin: window.location.origin
     };
-//console.log(window.location.href);
+console.log(window.location.origin);
 
 var videoStartTime = 1,
     videoEndTime = 999999;

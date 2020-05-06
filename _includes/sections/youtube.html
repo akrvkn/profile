@@ -1,28 +1,66 @@
-<!--Panel-3 Services Panel Style 3 Start-->
-<div class="section panel-3 panel-youtube dark pp-scrollable" data-bg-color="#212121">
-   <div class="group-wrapper">
-      <div class="container">
-         <div class="row">
-               <!--Block Title-->
-               <div class="block-title">
-                  <h1>Youtube</h1>
-               </div>
-         </div>
-               <!--End-->
-         <div class="playerArea">
-            <div id="video-main" class="video-main">
-               <iframe width="100%" height="100%"  src=""></iframe>
+<!--Section-3 Youtube Start-->
+<section class="section panel-youtube svg" id="section3" data-image-svg="<svg xmlns='http://www.w3.org/2000/svg' width='460' height='380' viewBox='0 0 576 512'><path fill='rgba(255,255,255,0.3)' d='M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z'></path></svg>">
+    <div class="container">
+        <div class="row">
+            <!--Block Title-->
+            <div class="block-title">
+                <div class="line-before"></div>
+                <h2>Youtube</h2>
+                <div class="line-after"></div>
             </div>
-         </div>
-         <div id="video-thumb" class="owl-carousel box-carousel-wrapper"></div>
-      </div>
-   </div>
+            <!--End-->
+            <!--Video Player-->
+            <div class="video-main">
+                <div class="videoWrapper">
+                    <iframe width="1280" height="750" src="https://www.youtube.com/embed/videoseries?list=PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc"></iframe>
+                </div>
+            </div>
+            <!-- End -->
+            <!-- Video thumbnails -->
+            <div id="ytSlider" class="swiper-container">
+                <div id="video-thumb" class="swiper-wrapper">
+                    <div class="swiper-slide" data-key="PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc">
+                        <div class="carousel-inner">
+                            <div class="youtube-thumb-overlay"></div>
+                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc"></iframe>
+                            <div class="content-block-detail">
+                                <span>5 Most Recent CSS-Tricks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-key="PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu">
+                        <div class="carousel-inner">
+                            <div class="youtube-thumb-overlay"></div>
+                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu"></iframe>
+                            <div class="content-block-detail">
+                                <span>WordPress Related Screencasts</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-key="PL3C27A57493214D30">
+                        <div class="carousel-inner">
+                            <div class="youtube-thumb-overlay"></div>
+                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=PL3C27A57493214D30"></iframe>
+                            <div class="content-block-detail">
+                                <span>Building a Website</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide" data-key="PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS">
+                        <div class="carousel-inner">
+                            <div class="youtube-thumb-overlay"></div>
+                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS"></iframe>
+                            <div class="content-block-detail">
+                                <span>CSS-Tricks Eye Tracking Study</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-   <!--More Item Link-->
-   <div class="more-item-link">
-      <a href="">Все видео</a>
-   </div>
-   <!--End-->
-
-</div>
-<!--Panel-3 Services Panel Style 3 End-->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- End-->
+        </div>
+    </div>
+</section>
+<!--Section-3 Youtube End-->
