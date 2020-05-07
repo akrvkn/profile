@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+{% include loader.html %}
+<!-- Wrapper Starts -->
+<div class="wrapper">
+    <div class="main-picture hide-on-med-and-down">
+    </div>
+    <div id="bl-main" class="bl-main">
+        {% include main/section-top-left.html %}
+        {% include main/section-about.html %}
+        {% include main/section-portfolio.html %}
+        {% include main/section-contact.html %}
+        {% include main/panel-portfolio.html %}
+    </div>
+</div>
+<!-- Wrapper Ends -->
+
+{% include scripts.html %}
+
+</body>
+
+</html>

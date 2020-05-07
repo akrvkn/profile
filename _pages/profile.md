@@ -1,7 +1,7 @@
 ---
 title: Profile default
 layout: default
-permalink: /
+permalink: test.html
 ---
 
 # w3dom.com
