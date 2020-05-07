@@ -3,6 +3,10 @@
     "use strict";
 	
     $(document).ready(function() {
+        $('#paynow1').on('click', function(e){
+            e.preventDefault();
+            $('#pay1').css('display', 'block');
+        });
 		
 		// PRELOADER
         $("body").toggleClass("loaded");
