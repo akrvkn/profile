@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include head.html %}
+
+<body class="blog">
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.12/default/snipcart.css" />
+{% include loader.html %}
+<!-- Wrapper Starts -->
+<div class="wrapper">
+    <div class="container page-title center-align">
+        <h2 class="center-align">
+            <span>w3 </span>
+            <span>dom</span>
+        </h2>
+    </div>
+    <!-- Divider Starts -->
+    <div class="divider center-align">
+        <span class="outer-line"></span>
+        <span class="fa fa-vcard" aria-hidden="true"></span>
+        <span class="outer-line"></span>
+    </div>
+    <!-- Divider Ends -->
+    <div class="container">
+        <div class="row">
+            <div class="content col s12 m12 l12 xl12">
+                <!-- Article Starts -->
+                <article>
+                    <a href="{{ page.url }}"><h4>{{ page.title }}</h4></a>
+                    {{ content }}
+                </article>
+                <!-- Article Ends -->
+            </div>
+            <!-- sidebar here -->
+        </div>
+    </div>
+</div>
+<!-- Wrapper Ends -->
+<div id="snipcart" data-api-key="M2JhMzM4NjEtNDM3Zi00ZDMzLWE1NmEtOTAyMDVkNzRkYmVjNjM3MjQ1MDUwNTU2NjAyMzYx" hidden></div>
+{% include scripts.html %}
+<script src="https://cdn.snipcart.com/themes/v3.0.12/default/snipcart.js"></script>
+</body>
+
+</html>

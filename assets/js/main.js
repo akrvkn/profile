@@ -716,19 +716,7 @@ function initConfig(){
             $('.panel-twitter .tw-description').html(res.twitter.description);
             initTwitterAPI();
         }else {
-            $('#twitterBlog').slick({
-                vertical: true,
-                verticalSwiping: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false
-            });
-            $('.next-review-btn').click(function () {
-                $('#twitterBlog').slick('slickNext');
-            });
-            $('.prev-review-btn').click(function () {
-                $('#twitterBlog').slick('slickPrev');
-            });
+
         }
         $('#image-block').empty().append(`<figure><img src="${res.about.image}" alt="image" /></figure>`);
     } else {
@@ -936,6 +924,19 @@ jQuery(document).ready(function() {
             }
         })
         .fail(function() {
+            $('#twitterBlog').slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false
+            });
+            $('.next-review-btn').click(function () {
+                $('#twitterBlog').slick('slickNext');
+            });
+            $('.prev-review-btn').click(function () {
+                $('#twitterBlog').slick('slickPrev');
+            });
             initConfig();
         });
 

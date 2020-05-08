@@ -1288,7 +1288,7 @@ div.bl-panel-items a.btn {
 }
 
 .carousel .indicators {
-  background: rgba(255, 255, 255, .4);
+  background: rgba(0, 0,0, .3);
 }
 
 .carousel .indicators .indicator-item {
@@ -2278,11 +2278,4 @@ body.blog .pagination li a i {
     padding: 15px;
   }
   
-}
-
-.ubiquitous {
-  position: absolute;
-  left: -99999px;
-  width: 1px;
-  height: 1px;
 }
