@@ -1,4 +1,5 @@
-title: "Profile"
+title: "w3dom"
+description: "HTML Web Apps"
 sass:
   sass_dir: _sass
 include:

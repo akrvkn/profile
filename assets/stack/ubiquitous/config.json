@@ -1,0 +1,64 @@
+{
+  "menu": [
+    {"id": 1, "title": "Home", "anchor": "#section1"},
+    {"id": 2, "title": "About", "anchor": "#section2"},
+    {"id": 3, "title": "Youtube", "anchor": "#section3"},
+    {"id": 4, "title": "Twitter", "anchor": "#section4"},
+    {"id": 5, "title": "Instagram", "anchor": "#section5"},
+    {"id": 6, "title": "Contact", "anchor": "#section6"}
+  ],
+  "sectionColors": ["#212121", "#ffffff", "#cd2e32", "#4baaf4", "#d24596", "#16a790", "#563b36"],
+  "hero": {
+    "title": "Lorem Ipsum",
+    "subtitle": "dolor sit amet",
+    "image": "assets/images/hero-bg-image.jpg",
+    "youtubeBackgroundVideo": "vqqt5p0q-eU",
+    "youtubeVideoStart": "3",
+    "youtubeVideoEnd": "103"
+  },
+  "about": {
+    "title": "About",
+    "text": "about.html",
+    "image": "/assets/images/about-1080x721.jpg"
+  },
+  "youtube": {
+    "title": "My Channel",
+    "account": "realcsstricks",
+    "playlists": [
+    {"id": "PL-8NdmnLVCURBHIxsG-I6JY02Pb3LNpcc", "title": "5 Most Recent CSS-Tricks"},
+    {"id": "PL-8NdmnLVCUTxJwcZFur2hfElKDJ89ffu", "title": "WordPress Related Screencasts"},
+    {"id": "PL3C27A57493214D30", "title": "Building a Website"},
+    {"id": "PL-8NdmnLVCUTYKytT_O8Sn3j3XZkuQkpS", "title": "CSS-Tricks Eye Tracking Study"}
+  ]
+  },
+  "twitter": {
+    "title": "Twitter",
+    "account": "css",
+    "description": "Duis porta, dui vel dictum laoreet, tortor lectus iaculis dui, quis volutpat eros velit sed diam. Duis interdum eu sem sed rhoncus. Maecenas fringilla quam sit amet consectetur justo pulvinar."
+  },
+  "instagram": {
+    "title": "Instagram",
+    "account": "product.daily",
+    "count": 9,
+    "accessToken": "IGQVJVRWVjSE8wTWlXbUZA2RHY1a2xRZAVJHZAzBWTXQ3Ml92Uk9ZATWxlV2VQdmV5dUhGdUUxbjQ0djl1RTlmVkhFV21BMGpMa3otdGRkWGtTYW8wX0pJVlhoX0N3NjNXdHF5UlJ5SHlWOElLUk96RUJGTAZDZD",
+    "widget": "widget-instagram.html"
+    },
+  "contact": {
+    "title": "Contact",
+    "action": "post",
+    "successMessage": "Your message sent",
+    "errorMessage": "Error",
+    "url": "https://script.google.com/macros/s/AKfycby6pRK-eTOwkLMwDIznUUD_sraLZCAbNkxl5Bx7euFPrJiZg1MV/exec",
+    "formFields": {
+      "name": "Name",
+      "email": "E-mail",
+      "mysubject": "Subject",
+      "mymessage": "Message",
+      "submit": "Send"
+    }
+  },
+  "footer": {
+    "title": "Pri quas audiam virtute ut",
+    "subtitle": "consectetur adipiscing elit sed do eiusmod"
+  }
+}

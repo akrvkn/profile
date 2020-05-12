@@ -1,9 +1,14 @@
 ---
-layout: product
 title: Ubiquitous - Social Network Aggregator
-permalink: templates/ubiquitous
+layout: ubiquitous
+permalink: ubiquitous
 ---
 
 
-{% include main/products/ubiquitous.html %}
-                   
+{% include ubiquitous/hero-video.html %}
+{% include ubiquitous/about.html %}
+{% include ubiquitous/youtube.html %}
+{% include ubiquitous/twitter.html %}
+{% include ubiquitous/instagram.html %}
+{% include ubiquitous/contact.html %}
+{% include ubiquitous/footer.html %}

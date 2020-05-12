@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<html>
+{% include demo/ubiquitous/head.html %}
+<body>
+{% include demo/ubiquitous/loader.html %}
+{% include demo/ubiquitous/menu.html %}
+<div id="pagepiling">
+    {{ content }}
+    {% include demo/ubiquitous/scripts.html %}
+</div>
+<div id="twitterTimeline" class="timeline">
+    <a class="twitter-timeline" data-tweet-limit="9"
+       href="https://twitter.com/css">
+        Tweets by @css
+    </a>
+</div>
+</body>
+</html>
