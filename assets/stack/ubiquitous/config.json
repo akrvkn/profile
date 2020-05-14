@@ -11,7 +11,7 @@
   "hero": {
     "title": "Lorem Ipsum",
     "subtitle": "dolor sit amet",
-    "image": "assets/images/hero-bg-image.jpg",
+    "image": "/assets/images/hero-bg-image.jpg",
     "youtubeBackgroundVideo": "vqqt5p0q-eU",
     "youtubeVideoStart": "3",
     "youtubeVideoEnd": "103"

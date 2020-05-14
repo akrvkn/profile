@@ -384,7 +384,7 @@ function resultsLoop(data) {
                     <div class="swiper-slide" data-key="${item.id}">
                         <div class="carousel-inner">
                             <div class="youtube-thumb-overlay"></div>
-                            <iframe width="100%" height="150"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <iframe width="100%" height="100%"  src="https://www.youtube.com/embed/videoseries?list=${item.id}" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             <div class="content-block-detail">                                  
                                 <span>${item.title}</span>                                
                             </div>                        
@@ -397,7 +397,7 @@ function resultsLoop(data) {
 function initYTGallery(){
     new Swiper('#ytSlider', {
         slidesPerView: 1,
-        spaceBetween: 10,
+        spaceBetween: 0,
         // init: false,
         pagination: {
             el: '.swiper-pagination',
@@ -406,11 +406,11 @@ function initYTGallery(){
         breakpoints: {
             360: {
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 0,
             },
             480: {
-                slidesPerView: 2,
-                spaceBetween: 20,
+                slidesPerView: 1,
+                spaceBetween: 0,
             },
             640: {
                 slidesPerView: 2,

@@ -426,7 +426,11 @@ function initTTGallery(){
     new Swiper('#ttSlider', {
         slidesPerView: 1,
         spaceBetween: 0,
-        // init: false,
+        loop: true,
+        navigation: {
+            nextEl: '.sw-next-btn',
+            prevEl: '.sw-prev-btn',
+        },
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
@@ -442,15 +446,15 @@ function initTTGallery(){
             },
             640: {
                 slidesPerView: 2,
-                spaceBetween: 10,
+                spaceBetween: 5,
             },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 10,
+                spaceBetween: 5,
             },
             1024: {
                 slidesPerView: 3,
-                spaceBetween: 20,
+                spaceBetween: 5,
             },
         }
     });
@@ -661,7 +665,7 @@ function initPagePiling(){
             'bulletsColor': '#ffffff',
             'position': 'right'
         },
-        normalScrollElements: '.swiper-container, .tw-slider-container, .megafolio-container',
+        normalScrollElements: '#ttSlider, .swiper-container, .tw-slider-container, .megafolio-container',
         normalScrollElementTouchThreshold: 5,
         touchSensitivity: 5,
         keyboardScrolling: true,
@@ -975,7 +979,7 @@ function Showcase() {
 
         var swiperOptions = {
             direction: "horizontal",
-            loop: false,
+            loop: true,
             grabCursor: true,
             resistance : true,
             resistanceRatio : 0,
@@ -1125,14 +1129,14 @@ function Showcase() {
             activeClass: 'is-active'
         });
 
-        /*$('.title').each(function(){
+        $('.title').each(function(){
             var words = $(this).text().slice(" ");
             var total = words.length;
             $(this).empty();
             for (index = 0; index < total; index ++){
                 $(this).append($("<span /> ").text(words[index]));
             }
-        });*/
+        });
 
         // Tilt Showcase Wrapper
         var maxTilt = 1.5;
