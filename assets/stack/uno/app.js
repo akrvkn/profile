@@ -647,14 +647,23 @@ function setDataBgColor() {
     });
 }
 
+function initFullPage() {
+    $('#fullpage').fullpage({
+        menu: '.nav-menu',
+        direction: 'vertical',
+        verticalCentered: true,
+        sectionsColor: sectionColors,
+        anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
+    });
+}
 
-function initPagePiling(){
+function initPagePiling() {
     $('#pagepiling').pagepiling({
         menu: '.nav-menu',
         direction: 'vertical',
         verticalCentered: true,
         sectionsColor: sectionColors,
-        anchors: ['section1', 'section2', 'section3', 'section4', 'section5', 'section6', 'section7'],
+        anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
         scrollingSpeed: 700,
         easing: 'swing',
         loopBottom: false,
@@ -715,6 +724,7 @@ function initConfig(){
     }
 
     initPagePiling();
+    //initFullPage();
     initYoutubeBackground(yt_video, videoStartTime, videoEndTime);
     fitImg();
     //$('.loader-wrapper').fadeOut(500);
